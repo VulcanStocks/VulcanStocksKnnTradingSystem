@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\App.xaml
-1-305638381
+2-2022076828
 
-8-1597370213
+10-1207926277
 1292089503484
-Views\ShellView.xaml;
+Views\HomePageView.xaml;Views\ShellView.xaml;
 
-False
+True
 

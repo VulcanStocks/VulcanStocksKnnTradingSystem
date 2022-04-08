@@ -1,0 +1,311 @@
+﻿<UserControl x:Class="VulcanStocksKNNResearchMVVM.Views.HomePageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VulcanStocksKNNResearchMVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="720">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border  
+                BorderThickness="1"
+                Height="170"
+                Width="200"
+                Grid.Row="0"
+                Grid.Column="0"
+                CornerRadius="15,15,15,15" 
+                Margin="0,10,0,0"
+                Background="#272434">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Image HorizontalAlignment="Right" Grid.Column="0" Height="30" Width="30">
+                        <Image.Source>
+                            <ImageSource>/Views/icons8-instagram-50.png</ImageSource>
+                        </Image.Source>
+                    </Image>
+
+
+
+                    
+                </Grid>
+            </Border>
+
+            <Border  
+                BorderThickness="1"
+                Height="170"
+                Width="200"
+                Grid.Column="1"
+                Grid.Row="0"
+                CornerRadius="15,15,15,15" 
+                Margin="0,10,0,0"                
+                Background="#272434">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+
+                    </Grid.RowDefinitions>
+
+                    <Label 
+                        Foreground="#d6d9f4"
+                        HorizontalAlignment="Center" 
+                        Content="How to use"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"/>
+                    <Label Grid.Row="1" Foreground="#d6d9f4" FontWeight="Bold">1. Press settings</Label>
+                    <Label Grid.Row="2" Foreground="#d6d9f4" FontWeight="Bold">2. Select API or CSV</Label>
+                    <Label Grid.Row="3" Foreground="#d6d9f4" FontWeight="Bold">3. Import data to program</Label>
+                    <Label Grid.Row="4" Foreground="#d6d9f4" FontWeight="Bold">4. Train algo with data</Label>
+                    <Label Grid.Row="5" Foreground="#d6d9f4" FontWeight="Bold">5. Select way of testing</Label>
+
+                </Grid>
+            </Border>
+
+            <Border  
+                BorderThickness="1"
+                Height="170"
+                Width="200"
+                Grid.Column="2"
+                Grid.Row="0"
+                CornerRadius="15,15,15,15" 
+                Margin="0,10,0,0"                                
+                Background="#272434">
+
+                <Grid>
+                    <StackPanel VerticalAlignment="Center">
+                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">*Not for real world use</Label>
+                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">*All trading involves risk</Label>
+                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">*Do not take anything</Label>
+                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">here as financial advice</Label>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="240"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border  
+                BorderThickness="1"
+                Height="170"
+                Width="440"
+                Grid.Row="0"
+                Grid.Column="0"
+                CornerRadius="15,15,15,15" 
+                Margin="0,0,0,10"                
+                Background="#272434"
+                >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Label 
+                        Foreground="#d6d9f4"
+                        HorizontalAlignment="Center" 
+                        Content="Setup"
+                        VerticalAlignment="Top"
+                        FontSize="16"
+                        FontWeight="Bold"/>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <Label 
+                                FontWeight="Bold"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Content="Import data"/>
+
+                            <TextBox
+                                Width="120"
+                                Background="#272434"
+                                BorderBrush="#d6d9f4"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                BorderThickness="3"
+                                Name="TBimportTicker"/>
+
+
+
+
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <Label 
+                                 FontWeight="Bold"
+                                 Foreground="#d6d9f4"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Top"
+                                 Content="Import data"/>
+
+                        </StackPanel>
+
+
+
+
+                    </Grid>
+
+                </Grid>
+
+
+            </Border>
+
+            <Border  
+                BorderThickness="1"
+                Height="170"
+                Width="200"
+                Grid.Column="1"
+                Grid.Row="0"
+                CornerRadius="15,15,15,15" 
+                Margin="0,0,0,10"
+                Background="#272434">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Row="0" Grid.Column="0" Height="23" Width="23">
+                        <Image.Source>
+                            <ImageSource>/Views/Rund logga.png</ImageSource>
+                        </Image.Source>
+                    </Image>
+
+                    <Image Grid.Row="1" Grid.Column="0" Height="23" Width="23">
+                        <Image.Source>
+                            <ImageSource>/Views/icons8-stock-64.png</ImageSource>
+                        </Image.Source>
+                    </Image>
+
+                    <Image Grid.Row="2" Grid.Column="0" Height="23" Width="23">
+                        <Image.Source>
+                            <ImageSource>/Views/icons8-typewriter-64.png</ImageSource>
+                        </Image.Source>
+                    </Image>
+
+                    <Image Grid.Row="3" Grid.Column="0" Height="23" Width="23">
+                        <Image.Source>
+                            <ImageSource>/Views/icons8-goal-100.png</ImageSource>
+                        </Image.Source>
+                    </Image>
+
+                    <Image 
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Height="23" 
+                        Width="23">
+
+                        <Image.Source>
+                            <ImageSource>/Views/Settings-icon-symbol.png</ImageSource>
+                        </Image.Source>
+                    </Image>
+
+                    <Label 
+                        FontWeight="Bold"
+                        Foreground="#d6d9f4"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Column="1"
+                        Grid.Row="0">
+                        Homepage
+                    </Label>
+
+                    <Label 
+                        FontWeight="Bold"
+                        Foreground="#d6d9f4"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Column="1"
+                        Grid.Row="1">
+                        Demotrading
+                    </Label>
+
+                    <Label 
+                        FontWeight="Bold"
+                        Foreground="#d6d9f4"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Column="2"
+                        Grid.Row="2">
+                        Manual entry
+                    </Label>
+
+                    <Label 
+                        FontWeight="Bold"
+                        Foreground="#d6d9f4"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Row="3"
+                        Grid.Column="2">
+                        Find best entry
+                    </Label>
+
+                    <Label 
+                        FontWeight="Bold"
+                        Foreground="#d6d9f4"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Row="4"
+                        Grid.Column="2">
+                        Settings
+                    </Label>
+
+
+                </Grid>
+            </Border>
+
+
+        </Grid>
+
+
+
+
+    </Grid>
+</UserControl>

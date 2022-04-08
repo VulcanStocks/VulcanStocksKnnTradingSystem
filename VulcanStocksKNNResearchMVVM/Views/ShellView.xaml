@@ -10,6 +10,9 @@
         Background="#161622"
         ResizeMode="NoResize"        
         Title="ShellView" Height="450" Width="800">
+    
+    <!-- Animations -->
+
     <Window.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Image}"/>
         <Storyboard x:Key="ScaleUpImageStoryboard_C">
@@ -69,10 +72,8 @@
 
     </Window.Resources>
 
-    <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" />
-    </WindowChrome.WindowChrome>
-
+    <!-- Main grid -->
+    
     <Grid HorizontalAlignment="Right" Width="800">
 
         <Grid.ColumnDefinitions>
@@ -192,8 +193,7 @@
                 </Button.Style>
             </Button>
 
-
-            <Button x:Name="TBE_Click" Grid.Row="3">
+            <Button x:Name="FBE_Click" Grid.Row="3">
                 <Button.Content>
 
                     <Image Name="BTTestBE" Width="40" Height="40">
@@ -311,15 +311,16 @@
                     FontWeight="Bold"
                     Foreground="#d6d9f4"
                     VerticalAlignment="Top"
-                    HorizontalAlignment="Center" Margin="0,25,0,-25"
-                    Content="{Binding Path=NotchDisplay}"/>
+                    FontSize="13"
+                    HorizontalAlignment="Center" Margin="0,20,0,-20"
+                    x:Name="Notch"/>
 
         </Border>
 
         <!-- Mainframe -->
 
-        <ContentControl Grid.Column="1"></ContentControl>
 
+        
 
 
     </Grid>
