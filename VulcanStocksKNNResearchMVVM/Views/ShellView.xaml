@@ -6,8 +6,321 @@
         xmlns:local="clr-namespace:VulcanStocksKNNResearchMVVM.Views"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="ShellView" Height="450" Width="720">
-    <Grid>
-        
+        WindowStyle="None"
+        Background="#161622"
+        ResizeMode="NoResize"        
+        Title="ShellView" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Image}"/>
+        <Storyboard x:Key="ScaleUpImageStoryboard_C">
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTclose" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTclose" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+        <Storyboard x:Key="ScaleDownImageStoryboard_C">
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTclose" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTclose" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+
+        <Storyboard x:Key="ScaleUpImageStoryboard_S">
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTsettings" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTsettings" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+        <Storyboard x:Key="ScaleDownImageStoryboard_S">
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTsettings" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTsettings" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+
+        <Storyboard x:Key="ScaleUpImageStoryboard_BE">
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTTestBE" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTTestBE" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+        <Storyboard x:Key="ScaleDownImageStoryboard_BE">
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTTestBE" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTTestBE" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+
+        <Storyboard x:Key="ScaleUpImageStoryboard_MA">
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTManual" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTManual" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+        <Storyboard x:Key="ScaleDownImageStoryboard_MA">
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTManual" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTManual" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+
+        <Storyboard x:Key="ScaleUpImageStoryboard_DE">
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTDemo" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTDemo" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+        <Storyboard x:Key="ScaleDownImageStoryboard_DE">
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTDemo" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTDemo" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+
+        <Storyboard x:Key="ScaleUpImageStoryboard_LO">
+            <DoubleAnimation Duration="0:0:0.2" From="55" To="65" Storyboard.TargetName="BTLogo" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="55" To="65" Storyboard.TargetName="BTLogo" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+        <Storyboard x:Key="ScaleDownImageStoryboard_LO">
+            <DoubleAnimation Duration="0:0:0.2" From="65" To="55" Storyboard.TargetName="BTLogo" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="65" To="55" Storyboard.TargetName="BTLogo" Storyboard.TargetProperty="Width"/>
+        </Storyboard>
+
+
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+
+    <Grid HorizontalAlignment="Right" Width="800">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#272434" Grid.Column="0" Grid.RowSpan="2">
+            
+            <!-- Side-panel -->
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <!-- Side-buttons -->
+            <Button x:Name="Logo_Click" Grid.Row="0">
+                <Button.Content>
+
+                    <Image Name="BTLogo" Width="55" Height="55">
+                        <Image.Source>
+                            <ImageSource>/Views/Rund logga.png</ImageSource>
+                        </Image.Source>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Image.MouseEnter">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleUpImageStoryboard_LO}"/>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Image.MouseLeave">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleDownImageStoryboard_LO}"/>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </Button.Content>
+                <Button.Style>
+                    <Style  TargetType="Button">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+
+            </Button>
+
+            <Button x:Name="Demotrade_Click" Grid.Row="1">
+                <Button.Content>
+                    <Image Name="BTDemo" Width="40" Height="40">
+                        <Image.Source>
+                            <ImageSource>/Views/icons8-stock-64.png</ImageSource>
+                        </Image.Source>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Image.MouseEnter">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleUpImageStoryboard_DE}"/>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Image.MouseLeave">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleDownImageStoryboard_DE}"/>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </Button.Content>
+                <Button.Style>
+                    <Style  TargetType="Button">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="Manual_Click" Grid.Row="2">
+                <Button.Content>
+
+                    <Image Name="BTManual" Width="40" Height="40">
+                        <Image.Source>
+                            <ImageSource>/Views/icons8-typewriter-64.png</ImageSource>
+                        </Image.Source>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Image.MouseEnter">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleUpImageStoryboard_MA}"/>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Image.MouseLeave">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleDownImageStoryboard_MA}"/>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </Button.Content>
+                <Button.Style>
+                    <Style  TargetType="Button">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+            <Button x:Name="TBE_Click" Grid.Row="3">
+                <Button.Content>
+
+                    <Image Name="BTTestBE" Width="40" Height="40">
+                        <Image.Source>
+                            <ImageSource>/Views/icons8-goal-100.png</ImageSource>
+                        </Image.Source>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Image.MouseEnter">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleUpImageStoryboard_BE}"/>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Image.MouseLeave">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleDownImageStoryboard_BE}"/>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </Button.Content>
+                <Button.Style>
+                    <Style  TargetType="Button">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="Settings_Click" Grid.Row="4">
+                <Button.Content>
+
+                    <Image Name="BTsettings" Width="40" Height="40">
+                        <Image.Source>
+                            <ImageSource>/Views/Settings-icon-symbol.png</ImageSource>
+                        </Image.Source>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Image.MouseEnter">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleUpImageStoryboard_S}"/>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Image.MouseLeave">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleDownImageStoryboard_S}"/>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </Button.Content>
+                <Button.Style>
+                    <Style  TargetType="Button">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="Close_Click" Grid.Row="5">
+                <Button.Content>
+
+                    <Image Name="BTclose" Width="40" Height="40" RenderTransformOrigin="-1.438,-0.788">
+                        <Image.Source>
+                            <ImageSource>/Views/power-off.png</ImageSource>
+                        </Image.Source>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Image.MouseEnter">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleUpImageStoryboard_C}"/>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Image.MouseLeave">
+                                <BeginStoryboard Storyboard="{StaticResource ScaleDownImageStoryboard_C}"/>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </Button.Content>
+                <Button.Style>
+                    <Style  TargetType="Button">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+
+
+
+        <!-- Overhead notch -->
+
+        <Border  
+                BorderThickness="1"
+                Height="50"
+                Width="150"
+                CornerRadius="15,15,15,15"
+                VerticalAlignment="Top"
+                Background="#272434"
+                Margin="0,-25,0,25"
+                Grid.Column="1">
+            
+            <Label
+                    FontWeight="Bold"
+                    Foreground="#d6d9f4"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center" Margin="0,25,0,-25"
+                    Content="{Binding Path=NotchDisplay}"/>
+
+        </Border>
+
+        <!-- Mainframe -->
+
+        <ContentControl Grid.Column="1"></ContentControl>
+
+
+
     </Grid>
 </Window>
