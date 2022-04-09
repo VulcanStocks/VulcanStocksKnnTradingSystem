@@ -96,3 +96,5 @@ C:\Users\uljas\Desktop\VulcanStocksKNN\VulcanStocksKNNResearchMVVM\VulcanStocksK
 C:\Users\uljas\Desktop\VulcanStocksKNN\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.GenerateResource.cache
 C:\Users\uljas\Desktop\VulcanStocksKNN\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.CoreCompileInputs.cache
 C:\Users\uljas\Desktop\VulcanStocksKNN\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.CopyComplete
+C:\Users\uljas\Desktop\VulcanStocksKNN\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\SettingsView.g.cs
+C:\Users\uljas\Desktop\VulcanStocksKNN\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\SettingsView.baml

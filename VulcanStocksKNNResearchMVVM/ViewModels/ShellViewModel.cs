@@ -14,7 +14,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
     {
         public ShellViewModel()
         {
-
+            ActivateItemAsync(new HomePageViewModel());
         }
 
         //Members
@@ -37,12 +37,12 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         public void Logo_Click()
         {
             Notch = "Homepage";
+            ActivateItemAsync(new HomePageViewModel());
         }
 
         public void Demotrade_Click()
         {
             Notch = "Demotrade";
-            ActivateItemAsync(new HomePageViewModel());
 
         }
 
@@ -59,6 +59,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         public void Settings_Click()
         {
             Notch = "Settings";
+            ActivateItemAsync(new SettingsViewMotel());
         }
 
         public void Close_Click()
