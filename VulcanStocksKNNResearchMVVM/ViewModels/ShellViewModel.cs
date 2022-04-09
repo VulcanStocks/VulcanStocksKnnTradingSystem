@@ -10,7 +10,7 @@ using VulcanStocksKNNResearchMVVM.Views;
 
 namespace VulcanStocksKNNResearchMVVM.ViewModels
 {
-    public class ShellViewModel : Conductor<object>.Collection.AllActive
+    public class ShellViewModel : Conductor<object>
     {
         public ShellViewModel()
         {
@@ -42,7 +42,8 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         public void Demotrade_Click()
         {
             Notch = "Demotrade";
-            ShellView.ActiveItem d = new HomePageViewModel();
+            ActivateItemAsync(new HomePageViewModel());
+
         }
 
         public void Manual_Click()

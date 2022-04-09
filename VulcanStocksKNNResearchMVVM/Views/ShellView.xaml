@@ -319,7 +319,10 @@
 
         <!-- Mainframe -->
 
-        <ContentControl Grid.Column="1" x:Name="ActiveItem"/>
+        <ContentControl 
+            Grid.Row="0" 
+            Grid.Column="1" 
+            x:Name="ActiveItem" />
 
 
 
