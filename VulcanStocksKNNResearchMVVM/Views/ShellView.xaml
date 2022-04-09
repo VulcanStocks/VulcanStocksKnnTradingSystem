@@ -73,7 +73,7 @@
     </Window.Resources>
 
     <!-- Main grid -->
-    
+
     <Grid HorizontalAlignment="Right" Width="800">
 
         <Grid.ColumnDefinitions>
@@ -82,7 +82,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Background="#272434" Grid.Column="0" Grid.RowSpan="2">
-            
+
             <!-- Side-panel -->
 
             <Grid.RowDefinitions>
@@ -306,7 +306,7 @@
                 Background="#272434"
                 Margin="0,-25,0,25"
                 Grid.Column="1">
-            
+
             <Label
                     FontWeight="Bold"
                     Foreground="#d6d9f4"
@@ -319,8 +319,9 @@
 
         <!-- Mainframe -->
 
+        <ContentControl Grid.Column="1" x:Name="ActiveItem"/>
 
-        
+
 
 
     </Grid>

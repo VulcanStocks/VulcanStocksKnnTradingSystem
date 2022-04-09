@@ -17,7 +17,6 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         }
 
-
         //Members
 
         private string _notch = "Homepage";
@@ -43,7 +42,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         public void Demotrade_Click()
         {
             Notch = "Demotrade";
-
+            ShellView.ActiveItem d = new HomePageViewModel();
         }
 
         public void Manual_Click()
