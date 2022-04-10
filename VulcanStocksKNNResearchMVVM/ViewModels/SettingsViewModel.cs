@@ -8,7 +8,7 @@ using VulcanStocksKNNResearchMVVM.Views;
 
 namespace VulcanStocksKNNResearchMVVM.ViewModels
 {
-    public class SettingsViewMotel : Screen
+    public class SettingsViewModel : Screen
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Caliburn.Micro;
-using VulcanStocksKNNResearchMVVM.Views;
+using VulcanStocksKNNResearchMVVM.ViewModels;
 
 namespace VulcanStocksKNNResearchMVVM.ViewModels
 {
@@ -42,8 +42,8 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         public void Demotrade_Click()
         {
-            Notch = "Demotrade";
-
+            Notch = "Demotrade"; 
+            ActivateItemAsync(new DemotradingViewModel());
         }
 
         public void Manual_Click()
@@ -59,7 +59,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         public void Settings_Click()
         {
             Notch = "Settings";
-            ActivateItemAsync(new SettingsViewMotel());
+            ActivateItemAsync(new SettingsViewModel());
         }
 
         public void Close_Click()

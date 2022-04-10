@@ -8,6 +8,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="#161622"
+        Foreground="#d6d9f4"
         ResizeMode="NoResize"        
         Title="ShellView" Height="450" Width="800">
     
