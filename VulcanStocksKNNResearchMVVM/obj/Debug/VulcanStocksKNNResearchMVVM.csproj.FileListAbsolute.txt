@@ -100,3 +100,9 @@ C:\Users\uljas\Desktop\VulcanStocksKNN\VulcanStocksKNNResearchMVVM\VulcanStocksK
 C:\Users\uljas\Desktop\VulcanStocksKNN\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\SettingsView.baml
 C:\Users\uljas\Desktop\VulcanStocksKNN\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\DemotradingView.g.cs
 C:\Users\uljas\Desktop\VulcanStocksKNN\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\DemotradingView.baml
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\DemotradingView.g.cs
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\SettingsView.g.cs
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\DemotradingView.baml
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\SettingsView.baml
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\FbeView.g.cs
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\FbeView.baml

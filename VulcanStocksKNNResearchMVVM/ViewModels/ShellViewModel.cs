@@ -54,6 +54,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         public void FBE_Click()
         {
             Notch = "Best entry";
+            ActivateItemAsync(new FbeViewModel());
         }
 
         public void Settings_Click()
