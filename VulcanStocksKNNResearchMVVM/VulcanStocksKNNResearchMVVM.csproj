@@ -98,6 +98,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\DataImporter.cs" />
     <Compile Include="ViewModels\FbeViewModel .cs" />
     <Compile Include="ViewModels\DemotradingViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
@@ -147,9 +148,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Views\DemotradingView.xaml">
       <SubType>Designer</SubType>

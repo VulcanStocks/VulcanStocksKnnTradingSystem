@@ -43,7 +43,7 @@
 
 
 
-                    
+
                 </Grid>
             </Border>
 
@@ -145,12 +145,34 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0">
+
                             <Label 
                                 FontWeight="Bold"
                                 Foreground="#d6d9f4"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Top"
+                                Margin="0,-10,0,0"
                                 Content="Import data"/>
+
+                            <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,-10,0,0"
+                                Content="Select pre-downloaded data"/>
+
+                            <ComboBox
+                                Width="80"
+                                Background="#272434"/>
+
+                            <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Content="Download data from ticker"/>
+
 
                             <TextBox
                                 Width="120"
@@ -159,12 +181,16 @@
                                 Foreground="#d6d9f4"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
+                                Margin="0,5,0,5"
                                 BorderThickness="3"
                                 Name="TBimportTicker"/>
 
-
-
-
+                            <Button 
+                                Foreground="#d6d9f4" 
+                                Background="#272434" 
+                                Width="80"
+                                Content="Import"
+                                x:Name="BTImport"/>
 
                         </StackPanel>
 
@@ -174,6 +200,7 @@
                                  Foreground="#d6d9f4"
                                  HorizontalAlignment="Center"
                                  VerticalAlignment="Top"
+                                 Margin="0,-10,0,0"
                                  Content="Import data"/>
 
                         </StackPanel>
