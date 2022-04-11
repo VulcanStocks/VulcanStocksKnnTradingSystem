@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Caliburn.Micro;
 using VulcanStocksKNNResearchMVVM.Models;
 
@@ -63,10 +64,17 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         //functions
         public void BTImport()
         {
-            dataManager.DownloadStockData(TBimportTicker);
-            ConvertFileInfo(dataManager.ReadDownloadedFiles());
-            string item = TBimportTicker + ".csv";
-            SelectedStock = item;
+            if(dataManager.DownloadStockData(TBimportTicker))
+            {
+                ConvertFileInfo(dataManager.ReadDownloadedFiles());
+                string item = TBimportTicker + ".csv";
+                SelectedStock = item;
+            }
+            else
+            {
+                MessageBox.Show("Invalid ticker");
+            }
+            
         }
 
         public void ConvertFileInfo(FileInfo[] Finfo)
@@ -78,7 +86,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             }
         }
 
-        
-        
+
+
     }
 }
