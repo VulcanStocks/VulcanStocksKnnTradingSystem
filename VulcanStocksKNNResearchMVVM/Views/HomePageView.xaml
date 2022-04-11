@@ -41,7 +41,31 @@
                         </Image.Source>
                     </Image>
 
+                    <Button x:Name="Instagram_Click" Width="100" Height="30" Grid.Column="1" Grid.Row="0">
+                        <Button.Content>
 
+                            <Label Foreground="#d6d9f4" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                @vulcanstocks
+                            </Label>
+                        </Button.Content>
+
+                        <Button.Style>
+                            <Style  TargetType="Button">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid Background="{TemplateBinding Background}">
+                                                <ContentPresenter />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+                            </Style>
+                        </Button.Style>
+
+                    </Button>
 
 
                 </Grid>
@@ -76,11 +100,11 @@
                         VerticalAlignment="Center"
                         FontSize="16"
                         FontWeight="Bold"/>
-                    <Label Grid.Row="1" Foreground="#d6d9f4" FontWeight="Bold">1. Press settings</Label>
-                    <Label Grid.Row="2" Foreground="#d6d9f4" FontWeight="Bold">2. Select API or CSV</Label>
-                    <Label Grid.Row="3" Foreground="#d6d9f4" FontWeight="Bold">3. Import data to program</Label>
-                    <Label Grid.Row="4" Foreground="#d6d9f4" FontWeight="Bold">4. Train algo with data</Label>
-                    <Label Grid.Row="5" Foreground="#d6d9f4" FontWeight="Bold">5. Select way of testing</Label>
+                    <Label Grid.Row="1" Foreground="#d6d9f4" FontWeight="Bold">1. Import data</Label>
+                    <Label Grid.Row="2" Foreground="#d6d9f4" FontWeight="Bold">2. Train modell</Label>
+                    <Label Grid.Row="3" Foreground="#d6d9f4" FontWeight="Bold">2. For testing entries press manual</Label>
+                    <Label Grid.Row="4" Foreground="#d6d9f4" FontWeight="Bold">3. Press FBE for findig best entry</Label>
+                    <Label Grid.Row="5" Foreground="#d6d9f4" FontWeight="Bold">5. Press demotrade to trade</Label>
 
                 </Grid>
             </Border>
@@ -203,7 +227,7 @@
                                  HorizontalAlignment="Center"
                                  VerticalAlignment="Top"
                                  Margin="0,-10,0,0"
-                                 Content="Import data"/>
+                                 Content="Train modell"/>
 
                         </StackPanel>
 

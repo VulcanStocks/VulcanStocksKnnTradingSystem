@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -84,6 +85,15 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             {
                 StockData.Add(item.ToString());
             }
+        }
+
+        public void Instagram_Click()
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://www.instagram.com/vulcanstocks/",
+                UseShellExecute = true
+            });
         }
 
 
