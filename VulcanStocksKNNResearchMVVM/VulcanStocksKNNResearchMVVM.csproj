@@ -98,7 +98,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\DataImporter.cs" />
+    <Compile Include="Models\DataManager.cs" />
     <Compile Include="ViewModels\FbeViewModel .cs" />
     <Compile Include="ViewModels\DemotradingViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />

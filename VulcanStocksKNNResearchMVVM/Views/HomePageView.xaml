@@ -164,7 +164,9 @@
 
                             <ComboBox
                                 Width="80"
-                                Background="#272434"/>
+                                Background="#272434"
+                                x:Name="StockData"
+                                SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
 
                             <Label 
                                 FontWeight="Light"

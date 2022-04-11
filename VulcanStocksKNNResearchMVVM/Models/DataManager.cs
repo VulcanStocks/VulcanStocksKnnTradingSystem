@@ -8,10 +8,12 @@ using System.IO;
 
 namespace VulcanStocksKNNResearchMVVM.Models
 {
-    public class DataImporter
+    public class DataManager
     {
         string ticker;
+      
         string downloadURL;
+
 
         public void DownloadStockData(string ticker)
         {
@@ -19,6 +21,12 @@ namespace VulcanStocksKNNResearchMVVM.Models
             downloadURL = "https://query1.finance.yahoo.com/v7/finance/download/" + ticker + "?period1=345427200&period2=1649548800&interval=1d&events=history&includeAdjustedClose=true";
             WebClient client = new WebClient();
             client.DownloadFile(downloadURL, Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + ticker + ".csv");
+        }
+
+        public FileInfo[] ReadDownloadedFiles()
+        {
+            DirectoryInfo di = new DirectoryInfo(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\");
+            return di.GetFiles("*.csv");
         }
 
     }
