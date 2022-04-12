@@ -75,238 +75,10 @@
                 BorderThickness="1"
                 Height="170"
                 Width="200"
-                Grid.Column="1"
-                Grid.Row="0"
-                CornerRadius="15,15,15,15" 
-                Margin="0,10,0,0"                
-                Background="#272434">
-
-                <Grid>
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-
-                    </Grid.RowDefinitions>
-
-                    <Label 
-                        Foreground="#d6d9f4"
-                        HorizontalAlignment="Center" 
-                        Content="How to use"
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        FontWeight="Bold"/>
-                    <Label Grid.Row="1" Foreground="#d6d9f4" FontWeight="Bold">1. Import data</Label>
-                    <Label Grid.Row="2" Foreground="#d6d9f4" FontWeight="Bold">2. Train modell</Label>
-                    <Label Grid.Row="3" Foreground="#d6d9f4" FontWeight="Bold">2. For testing entries press manual</Label>
-                    <Label Grid.Row="4" Foreground="#d6d9f4" FontWeight="Bold">3. Press FBE for findig best entry</Label>
-                    <Label Grid.Row="5" Foreground="#d6d9f4" FontWeight="Bold">5. Press demotrade to trade</Label>
-
-                </Grid>
-            </Border>
-
-            <Border  
-                BorderThickness="1"
-                Height="170"
-                Width="200"
                 Grid.Column="2"
                 Grid.Row="0"
                 CornerRadius="15,15,15,15" 
-                Margin="0,10,0,0"                                
-                Background="#272434">
-
-                <Grid>
-                    <StackPanel VerticalAlignment="Center">
-                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">*Not for real world use</Label>
-                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">*All trading involves risk</Label>
-                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">*Do not take anything</Label>
-                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">here as financial advice</Label>
-                    </StackPanel>
-
-                </Grid>
-            </Border>
-
-        </Grid>
-
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="240"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <Border  
-                BorderThickness="1"
-                Height="170"
-                Width="440"
-                Grid.Row="0"
-                Grid.Column="0"
-                CornerRadius="15,15,15,15" 
-                Margin="0,0,0,10"                
-                Background="#272434"
-                >
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-
-                    <Label 
-                        Foreground="#d6d9f4"
-                        HorizontalAlignment="Center" 
-                        Content="Setup"
-                        VerticalAlignment="Top"
-                        FontSize="16"
-                        FontWeight="Bold"/>
-
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-
-                        <StackPanel Grid.Column="0">
-
-                            <Label 
-                                FontWeight="Bold"
-                                Foreground="#d6d9f4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Top"
-                                Margin="0,-10,0,0"
-                                Content="Import data"/>
-
-                            <Label 
-                                FontWeight="Light"
-                                Foreground="#d6d9f4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Top"
-                                Margin="0,-10,0,0"
-                                Content="Select pre-downloaded data"/>
-
-
-
-                            <ComboBox
-                                    Grid.Column="0"
-                                    Width="80"
-                                    Background="#272434"
-                                    x:Name="StockData"
-                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
-
-                            <Label 
-                                FontWeight="Light"
-                                Foreground="#d6d9f4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Top"
-                                Content="Download data from ticker"/>
-
-
-                            <TextBox
-                                Width="120"
-                                Background="#272434"
-                                BorderBrush="#d6d9f4"
-                                Foreground="#d6d9f4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Margin="0,5,0,5"
-                                BorderThickness="3"
-                                Name="TBimportTicker"/>
-
-                            <Button 
-                                Foreground="#d6d9f4" 
-                                Background="#272434" 
-                                Width="80"
-                                Content="Import"
-                                x:Name="BTImport"/>
-
-                        </StackPanel>
-
-                        <StackPanel Grid.Column="1">
-                            <Label 
-                                 FontWeight="Bold"
-                                 Foreground="#d6d9f4"
-                                 HorizontalAlignment="Center"
-                                 VerticalAlignment="Top"
-                                 Margin="0,-10,0,0"
-                                 Content="Format data"/>
-
-                            <Label 
-                                FontWeight="Light"
-                                Foreground="#d6d9f4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Top"
-                                Margin="0,-10,0,0"
-                                Content="Select modell axis data"/>
-
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-
-                                <ComboBox
-                                    Grid.Column="0"
-                                    Width="80"
-                                    Background="#272434"
-                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
-
-                                <ComboBox
-                                    Grid.Column="1"
-                                    Width="80"
-                                    Background="#272434"
-                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
-
-                            </Grid>
-
-                            <Label 
-                                FontWeight="Light"
-                                Foreground="#d6d9f4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Top"
-                                Content="Name strategy"/>
-
-
-                            <TextBox
-                                Width="120"
-                                Background="#272434"
-                                BorderBrush="#d6d9f4"
-                                Foreground="#d6d9f4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Margin="0,5,0,5"
-                                BorderThickness="3"/>
-
-
-                            <Button 
-                                Foreground="#d6d9f4" 
-                                Background="#272434" 
-                                Width="80"
-                                Content="Format"/>
-
-
-
-                        </StackPanel>
-
-
-
-
-                    </Grid>
-
-                </Grid>
-
-
-            </Border>
-
-            <Border  
-                BorderThickness="1"
-                Height="170"
-                Width="200"
-                Grid.Column="1"
-                Grid.Row="0"
-                CornerRadius="15,15,15,15" 
-                Margin="0,0,0,10"
+                Margin="0,10,0,0"                
                 Background="#272434">
 
                 <Grid>
@@ -410,6 +182,224 @@
 
 
                 </Grid>
+            </Border>
+
+            <Border  
+                BorderThickness="1"
+                Height="170"
+                Width="200"
+                Grid.Column="1"
+                Grid.Row="0"
+                CornerRadius="15,15,15,15" 
+                Margin="0,10,0,0"                                
+                Background="#272434">
+
+                <Grid>
+                    <StackPanel VerticalAlignment="Center">
+                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">*Not for real world use</Label>
+                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">*All trading involves risk</Label>
+                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">*Do not take anything</Label>
+                        <Label Foreground="#d6d9f4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">here as financial advice</Label>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="240"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border  
+                BorderThickness="1"
+                Height="170"
+                Width="440"
+                Grid.Row="0"
+                Grid.Column="0"
+                CornerRadius="15,15,15,15" 
+                Margin="0,0,0,10"                
+                Background="#272434"
+                >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Label 
+                        Foreground="#d6d9f4"
+                        HorizontalAlignment="Center" 
+                        Content="Setup"
+                        VerticalAlignment="Top"
+                        FontSize="16"
+                        FontWeight="Bold"/>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Margin="0,-5,0,5" Grid.Column="0">
+
+                            <Label 
+                                FontWeight="Bold"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,-10,0,0"
+                                Content="Import data"/>
+
+                            <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,-10,0,0"
+                                Content="Select pre-downloaded data"/>
+
+
+
+                            <ComboBox
+                                    Grid.Column="0"
+                                    Width="80"
+                                    Background="#272434"
+                                    x:Name="StockData"
+                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
+
+                            <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Content="Download data from ticker"/>
+
+
+                            <TextBox
+                                Width="120"
+                                Background="#272434"
+                                BorderBrush="#d6d9f4"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0,5,0,5"
+                                BorderThickness="3"
+                                Name="TBimportTicker"/>
+
+                            <Button 
+                                Foreground="#d6d9f4" 
+                                Background="#272434" 
+                                Width="80"
+                                Content="Import"
+                                x:Name="BTImport"/>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="0,-5,0,5">
+                            <Label 
+                                 FontWeight="Bold"
+                                 Foreground="#d6d9f4"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Top"
+                                 Margin="0,-10,0,0"
+                                 Content="Format data"/>
+
+                            <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,-10,0,0"
+                                Content="Select modell axis data"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <ComboBox
+                                    Grid.Column="0"
+                                    Width="80"
+                                    Background="#272434"
+                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
+
+                                <ComboBox
+                                    Grid.Column="1"
+                                    Width="80"
+                                    Background="#272434"
+                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
+
+                            </Grid>
+
+                            <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Content="Name strategy"/>
+
+
+                            <TextBox
+                                Width="120"
+                                Background="#272434"
+                                BorderBrush="#d6d9f4"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0,5,0,5"
+                                BorderThickness="3"/>
+
+
+                            <Button 
+                                Foreground="#d6d9f4" 
+                                Background="#272434" 
+                                Width="80"
+                                Content="Format"/>
+
+
+
+                        </StackPanel>
+
+
+
+
+                    </Grid>
+
+                </Grid>
+
+
+            </Border>
+
+            <Border  
+                BorderThickness="1"
+                Height="170"
+                Width="200"
+                Grid.Column="1"
+                Grid.Row="0"
+                CornerRadius="15,15,15,15" 
+                Margin="0,0,0,10"
+                Background="#272434">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Label 
+                        Foreground="#d6d9f4"
+                        HorizontalAlignment="Center" 
+                        Content="Strategy config"
+                        VerticalAlignment="Top"
+                        FontSize="16"
+                        FontWeight="Bold"/>
+                    
+                </Grid>
+
             </Border>
 
 
