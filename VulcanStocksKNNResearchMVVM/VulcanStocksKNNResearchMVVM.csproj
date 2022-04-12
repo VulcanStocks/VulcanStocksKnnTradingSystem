@@ -148,7 +148,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="StockData\Example.txt" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\DemotradingView.xaml">
       <SubType>Designer</SubType>
@@ -191,6 +193,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\icons8-instagram-50.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Strategies\Example.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

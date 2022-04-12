@@ -186,11 +186,14 @@
                                 Margin="0,-10,0,0"
                                 Content="Select pre-downloaded data"/>
 
+
+
                             <ComboBox
-                                Width="80"
-                                Background="#272434"
-                                x:Name="StockData"
-                                SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
+                                    Grid.Column="0"
+                                    Width="80"
+                                    Background="#272434"
+                                    x:Name="StockData"
+                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
 
                             <Label 
                                 FontWeight="Light"
@@ -227,7 +230,61 @@
                                  HorizontalAlignment="Center"
                                  VerticalAlignment="Top"
                                  Margin="0,-10,0,0"
-                                 Content="Train modell"/>
+                                 Content="Format data"/>
+
+                            <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,-10,0,0"
+                                Content="Select modell axis data"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <ComboBox
+                                    Grid.Column="0"
+                                    Width="80"
+                                    Background="#272434"
+                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
+
+                                <ComboBox
+                                    Grid.Column="1"
+                                    Width="80"
+                                    Background="#272434"
+                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
+
+                            </Grid>
+
+                            <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Content="Name strategy"/>
+
+
+                            <TextBox
+                                Width="120"
+                                Background="#272434"
+                                BorderBrush="#d6d9f4"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0,5,0,5"
+                                BorderThickness="3"/>
+
+                            <Button 
+                                Foreground="#d6d9f4" 
+                                Background="#272434" 
+                                Width="80"
+                                Content="Format"/>
+
+
 
                         </StackPanel>
 

@@ -20,13 +20,12 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         private BindableCollection<String> _stockData = new BindableCollection<String>();
 
-        private String _selectedStock;
+        private string _selectedStock;
 
 
         public HomePageViewModel()
         {
             ConvertFileInfo(dataManager.ReadDownloadedFiles());
-
         }
 
         //properties
@@ -52,7 +51,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         }
 
 
-        public String SelectedStock
+        public string SelectedStock
         {
             get { return _selectedStock; }
             set

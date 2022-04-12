@@ -11,7 +11,7 @@ using VulcanStocksKNNResearchMVVM.ViewModels;
 namespace VulcanStocksKNNResearchMVVM.ViewModels
 {
     public class ShellViewModel : Conductor<object>
-    {
+    { 
         public ShellViewModel()
         {
             ActivateItemAsync(new HomePageViewModel());
