@@ -321,8 +321,8 @@
                             <TextBox
 
                                 Grid.Row="1"
-                                Width="40"
-                                PreviewTextInput="NumberValidationTextBox"/>
+                                Width="40"/>
+
 
                             <Label 
                                 Grid.Column="1"
@@ -336,8 +336,7 @@
                             <TextBox
                                 Grid.Row="1"
                                 Grid.Column="1"
-                                Width="40"
-                                PreviewTextInput="NumberValidationTextBox"/>
+                                Width="40"/>
 
                         </StackPanel>
 
