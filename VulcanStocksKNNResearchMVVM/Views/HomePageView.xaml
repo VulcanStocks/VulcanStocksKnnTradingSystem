@@ -232,7 +232,7 @@
                     <Label 
                         Foreground="#d6d9f4"
                         HorizontalAlignment="Center" 
-                        Content="Setup"
+                        Content="1. Setup"
                         VerticalAlignment="Top"
                         FontSize="16"
                         FontWeight="Bold"/>
@@ -251,7 +251,7 @@
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Top"
                                 Margin="0,-10,0,0"
-                                Content="Import data"/>
+                                Content="1. Import data"/>
 
                             <Label 
                                 FontWeight="Light"
@@ -298,6 +298,85 @@
 
                         </StackPanel>
 
+                        
+
+                        <StackPanel Grid.Column="1" Margin="0,0,0,0">
+
+                            <Label 
+                                FontWeight="Bold"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,-10,0,0"
+                                Content="2. Strategy config"/>
+
+                            <Label 
+                                Margin="0,-10,0,0"
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Content="Target procent up"/>
+
+                            <TextBox
+
+                                Grid.Row="1"
+                                Width="40"
+                                PreviewTextInput="NumberValidationTextBox"/>
+
+                            <Label 
+                                Grid.Column="1"
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Content="Stoploss procent down"/>
+
+
+                            <TextBox
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Width="40"
+                                PreviewTextInput="NumberValidationTextBox"/>
+
+                        </StackPanel>
+
+
+
+
+                    </Grid>
+
+                </Grid>
+
+
+            </Border>
+
+            <Border  
+                BorderThickness="1"
+                Height="170"
+                Width="200"
+                Grid.Column="1"
+                Grid.Row="0"
+                CornerRadius="15,15,15,15" 
+                Margin="0,0,0,10"
+                Background="#272434">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    
+
+                    <Label 
+                        Foreground="#d6d9f4"
+                        HorizontalAlignment="Center" 
+                        Content="2. Setup"
+                        VerticalAlignment="Top"
+                        FontSize="16"
+                        FontWeight="Bold"/>
+
+                    <Grid VerticalAlignment="Top" Grid.Row="1">
                         <StackPanel Grid.Column="1" Margin="0,-5,0,5">
                             <Label 
                                  FontWeight="Bold"
@@ -305,7 +384,7 @@
                                  HorizontalAlignment="Center"
                                  VerticalAlignment="Top"
                                  Margin="0,-10,0,0"
-                                 Content="Format data"/>
+                                 Content="Write strategy"/>
 
                             <Label 
                                 FontWeight="Light"
@@ -358,46 +437,18 @@
                                 Foreground="#d6d9f4" 
                                 Background="#272434" 
                                 Width="80"
-                                Content="Format"/>
+                                Content="Write"/>
 
 
 
                         </StackPanel>
-
-
-
-
+                        
                     </Grid>
 
-                </Grid>
-
-
-            </Border>
-
-            <Border  
-                BorderThickness="1"
-                Height="170"
-                Width="200"
-                Grid.Column="1"
-                Grid.Row="0"
-                CornerRadius="15,15,15,15" 
-                Margin="0,0,0,10"
-                Background="#272434">
-
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="35"></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-
-                    <Label 
-                        Foreground="#d6d9f4"
-                        HorizontalAlignment="Center" 
-                        Content="Strategy config"
-                        VerticalAlignment="Top"
-                        FontSize="16"
-                        FontWeight="Bold"/>
                     
+
+
+
                 </Grid>
 
             </Border>
