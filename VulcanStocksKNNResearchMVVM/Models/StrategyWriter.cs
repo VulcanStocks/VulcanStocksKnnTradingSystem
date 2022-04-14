@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VulcanStocksKNNResearchMVVM.Indicators
+namespace VulcanStocksKNNResearchMVVM.Models
 {
-    public class RSI
+    public class StrategyWriter
     {
     }
 }

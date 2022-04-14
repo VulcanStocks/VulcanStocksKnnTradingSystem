@@ -15,6 +15,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
     {
         //objects
         DataManager dataManager = new DataManager();
+        StrategyWriter strategyWriter = new StrategyWriter();
         //member variables
         private string _tbImportTicker;
         private BindableCollection<String> _stockData = new BindableCollection<String>();
@@ -23,6 +24,8 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private string _selectedStock;
         private int _target = 10;
         private int _stopLoss = -5;
+        private string _strategyName = "";
+
 
 
         public HomePageViewModel()
@@ -87,6 +90,14 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             }
         }
         
+        public string StrategyName
+        {
+            get { return _strategyName; }
+            set { _strategyName = value; 
+                NotifyOfPropertyChange(() => StrategyName);
+            }
+        }
+        
         public BindableCollection<String> StockData
         {
             get { return _stockData; }
@@ -148,6 +159,10 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             });
         }
 
+        public void Write()
+        {
+
+        }
 
 
 
