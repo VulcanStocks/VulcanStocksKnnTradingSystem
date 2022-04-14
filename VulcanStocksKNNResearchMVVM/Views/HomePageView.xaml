@@ -319,9 +319,9 @@
                                 Content="Target procent up"/>
 
                             <TextBox
-
                                 Grid.Row="1"
-                                Width="40"/>
+                                Width="40"
+                                x:Name="Target"/>
 
 
                             <Label 
@@ -336,7 +336,8 @@
                             <TextBox
                                 Grid.Row="1"
                                 Grid.Column="1"
-                                Width="40"/>
+                                Width="40"
+                                x:Name="StopLoss"/>
 
                         </StackPanel>
 
@@ -403,13 +404,13 @@
                                     Grid.Column="0"
                                     Width="80"
                                     Background="#272434"
-                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
+                                    x:Name="IndicatorsX"/>
 
                                 <ComboBox
                                     Grid.Column="1"
                                     Width="80"
                                     Background="#272434"
-                                    SelectedItem="{Binding Path=SelectedStock, Mode=TwoWay}"/>
+                                    x:Name="IndicatorsY"/>
 
                             </Grid>
 

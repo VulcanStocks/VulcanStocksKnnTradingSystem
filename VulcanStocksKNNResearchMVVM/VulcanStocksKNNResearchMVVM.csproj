@@ -98,6 +98,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Indicators\RSI.cs" />
+    <Compile Include="Indicators\XX.cs" />
     <Compile Include="Models\DataManager.cs" />
     <Compile Include="ViewModels\FbeViewModel .cs" />
     <Compile Include="ViewModels\DemotradingViewModel.cs" />
