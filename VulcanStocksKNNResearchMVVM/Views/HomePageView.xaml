@@ -287,7 +287,7 @@
                                 VerticalAlignment="Center"
                                 Margin="0,5,0,5"
                                 BorderThickness="3"
-                                Name="TBimportTicker"/>
+                                Name="Ticker"/>
 
                             <Button 
                                 Foreground="#d6d9f4" 

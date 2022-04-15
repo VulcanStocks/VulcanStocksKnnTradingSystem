@@ -17,7 +17,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         DataManager dataManager = new DataManager();
         StrategyWriter strategyWriter = new StrategyWriter();
         //member variables
-        private string _tbImportTicker;
+        private string _ticker;
         private BindableCollection<String> _stockData = new BindableCollection<String>();
         private BindableCollection<String> _indicatorsX = new BindableCollection<String>();
         private BindableCollection<String> _indicatorsY = new BindableCollection<String>();
@@ -35,18 +35,18 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         }
 
         //properties
-        public string TBimportTicker
+        public string Ticker
         {
             get 
             { 
                 
-                return _tbImportTicker; 
+                return _ticker; 
                 
             }
             set 
             { 
-                _tbImportTicker = value; 
-                NotifyOfPropertyChange(() => TBimportTicker);
+                _ticker = value; 
+                NotifyOfPropertyChange(() => Ticker);
             }
         }
 
@@ -75,7 +75,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             }
         }
 
-        public string StopLoss
+        public string StoppLoss
         {
             get { return _stopLoss.ToString(); }
             set 
@@ -84,8 +84,8 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 if(int.TryParse(value, out x))
                 {
                     _stopLoss = x;
-                    NotifyOfPropertyChange(() => StopLoss);
-                    MessageBox.Show("StopLOSS");
+                    NotifyOfPropertyChange(() => StoppLoss);
+                    MessageBox.Show("StoppLoss");
                 }    
             }
         }
@@ -117,10 +117,10 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         //functions
         public void BTImport()
         {
-            if(dataManager.DownloadStockData(TBimportTicker))
+            if(dataManager.DownloadStockData(Ticker))
             {
                 LoadStockdata(dataManager.ReadDownloadedFiles());
-                string item = TBimportTicker + ".csv";
+                string item = Ticker + ".csv";
                 SelectedStock = item;
             }
             else
@@ -161,7 +161,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         public void Write()
         {
-
+            strategyWriter.Write(Ticker);
         }
 
 

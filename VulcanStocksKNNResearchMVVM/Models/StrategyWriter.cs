@@ -10,31 +10,41 @@ namespace VulcanStocksKNNResearchMVVM.Models
 {
     public class StrategyWriter
     {
-        private string dataPath;
-        private string[][] dataSet;
-        private string[] data { get; set; }
+        private string Path;
+
+        private string[][] DataSet;
+        private string[] Data { get; set; }
+        private string Ticker { get; set; }
+        private string[][] Strategy { get; set; }
 
         public void Write(string ticker)
         {
-            dataPath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + ticker + ".csv";
+            Path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + ticker + ".csv";
+            Ticker = ticker;
+
             Setup();
+            FillStrategy();
 
         }
 
         private void Setup()
         {
-            data = File.ReadAllLines(dataPath);
+            Data = File.ReadAllLines(Path);
 
-            dataSet = new string[data.Length][];
-            for (int i = 0; i < data.Length; i++)
+            DataSet = new string[Data.Length][];
+            for (int i = 0; i < Data.Length; i++)
             {
-                string[] temp = data[i].Split(',');
-                dataSet[i] = new string[temp.Length];
+                string[] temp = Data[i].Split(',');
+                DataSet[i] = new string[temp.Length];
                 for (int j = 0; j < temp.Length; j++)
                 {
-                    dataSet[i][j] = temp[j];
+                    DataSet[i][j] = temp[j];
                 }
             }
+        }
+        private void FillStrategy()
+        {
+
         }
 
 
