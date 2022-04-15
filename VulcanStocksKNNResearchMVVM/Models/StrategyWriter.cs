@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using VulcanStocksKNNResearchMVVM.Indicators;
 using System.Threading.Tasks;
 
 
@@ -44,9 +45,13 @@ namespace VulcanStocksKNNResearchMVVM.Models
         }
         private void FillStrategy()
         {
+            for (int i = 0; i < length; i++)
+            {
 
+            }
         }
 
+        
 
     }
 }
