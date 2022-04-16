@@ -161,7 +161,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         public void Write()
         {
-            strategyWriter.Write(Ticker);
+            strategyWriter.Write(Ticker, int.Parse(StoppLoss), int.Parse(Target));
         }
 
 

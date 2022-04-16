@@ -73,4 +73,4 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
 
     }
 }
-}
+
