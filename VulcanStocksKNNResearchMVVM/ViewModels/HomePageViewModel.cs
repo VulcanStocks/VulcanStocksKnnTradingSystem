@@ -25,6 +25,8 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private int _target = 10;
         private int _stopLoss = -5;
         private string _strategyName = "";
+        private string _indicatorsXselected;
+        private string _indicatorsYselected;
 
 
 
@@ -48,9 +50,29 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 _ticker = value; 
                 NotifyOfPropertyChange(() => Ticker);
             }
+            
         }
 
 
+        public string IndicatorsXselected
+        {
+            get { return _indicatorsXselected; }
+            set
+            {
+                _indicatorsXselected = value;
+                NotifyOfPropertyChange(() => IndicatorsXselected);
+            }
+        }
+
+        public string IndicatorsYselected
+        {
+            get { return _indicatorsYselected; }
+            set
+            {
+                _indicatorsYselected = value;
+                NotifyOfPropertyChange(() => IndicatorsYselected);
+            }
+        }
         public string SelectedStock
         {
             get { return _selectedStock; }
@@ -60,7 +82,6 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 NotifyOfPropertyChange(() => SelectedStock);
             }
         }
-        
         public string Target
         {
             get { return _target.ToString(); }
@@ -75,7 +96,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             }
         }
 
-        public string StoppLoss
+        public string StopLoss
         {
             get { return _stopLoss.ToString(); }
             set 
@@ -84,8 +105,8 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 if(int.TryParse(value, out x))
                 {
                     _stopLoss = x;
-                    NotifyOfPropertyChange(() => StoppLoss);
-                    MessageBox.Show("StoppLoss");
+                    NotifyOfPropertyChange(() => StopLoss);
+                    MessageBox.Show("StopLoss");
                 }    
             }
         }
@@ -161,7 +182,13 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         public void Write()
         {
-            strategyWriter.Write(Ticker, int.Parse(StoppLoss), int.Parse(Target));
+            strategyWriter.Write(
+                SelectedStock, 
+                int.Parse(StopLoss), 
+                int.Parse(Target), 
+                StrategyName,
+                IndicatorsXselected,
+                IndicatorsYselected);
         }
 
 

@@ -15,15 +15,33 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private string[][] DataSet;
         private string[] Data { get; set; }
         private string Ticker { get; set; }
-        private string[][] Strategy { get; set; }
-        public int StoppLoss { get; set; }
-        public int Target { get; set; }
-        public void Write(string ticker, int stoppLoss, int target)
+        public string[,] Strategy { get; set; }
+        private int StopLoss { get; set; }
+        private int Target { get; set; }
+        private string IndicatorsXselected { get; set; }
+        private string IndicatorsYselected { get; set; }
+
+        private string StrategyName { get; set; }
+
+
+
+        public void Write(string ticker, int StopLoss, int target, string StrategyName, string IndicatorsXselected, string IndicatorsYselected)
         {
-            Path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + ticker + ".csv";
+            if(ticker.Contains(".csv"))
+            {
+                Path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + ticker;
+            }
+            else
+            {
+                Path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + ticker + ".csv";
+            }
+            
             Ticker = ticker;
-            StoppLoss = stoppLoss;
+            this.StopLoss = StopLoss;
             Target = target;
+            this.StrategyName = StrategyName;
+            this.IndicatorsXselected = IndicatorsXselected;
+            this.IndicatorsYselected = IndicatorsYselected;
 
             Setup();
             FillStrategy();
@@ -49,46 +67,71 @@ namespace VulcanStocksKNNResearchMVVM.Models
         }
         private void FillStrategy()
         {
-            RSI rsi = new RSI();
-            Strategy = new string [DataSet.Length][];
+            float[] price = new float[Data.Length];
+            float?[] axisX = new float?[Data.Length];
+            float?[] axisY = new float?[Data.Length];
+
+            price = GetPriceArray();
+            axisX = GetAxisValue(price, IndicatorsXselected);
+            axisY = GetAxisValue(price, IndicatorsYselected);
+
+            Strategy = new string [DataSet.Length,3];
             for (int i = 1; i < DataSet.Length; i++)
             {
-                Strategy[i] = new string[3];
-
-                string[] temp = DataSet[i];
-
-                float price = float.Parse(temp[4].Replace('.',','));
-                float? RSI = rsi.Calculate(i, price);
-                bool IsValid = CheckIfValid(i, price);
-
-                Strategy [i][0] = price.ToString();
-                Strategy [i][1] = RSI.ToString();
-                Strategy [i][2] = IsValid.ToString();
-
+                Strategy [i,0] = price[i].ToString();
+                Strategy [i,1] = axisX[i].ToString();
+                Strategy [i,2] = axisY[i].ToString();
             }
         }
 
+        private float?[] GetAxisValue(float[] price, string axisItem)
+        {
+            RSI rsiCalc = new RSI();
+
+            float?[] rsi = new float?[Data.Length];
+
+            for (int i = 0; i < Data.Length; i++)
+            {
+                rsi[i] = rsiCalc.Calculate(i, price[i]);
+
+            }
+            return rsi;
+        }
+
+        private float[] GetPriceArray()
+        {
+            float[] priceArray = new float[Data.Length];
+
+            for (int i = 1; i < Data.Length; i++)
+            {
+                priceArray[i] = float.Parse(DataSet[i][4].Replace('.',','));
+            }
+
+            return priceArray;
+        }
+
+
+
+
         private bool CheckIfValid(int i, float price)
         {
-            int localTime = i;
             while(true)
             {
-                if (localTime >= DataSet.Length)
+                if (i >= DataSet.Length)
                 {
                     return false;
                 }
-                float localPrice = float.Parse(DataSet[localTime][4].Replace('.', ','));
+                float localPrice = float.Parse(DataSet[i][4].Replace('.', ','));
                 float temp = ((localPrice / price) - 1) * 100;
-                Console.WriteLine(localPrice);
                 if (temp >= Target )
                 {
                     return true;
                 }
-                else if(temp <= StoppLoss)
+                else if(temp <= StopLoss)
                 {
                     return false;
                 }
-                localTime++;
+                i++;
             }
             
         }
@@ -97,18 +140,19 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             //write strategy into csv matrix 
 
-            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + Ticker + "Strategy.csv";
-            string[] lines = new string[Strategy.Length];
-            for (int i = 0; i < Strategy.Length; i++)
-            {
-                Console.WriteLine(Strategy[i][0]);
-                Console.WriteLine(Strategy[i][2]);
-                Console.WriteLine(Strategy[i][3]);
+            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Strategies\\" + StrategyName + ".csv";
+            StreamWriter writer = new StreamWriter(path);
 
-                Console.WriteLine(string.Join(",", Strategy[i]));
-                lines[i] = string.Join(",", Strategy[i]);
+            writer.WriteLine("Price,RSI,IsValid");
+
+            for (int i = 15; i < Strategy.GetLength(0)-1; i++)
+            {
+                for (int j = 0; j < Strategy.GetLength(1); j++)
+                {
+                    writer.Write(Strategy[i, j] + ",");
+                }
+                writer.WriteLine();
             }
-            File.WriteAllLines(path, lines);    
 
         }
 

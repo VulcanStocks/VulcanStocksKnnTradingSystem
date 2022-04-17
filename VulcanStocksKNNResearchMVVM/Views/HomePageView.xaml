@@ -404,13 +404,15 @@
                                     Grid.Column="0"
                                     Width="80"
                                     Background="#272434"
-                                    x:Name="IndicatorsX"/>
+                                    x:Name="IndicatorsX"
+                                    SelectedItem="{Binding Path=IndicatorsXselected, Mode=TwoWay}"/>
 
                                 <ComboBox
                                     Grid.Column="1"
                                     Width="80"
                                     Background="#272434"
-                                    x:Name="IndicatorsY"/>
+                                    x:Name="IndicatorsY"
+                                    SelectedItem="{Binding Path=IndicatorsYselected, Mode=TwoWay}"/>
 
                             </Grid>
 
