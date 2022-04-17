@@ -99,6 +99,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Indicators\RSI.cs" />
+    <Compile Include="Indicators\VWAP.cs" />
     <Compile Include="Models\DataManager.cs" />
     <Compile Include="Models\DatasetModel.cs" />
     <Compile Include="Models\StrategyModel.cs" />

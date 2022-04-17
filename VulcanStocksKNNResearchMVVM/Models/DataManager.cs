@@ -24,7 +24,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             {
                 client.DownloadFile(downloadURL, Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + ticker + ".csv");
             }
-            catch (Exception)
+            catch (Exception)  
             {
                 return false;
             }

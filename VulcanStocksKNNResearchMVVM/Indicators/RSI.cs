@@ -17,7 +17,19 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
         private float? RS;
         private float? Rsi;
 
-        public float? Calculate(int i, float price)
+        public float?[] Calculate(float[] price, int DataL)
+        {
+            float?[] rSi = new float?[DataL];
+
+            for (int i = 0; i < DataL; i++)
+            {
+                rSi[i] = (Main(i, price[i]));
+            }
+
+            return rSi;
+
+        }
+        public float? Main(int i, float price)
         {
             activeTime.Enqueue(price);
 

@@ -75,27 +75,20 @@ namespace VulcanStocksKNNResearchMVVM.Models
             axisX = GetAxisValue(price, IndicatorsXselected);
             axisY = GetAxisValue(price, IndicatorsYselected);
 
-            Strategy = new string [DataSet.Length,3];
+            Strategy = new string [DataSet.Length,4];
             for (int i = 1; i < DataSet.Length; i++)
             {
-                Strategy [i,0] = price[i].ToString();
-                Strategy [i,1] = axisX[i].ToString();
-                Strategy [i,2] = axisY[i].ToString();
+                Strategy [i,0] = price[i].ToString().Replace(',', '.');
+                Strategy [i,1] = axisX[i].ToString().Replace(',', '.');
+                Strategy [i,2] = axisY[i].ToString().Replace(',', '.');
+                Strategy [i,3] = CheckIfValid(i,price[i]).ToString().Replace(',', '.');
             }
         }
 
         private float?[] GetAxisValue(float[] price, string axisItem)
         {
             RSI rsiCalc = new RSI();
-
-            float?[] rsi = new float?[Data.Length];
-
-            for (int i = 0; i < Data.Length; i++)
-            {
-                rsi[i] = rsiCalc.Calculate(i, price[i]);
-
-            }
-            return rsi;
+            return rsiCalc.Calculate(price,Data.Length);
         }
 
         private float[] GetPriceArray()
@@ -143,7 +136,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Strategies\\" + StrategyName + ".csv";
             StreamWriter writer = new StreamWriter(path);
 
-            writer.WriteLine("Price,RSI,IsValid");
+            writer.WriteLine("Price,AxisX,AxisY,IsValid");
 
             for (int i = 15; i < Strategy.GetLength(0)-1; i++)
             {
