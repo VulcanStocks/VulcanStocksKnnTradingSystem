@@ -68,12 +68,14 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private void FillStrategy()
         {
             float[] price = new float[Data.Length];
+            float[] volume = new float[Data.Length];
             float?[] axisX = new float?[Data.Length];
             float?[] axisY = new float?[Data.Length];
 
             price = GetPriceArray();
-            axisX = GetAxisValue(price, IndicatorsXselected);
-            axisY = GetAxisValue(price, IndicatorsYselected);
+            volume = GetVolumeArray();
+            axisX = GetAxisValue(price, volume, IndicatorsXselected);
+            axisY = GetAxisValue(price, volume, IndicatorsYselected);
 
             Strategy = new string [DataSet.Length,4];
             for (int i = 1; i < DataSet.Length; i++)
@@ -85,10 +87,27 @@ namespace VulcanStocksKNNResearchMVVM.Models
             }
         }
 
-        private float?[] GetAxisValue(float[] price, string axisItem)
+        private float?[] GetAxisValue(float[] price, float[] volume, string axisItem)
         {
-            RSI rsiCalc = new RSI();
-            return rsiCalc.Calculate(price,Data.Length);
+            if (axisItem == "RSI.cs")
+            {
+                RSI rsiCalc = new RSI();
+                return rsiCalc.Calculate(price, Data.Length);
+            }
+            else if(axisItem == "ADJ_VOLUME.cs")
+            {
+                ADJ_VOLUME normVolumeCalc = new ADJ_VOLUME(volume);
+                return normVolumeCalc.Calculate();
+            }
+            else
+            {
+                float?[] zero = new float?[Data.Length];
+                for (int i = 0; i < zero.Length; i++)
+                {
+                    zero[i] = 0;
+                }
+                return zero;
+            }
         }
 
         private float[] GetPriceArray()
@@ -103,8 +122,17 @@ namespace VulcanStocksKNNResearchMVVM.Models
             return priceArray;
         }
 
+        private float[] GetVolumeArray()
+        {
+            float[] volumeArray = new float[Data.Length];
 
+            for (int i = 1; i < Data.Length; i++)
+            {
+                volumeArray[i] = float.Parse(DataSet[i][6].Replace('.', ','));
+            }
 
+            return volumeArray;
+        }
 
         private bool CheckIfValid(int i, float price)
         {
