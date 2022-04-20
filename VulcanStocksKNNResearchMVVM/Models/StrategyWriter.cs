@@ -20,7 +20,6 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private int Target { get; set; }
         private string IndicatorsXselected { get; set; }
         private string IndicatorsYselected { get; set; }
-
         private string StrategyName { get; set; }
 
 
@@ -99,6 +98,11 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 ADJ_VOLUME normVolumeCalc = new ADJ_VOLUME(volume);
                 return normVolumeCalc.Calculate();
             }
+            else if(axisItem == "VWAP.cs")
+            {
+                VWAP vwapCalc = new VWAP(price, volume);
+                return vwapCalc.Main();
+            }
             else
             {
                 float?[] zero = new float?[Data.Length];
@@ -112,6 +116,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
         private float[] GetPriceArray()
         {
+            // return price array
             float[] priceArray = new float[Data.Length];
 
             for (int i = 1; i < Data.Length; i++)
@@ -124,6 +129,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
         private float[] GetVolumeArray()
         {
+            // returns an array of volume values
             float[] volumeArray = new float[Data.Length];
 
             for (int i = 1; i < Data.Length; i++)
@@ -136,6 +142,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
         private bool CheckIfValid(int i, float price)
         {
+            // Check if price is higher than target or lower than stoploss
             while(true)
             {
                 if (i >= DataSet.Length)

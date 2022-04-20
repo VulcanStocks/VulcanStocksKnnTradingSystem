@@ -46,6 +46,16 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
             return (float)Math.Sqrt(sum / Volume.Length);
         }
 
+        private float?[] GetNormVolume()
+        {
+            for (int i = 0; i < NormVolume.Length; i++)
+            {
+                if (NormVolume[i] > 100) NormVolume[i] = 100;
+                if (NormVolume[i] < 0) NormVolume[i] = 0;
+            }
+
+            return NormVolume;
+        }
 
 
     }
