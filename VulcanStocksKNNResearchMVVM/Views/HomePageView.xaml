@@ -147,7 +147,7 @@
                         VerticalAlignment="Center"
                         Grid.Column="1"
                         Grid.Row="1">
-                        Demotrading
+                        Backtesting
                     </Label>
 
                     <Label 

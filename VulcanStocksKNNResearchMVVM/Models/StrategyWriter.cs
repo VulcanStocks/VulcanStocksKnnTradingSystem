@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using VulcanStocksKNNResearchMVVM.Indicators;
 using System.Threading.Tasks;
-
+using System.Windows;
 
 namespace VulcanStocksKNNResearchMVVM.Models
 {
@@ -167,20 +167,28 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private void WriteStrategy()
         {
             //write strategy into csv matrix 
-
-            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Strategies\\" + StrategyName + ".csv";
-            StreamWriter writer = new StreamWriter(path);
-
-            writer.WriteLine("Price,AxisX,AxisY,IsValid");
-
-            for (int i = 15; i < Strategy.GetLength(0)-1; i++)
+            try
             {
-                for (int j = 0; j < Strategy.GetLength(1); j++)
+                string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Strategies\\" + StrategyName + ".csv";
+
+                StreamWriter writer = new StreamWriter(path);
+
+                writer.WriteLine("Price,AxisX,AxisY,IsValid");
+
+                for (int i = 15; i < Strategy.GetLength(0) - 1; i++)
                 {
-                    writer.Write(Strategy[i, j] + ",");
+                    for (int j = 0; j < Strategy.GetLength(1); j++)
+                    {
+                        writer.Write(Strategy[i, j] + ",");
+                    }
+                    writer.WriteLine();
                 }
-                writer.WriteLine();
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Please close the file before writing");
+            }
+            
 
         }
 

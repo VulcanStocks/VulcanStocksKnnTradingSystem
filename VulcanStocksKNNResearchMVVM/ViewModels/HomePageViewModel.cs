@@ -88,11 +88,17 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             set 
             { 
                 int x;
-                if(int.TryParse(value, out x))
+                if(int.TryParse(value, out x) )
                 {
                     _target = x;
                     NotifyOfPropertyChange(() => Target);
-                }    
+                }
+                else if (value == "")
+                {
+                    _target = 0;
+                    NotifyOfPropertyChange(() => Target);
+                }
+                
             }
         }
 
@@ -106,8 +112,17 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 {
                     _stopLoss = x;
                     NotifyOfPropertyChange(() => StopLoss);
-                    MessageBox.Show("StopLoss");
-                }    
+                }
+                else if (value == "")
+                {
+                    _stopLoss = 0;
+                    NotifyOfPropertyChange(() => StopLoss);
+                }
+                else if (value.Contains("-"))
+                {
+                    _stopLoss = -1;
+                    NotifyOfPropertyChange(() => StopLoss);
+                }
             }
         }
         
