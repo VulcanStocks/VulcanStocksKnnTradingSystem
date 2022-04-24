@@ -11,37 +11,156 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="240"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <Border  
                 BorderThickness="1"
                 Height="385"
-                Width="440"
                 Grid.Row="0"
                 Grid.Column="0"
                 CornerRadius="15,15,15,15" 
                 Background="#272434"
+                Width="320"
                 >
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
 
-                   
-                    
+                    <Label 
+                            Foreground="#d6d9f4"
+                            HorizontalAlignment="Center" 
+                            Content="Config"
+                            VerticalAlignment="Top"
+                            FontSize="16"
+                            FontWeight="Bold"/>
+
+                    <StackPanel Margin="0,-5,0,5" Grid.Row = "1">
+
+                        <Label 
+                                FontWeight="Bold"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,-10,0,0"
+                                Content="Training"/>
+
+                        <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,-10,0,0"
+                                Content="Select strategy"/>
+
+
+
+                        <ComboBox
+                                    Grid.Column="0"
+                                    Width="120"
+                                    />
+
+                        <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Content="Enter KNN test radios"/>
+
+
+                        <TextBox
+                                Grid.Row="1"
+                                Width="40"
+                                x:Name="Target"
+                                />
+                        
+                        <Button 
+                                Foreground="#d6d9f4" 
+                                Background="#272434" 
+                                Width="80"
+                                Content="Train"
+                                Margin="5"/>
+
+
+
+
+
+
+
+
+
+
+                        <Label 
+                                FontWeight="Bold"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,10,0,0"
+                                Content="Demotrading"
+                            />
+
+                        <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Content="Enter account balance"/>
+                        
+                        
+
+
+                        <TextBox
+                                Width="120"
+                                Background="#272434"
+                                BorderBrush="#d6d9f4"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0,5,0,5"
+                                BorderThickness="3"
+                                />
+
+                        <Label 
+                                FontWeight="Light"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Content="Enter acceptable risk to reward ratio"/>
+
+
+
+
+
+                        <TextBox
+                                Width="120"
+                                Background="#272434"
+                                BorderBrush="#d6d9f4"
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0,5,0,5"
+                                BorderThickness="3"
+                                />
+
+
+                        <Button 
+                                Foreground="#d6d9f4" 
+                                Background="#272434" 
+                                Width="160"
+                                Content="Start trading"
+                                Margin="15"/>
+
+                    </StackPanel>
+
+
+
                 </Grid>
-
                 
-
+                
+                
             </Border>
 
             <Grid Grid.Column="1">
@@ -50,55 +169,90 @@
                 <Border  
                     BorderThickness="1"
                     Height="385"
-                    Width="200"
                     Grid.Column="1"
                     Grid.Row="0"
                     CornerRadius="15,15,15,15" 
-                    Background="#272434">
+                    Background="#272434"
+                    Width="320"
+                    >
 
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
+                            <RowDefinition Height="40"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <StackPanel>
-                            
-                            <Label 
-                                Foreground="#d6d9f4"
-                                HorizontalAlignment="Center" 
-                                Content="Training"
-                                VerticalAlignment="Top"
-                                FontSize="16"
-                                FontWeight="Bold"/>
+                        <Label 
+                            Foreground="#d6d9f4"
+                            HorizontalAlignment="Center" 
+                            Content="Results"
+                            VerticalAlignment="Top"
+                            FontSize="16"
+                            FontWeight="Bold"/>
 
-                                        
-                            
+                        <StackPanel Margin="0,-5,0,5" Grid.Row = "1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label 
+                                    FontWeight="Light"
+                                    Foreground="#d6d9f4"
+                                    Content="Initial balance amount"
+                                    HorizontalAlignment="Right"
+                                    Margin="5"/>
+
+                                <TextBox
+                                    Grid.Column="1"
+                                    Width="120"
+                                    Background="#272434"
+                                    BorderBrush="#d6d9f4"
+                                    Foreground="#d6d9f4"
+                                    VerticalAlignment="Center"
+                                    Margin="5"
+                                    BorderThickness="3"
+                                    HorizontalAlignment="Left"/>
+                                
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label 
+                                    FontWeight="Light"
+                                    Foreground="#d6d9f4"
+                                    Content="Current balance amount"
+                                    HorizontalAlignment="Right"
+                                    Margin="5"/>
+
+                                <TextBox
+                                    Grid.Column="1"
+                                    Width="120"
+                                    Background="#272434"
+                                    BorderBrush="#d6d9f4"
+                                    Foreground="#d6d9f4"
+                                    VerticalAlignment="Center"
+                                    Margin="5"
+                                    BorderThickness="3"
+                                    HorizontalAlignment="Left"/>
+
+                            </Grid>
+
+
                         </StackPanel>
 
-                        <StackPanel Grid.Row="1">
-                            
-                            <Label 
-                                Foreground="#d6d9f4"
-                                HorizontalAlignment="Center" 
-                                Content="Backtest setup"
-                                Grid.Row="1"
-                                VerticalAlignment="Top"
-                                FontSize="16"
-                                FontWeight="Bold"/>
-                            
-                        </StackPanel>
 
-                        
 
-                        
                     </Grid>
                     
-
-
                 </Border>
 
-                
+
             </Grid>
 
 
