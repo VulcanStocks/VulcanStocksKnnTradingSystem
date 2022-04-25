@@ -172,7 +172,9 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Strategies\\" + StrategyName + ".csv";
 
                 StreamWriter writer = new StreamWriter(path);
-
+                
+                writer.WriteLine("Target,Stoploss");
+                writer.WriteLine(Target + "," + StopLoss);
                 writer.WriteLine("Price,AxisX,AxisY,IsValid");
 
                 for (int i = 15; i < Strategy.GetLength(0) - 1; i++)
