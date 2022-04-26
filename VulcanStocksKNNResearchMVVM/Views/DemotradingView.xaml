@@ -150,7 +150,7 @@
                             <Label 
                                     FontWeight="Light"
                                     Foreground="#d6d9f4"
-                                    Content="Enter acceptable risk ratio"
+                                    Content="Enter risk acceptable ratio"
                                     HorizontalAlignment="Right"
                                     Margin="5"/>
 
@@ -163,7 +163,14 @@
                                     VerticalAlignment="Center"
                                     Margin="5"
                                     BorderThickness="3"
-                                    HorizontalAlignment="Left"/>
+                                    HorizontalAlignment="Left"
+                                    x:Name="RiskRation">
+                                <TextBox.ToolTip>
+                                    <ToolTip>
+                                        Apply decimal after numbers are typed
+                                    </ToolTip>
+                                </TextBox.ToolTip>
+                            </TextBox>
                         </Grid>
 
                         <Grid>
@@ -188,7 +195,10 @@
                                     VerticalAlignment="Center"
                                     Margin="5"
                                     BorderThickness="3"
-                                    HorizontalAlignment="Left"/>
+                                    HorizontalAlignment="Left">
+                                
+                            </TextBox>
+                            
                         </Grid>
 
                         <Grid>

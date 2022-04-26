@@ -16,6 +16,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private string _selectedStrategy;
         private int _knntestRadios = 25;
         private int _accountBalance = 10000;
+        private float _riskRation = 1.3f;
         public BindableCollection<String> StrategySelect
         {
             get { return _strategySelect; }
@@ -66,6 +67,28 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                     _accountBalance = 0;
                     NotifyOfPropertyChange(() => _accountBalance);
                 }
+
+            }
+        }
+
+        public string RiskRation
+        {
+            get { return _riskRation.ToString(); }
+            set
+            {
+
+                float x;
+                if (float.TryParse(value, out x))
+                {
+                    _riskRation = x;
+                    NotifyOfPropertyChange(() => RiskRation);
+                }
+                else if (value == "")
+                {
+                    _riskRation = 0;
+                    NotifyOfPropertyChange(() => RiskRation);
+                }
+                
 
             }
         }
