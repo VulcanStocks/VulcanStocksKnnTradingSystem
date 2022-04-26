@@ -175,7 +175,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 
                 writer.WriteLine("Target,Stoploss");
                 writer.WriteLine(Target + "," + StopLoss);
-                writer.WriteLine("Price,AxisX,AxisY,IsValid");
+                writer.WriteLine($"Price,{IndicatorsXselected},{IndicatorsYselected},IsValid");
 
                 for (int i = 15; i < Strategy.GetLength(0) - 1; i++)
                 {
