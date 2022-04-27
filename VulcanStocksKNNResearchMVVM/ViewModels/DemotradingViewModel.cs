@@ -16,7 +16,9 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private string _selectedStrategy;
         private int _knntestRadios = 25;
         private int _accountBalance = 10000;
-        private float _riskRation = 1.3f;
+        private string _riskRatioS = "1,3";
+        private float _riskRatio;
+        private int _capitalRisk;
         public BindableCollection<String> StrategySelect
         {
             get { return _strategySelect; }
@@ -60,38 +62,52 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 if (int.TryParse(value, out x))
                 {
                     _accountBalance = x;
-                    NotifyOfPropertyChange(() => _accountBalance);
-                }
-                else if (value == "")
-                {
-                    _accountBalance = 0;
-                    NotifyOfPropertyChange(() => _accountBalance);
-                }
-
-            }
-        }
-
-        public string RiskRation
-        {
-            get { return _riskRation.ToString(); }
-            set
-            {
-
-                float x;
-                if (float.TryParse(value, out x))
-                {
-                    _riskRation = x;
-                    NotifyOfPropertyChange(() => RiskRation);
-                }
-                else if (value == "")
-                {
-                    _riskRation = 0;
-                    NotifyOfPropertyChange(() => RiskRation);
+                    NotifyOfPropertyChange(() => AccountBalance);
                 }
                 
 
             }
         }
+
+        public string RiskRatio
+        {
+            get { return _riskRatioS.ToString(); }
+            set
+            {                
+                if(float.TryParse(value, out float x))
+                {
+                    _riskRatioS = value;
+                    NotifyOfPropertyChange(() => RiskRatio);
+                    _riskRatio = x;
+                }
+                else if (value == "")
+                {
+                    _riskRatioS = "0";
+                    NotifyOfPropertyChange(() => RiskRatio);
+                }
+
+
+            }
+        }
+
+        public string CapitalRisk
+        {
+            get { return _capitalRisk.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _capitalRisk = x;
+                    NotifyOfPropertyChange(() => CapitalRisk);
+                }
+
+
+            }
+        }
+
+        
+
 
     }
     

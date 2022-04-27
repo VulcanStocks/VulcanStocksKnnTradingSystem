@@ -110,7 +110,6 @@
                                 Foreground="#d6d9f4"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Top"
-                                Margin="0,10,0,0"
                                 Content="Demotrading"
                             />
 
@@ -164,7 +163,7 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    x:Name="RiskRation">
+                                    x:Name="RiskRatio">
                                 <TextBox.ToolTip>
                                     <ToolTip>
                                         Apply decimal after numbers are typed
@@ -195,10 +194,47 @@
                                     VerticalAlignment="Center"
                                     Margin="5"
                                     BorderThickness="3"
-                                    HorizontalAlignment="Left">
+                                    HorizontalAlignment="Left"
+                                    x:Name="CapitalRisk">
                                 
                             </TextBox>
                             
+                        </Grid>
+                        
+                        
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label 
+                                    FontWeight="Light"
+                                    Foreground="#d6d9f4"
+                                    Content="Statistical certainty"
+                                    HorizontalAlignment="Right"
+                                    Margin="5"/>
+
+                            <TextBox
+                                    Grid.Column="1"
+                                    Width="120"
+                                    Background="#272434"
+                                    BorderBrush="#d6d9f4"
+                                    Foreground="#d6d9f4"
+                                    VerticalAlignment="Center"
+                                    Margin="5"
+                                    BorderThickness="3"
+                                    HorizontalAlignment="Left">
+
+                                <TextBox.ToolTip>
+                                    <ToolTip>
+                                        Amount of data behind trade decision
+                                    </ToolTip>
+                                </TextBox.ToolTip>
+
+                            </TextBox>
+
                         </Grid>
 
                         <Grid>
@@ -232,7 +268,7 @@
                                 Background="#272434" 
                                 Width="160"
                                 Content="Start trading"
-                                Margin="0,20,0,0"/>
+                                Margin="0,10,0,0"/>
 
 
 
