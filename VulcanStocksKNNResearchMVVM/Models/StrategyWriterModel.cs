@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace VulcanStocksKNNResearchMVVM.Models
 {
-    public class StrategyWriter
+    public class StrategyWriterModel
     {
         private string Path;
         private string[][] DataSet;

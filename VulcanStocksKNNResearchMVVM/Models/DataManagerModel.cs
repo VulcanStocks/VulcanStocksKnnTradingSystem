@@ -8,7 +8,7 @@ using System.IO;
 
 namespace VulcanStocksKNNResearchMVVM.Models
 {
-    public class DataManager
+    public class DataManagerModel
     {
         string ticker;
       

@@ -14,8 +14,8 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
     public class HomePageViewModel : Screen
     {
         //objects
-        DataManager dataManager = new DataManager();
-        StrategyWriter strategyWriter = new StrategyWriter();
+        DataManagerModel dataManager = new DataManagerModel();
+        StrategyWriterModel strategyWriter = new StrategyWriterModel();
         //member variables
         private string _ticker;
         private BindableCollection<String> _stockData = new BindableCollection<String>();

@@ -225,7 +225,8 @@
                                     VerticalAlignment="Center"
                                     Margin="5"
                                     BorderThickness="3"
-                                    HorizontalAlignment="Left">
+                                    HorizontalAlignment="Left"
+                                    x:Name="StatisticalCertainty">
 
                                 <TextBox.ToolTip>
                                     <ToolTip>
@@ -255,7 +256,8 @@
                                     Width="120"
                                     Margin="5"
                                     HorizontalAlignment="Left"
-                                    />
+                                    x:Name="StockToTrade"
+                                    SelectedItem="{Binding Path=SelectedStockToTrade, Mode=TwoWay}"/>
 
 
                         </Grid>

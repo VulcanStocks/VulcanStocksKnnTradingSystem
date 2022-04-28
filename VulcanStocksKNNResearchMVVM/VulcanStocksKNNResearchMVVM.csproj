@@ -101,10 +101,10 @@
     <Compile Include="Indicators\RSI.cs" />
     <Compile Include="Indicators\ADJ_VOLUME.cs" />
     <Compile Include="Indicators\VWAP.cs" />
-    <Compile Include="Models\DataManager.cs" />
+    <Compile Include="Models\DataManagerModel.cs" />
     <Compile Include="Models\DatasetModel.cs" />
     <Compile Include="Models\StrategyModel.cs" />
-    <Compile Include="Models\StrategyWriter.cs" />
+    <Compile Include="Models\StrategyWriterModel.cs" />
     <Compile Include="ViewModels\FbeViewModel .cs" />
     <Compile Include="ViewModels\DemotradingViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />

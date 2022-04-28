@@ -10,29 +10,47 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 {
     public class DemotradingViewModel : Screen
     {
-        DataManager dataManager = new DataManager();
+        DataManagerModel dataManager = new DataManagerModel();
 
         private BindableCollection<String> _strategySelect = new BindableCollection<String>();
+        private BindableCollection<String> _stockToTrade = new BindableCollection<String>();        
         private string _selectedStrategy;
+        private string _selectedStockToTrade;
+        private string _riskRatioS = "1,3";
         private int _knntestRadios = 25;
         private int _accountBalance = 10000;
-        private string _riskRatioS = "1,3";
         private float _riskRatio;
-        private int _capitalRisk;
+        private int _capitalRisk; 
+        private int _statisticalCertainty; 
+        
         public BindableCollection<String> StrategySelect
         {
             get { return _strategySelect; }
             set { _strategySelect = value; }
         }
 
-        public string SelectedStrategy
+        public BindableCollection<String> StockToTrade
         {
-            get { return _selectedStrategy; }
-            set { _selectedStrategy = value;
-                NotifyOfPropertyChange(() => SelectedStrategy);
+            get { return _stockToTrade; }
+            set { _stockToTrade = value; }
+        }
+        public string SelectedStockToTrade
+        {
+            get { return _selectedStockToTrade; }
+            set { _selectedStockToTrade = value;
+                NotifyOfPropertyChange(() => SelectedStockToTrade);
             }
         }
 
+        public string SelectedStrategy
+        {
+            get { return _selectedStrategy; }
+            set
+            {
+                _selectedStrategy = value;
+                NotifyOfPropertyChange(() => SelectedStrategy);
+            }
+        }
         public string KnntestRadios
         {
             get { return _knntestRadios.ToString(); }
@@ -64,8 +82,6 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                     _accountBalance = x;
                     NotifyOfPropertyChange(() => AccountBalance);
                 }
-                
-
             }
         }
 
@@ -105,10 +121,19 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
             }
         }
-
         
-
-
-    }
-    
+        public string StatisticalCertainty
+        {
+            get { return _statisticalCertainty.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _statisticalCertainty = x;
+                    NotifyOfPropertyChange(() => StatisticalCertainty);
+                }
+            }
+        }
+    }    
 }
