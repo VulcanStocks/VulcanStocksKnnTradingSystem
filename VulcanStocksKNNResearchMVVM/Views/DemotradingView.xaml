@@ -270,7 +270,8 @@
                                 Background="#272434" 
                                 Width="160"
                                 Content="Start trading"
-                                Margin="0,10,0,0"/>
+                                Margin="0,10,0,0"
+                                x:Name="StartTrading"/>
 
 
 

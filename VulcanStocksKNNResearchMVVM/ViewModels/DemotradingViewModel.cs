@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using VulcanStocksKNNResearchMVVM.Models;
 using System.Threading.Tasks;
+using System.IO;
 using Caliburn.Micro;
 
 namespace VulcanStocksKNNResearchMVVM.ViewModels
@@ -22,7 +23,13 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private float _riskRatio;
         private int _capitalRisk; 
         private int _statisticalCertainty; 
-        
+
+        public DemotradingViewModel()
+        {
+            LoadStockdata(dataManager.ReadDownloadedFiles());
+            LoadStrategySelect(dataManager.ReadStrategySelect());
+        }
+
         public BindableCollection<String> StrategySelect
         {
             get { return _strategySelect; }
@@ -41,7 +48,6 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 NotifyOfPropertyChange(() => SelectedStockToTrade);
             }
         }
-
         public string SelectedStrategy
         {
             get { return _selectedStrategy; }
@@ -133,6 +139,29 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                     _statisticalCertainty = x;
                     NotifyOfPropertyChange(() => StatisticalCertainty);
                 }
+            }
+        }
+
+        private void StartTrading()
+        {
+            
+        }
+        
+        private void LoadStockdata(FileInfo[] Finfo)
+        {
+            StockToTrade.Clear();
+            foreach (var item in Finfo)
+            {
+                StockToTrade.Add(item.ToString());
+            }
+        }
+
+        private void LoadStrategySelect(FileInfo[] Finfo)
+        {
+            StrategySelect.Clear();
+            foreach (var item in Finfo)
+            {
+                StrategySelect.Add(item.ToString());
             }
         }
     }    
