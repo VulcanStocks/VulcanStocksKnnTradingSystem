@@ -94,7 +94,8 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    x:Name="KnntestRadios"/>
+                                    x:Name="KnntestRadios"
+                                    />
 
 
                         </Grid>

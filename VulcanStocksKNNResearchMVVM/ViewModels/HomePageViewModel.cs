@@ -203,7 +203,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 int.Parse(Target), 
                 StrategyName,
                 IndicatorsXselected,
-                IndicatorsYselected);
+                IndicatorsYselected, false);
         }
 
 

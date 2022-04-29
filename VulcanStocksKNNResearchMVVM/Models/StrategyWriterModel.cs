@@ -24,7 +24,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
 
 
-        public void Write(string ticker, int StopLoss, int target, string StrategyName, string IndicatorsXselected, string IndicatorsYselected)
+        public void Write(string ticker, int StopLoss, int target, string StrategyName, string IndicatorsXselected, string IndicatorsYselected, bool IsForDemotrading)
         {
             if(ticker.Contains(".csv"))
             {
@@ -45,6 +45,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             Setup();
             FillStrategy();
             WriteStrategy();
+           
 
         }
 

@@ -10,5 +10,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
     {
         public float Close { get; set; }
         public float Volume { get; set; }
+
+        
     }
 }
