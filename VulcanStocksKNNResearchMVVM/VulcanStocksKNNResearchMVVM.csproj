@@ -103,6 +103,7 @@
     <Compile Include="Indicators\VWAP.cs" />
     <Compile Include="Models\DataManagerModel.cs" />
     <Compile Include="Models\DatasetModel.cs" />
+    <Compile Include="Models\DemotradingMainModel.cs" />
     <Compile Include="Models\StrategyModel.cs" />
     <Compile Include="Models\StrategyWriterModel.cs" />
     <Compile Include="ViewModels\FbeViewModel .cs" />
