@@ -12,6 +12,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
     public class DemotradingViewModel : Screen
     {
         DataManagerModel dataManager = new DataManagerModel();
+        DemotradingMainModel trader = new DemotradingMainModel();
 
         private BindableCollection<String> _strategySelect = new BindableCollection<String>();
         private BindableCollection<String> _stockToTrade = new BindableCollection<String>();        
@@ -144,7 +145,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         private void StartTrading()
         {
-            
+            trader.Run(SelectedStrategy, SelectedStockToTrade);
         }
         
         private void LoadStockdata(FileInfo[] Finfo)

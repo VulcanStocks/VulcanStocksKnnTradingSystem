@@ -15,20 +15,13 @@ namespace VulcanStocksKNNResearchMVVM.Models
         string downloadURL;
 
 
-        public bool DownloadStockData(string ticker)
+        public void DownloadStockData(string ticker)
         {
             this.ticker = ticker;
             downloadURL = "https://query1.finance.yahoo.com/v7/finance/download/" + ticker + "?period1=345427200&period2=1649548800&interval=1d&events=history&includeAdjustedClose=true";
             WebClient client = new WebClient();
-            try
-            {
-                client.DownloadFile(downloadURL, Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + ticker + ".csv");
-            }
-            catch (Exception)  
-            {
-                return false;
-            }
-            return true;
+            
+            client.DownloadFile(downloadURL, Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + ticker + ".csv");   
         }
 
         public FileInfo[] ReadDownloadedFiles()

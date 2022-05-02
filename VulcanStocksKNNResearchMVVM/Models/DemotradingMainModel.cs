@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
+using VulcanStocksKNNResearchMVVM.Models;
 
 namespace VulcanStocksKNNResearchMVVM.Models
 {
@@ -12,12 +14,24 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private string StrategyPath { get; set; }
         private string[] TargetStoploss { get; set; }
         private string[] Columns { get; set; }
+        private string Ticker { get; set; }
 
         List<StrategyModel> StrategyList = new List<StrategyModel>();
+        List<StrategyModel> TradedStockList = new List<StrategyModel>();
+         
 
-        public void Run(string strategyPath)
+        public void Run(string strategyPath, string ticker)
         {
+            Ticker = ticker;
             StrategyPath = strategyPath;
+            try
+            {
+                ImportStrategy();
+            }
+            catch (System.Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         private void ImportStrategy()
@@ -59,9 +73,15 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 }
                 else
                 {
-                    StrategyList.Add(new StrategyModel{ Price = float.Parse(DataSet[i][0]), IndicatorsXselected = DataSet[i][1], IndicatorsYselected = DataSet[i][2], IsValid = bool.Parse(DataSet[i][3]) });
+                    StrategyList.Add(new StrategyModel{ Price = float.Parse(DataSet[i][0]), IndicatorsXselected = float.Parse( DataSet[i][1]), IndicatorsYselected = float.Parse(DataSet[i][2]), IsValid = bool.Parse(DataSet[i][3])});
                 }
             }
+        }
+
+        private void LoadTradedStockList()
+        {
+            TradedStockStrategyWriterModel writer = new TradedStockStrategyWriterModel();
+            TradedStockList = writer.Get(Ticker, int.Parse(TargetStoploss[0]),int.Parse(TargetStoploss[1]), "", Columns[1], Columns[2]);
         }
     }
 }

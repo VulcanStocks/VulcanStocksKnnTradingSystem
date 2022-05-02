@@ -9,8 +9,8 @@ namespace VulcanStocksKNNResearchMVVM.Models
     public class StrategyModel
     {
         public float Price { get; set; }
-        public string IndicatorsXselected { get; set; }
-        public string IndicatorsYselected { get; set; }
+        public float IndicatorsXselected { get; set; }
+        public float IndicatorsYselected { get; set; }
         public bool IsValid { get; set; }
     }
 }

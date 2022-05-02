@@ -153,16 +153,19 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         //functions
         public void BTImport()
         {
-            if(dataManager.DownloadStockData(Ticker))
+            try
             {
+                dataManager.DownloadStockData(Ticker);
+            
                 LoadStockdata(dataManager.ReadDownloadedFiles());
                 string item = Ticker + ".csv";
                 SelectedStock = item;
             }
-            else
+            catch (System.Exception e)
             {
-                MessageBox.Show("Invalid ticker");
+                MessageBox.Show(e.Message);
             }
+            
             
         }
 

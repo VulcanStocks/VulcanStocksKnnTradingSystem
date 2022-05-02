@@ -11,20 +11,21 @@ namespace VulcanStocksKNNResearchMVVM.Models
 {
     public class StrategyWriterModel
     {
-        private string Path;
-        private string[][] DataSet;
-        private string[] Data { get; set; }
-        private string Ticker { get; set; }
-        public string[,] Strategy { get; set; }
-        private int StopLoss { get; set; }
-        private int Target { get; set; }
-        private string IndicatorsXselected { get; set; }
-        private string IndicatorsYselected { get; set; }
-        private string StrategyName { get; set; }
+        internal string Path;
+
+        internal string[][] DataSet;
+        internal string[] Data { get; set; }
+        internal string Ticker { get; set; }
+        internal string[,] Strategy { get; set; }
+        internal int StopLoss { get; set; }
+        internal int Target { get; set; }
+        internal string IndicatorsXselected { get; set; }
+        internal string IndicatorsYselected { get; set; }
+        internal string StrategyName { get; set; }
 
 
 
-        public void Write(string ticker, int StopLoss, int target, string StrategyName, string IndicatorsXselected, string IndicatorsYselected, bool IsForDemotrading)
+        public virtual void Write(string ticker, int StopLoss, int target, string StrategyName, string IndicatorsXselected, string IndicatorsYselected)
         {
             if(ticker.Contains(".csv"))
             {
@@ -49,7 +50,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
         }
 
-        private void Setup()
+        internal void Setup()
         {
             Data = File.ReadAllLines(Path);
 
@@ -65,7 +66,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 }
             }
         }
-        private void FillStrategy()
+        internal void FillStrategy()
         {
             float[] price = new float[Data.Length];
             float[] volume = new float[Data.Length];
@@ -87,7 +88,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             }
         }
 
-        private float?[] GetAxisValue(float[] price, float[] volume, string axisItem)
+        internal float?[] GetAxisValue(float[] price, float[] volume, string axisItem)
         {
             if (axisItem == "RSI.cs")
             {
@@ -115,7 +116,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             }
         }
 
-        private float[] GetPriceArray()
+        internal float[] GetPriceArray()
         {
             // return price array
             float[] priceArray = new float[Data.Length];
@@ -128,7 +129,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             return priceArray;
         }
 
-        private float[] GetVolumeArray()
+        internal float[] GetVolumeArray()
         {
             // returns an array of volume values
             float[] volumeArray = new float[Data.Length];
@@ -141,7 +142,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             return volumeArray;
         }
 
-        private bool CheckIfValid(int i, float price)
+        internal bool CheckIfValid(int i, float price)
         {
             // Check if price is higher than target or lower than stoploss
             while(true)
@@ -165,7 +166,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             
         }
 
-        private void WriteStrategy()
+        internal virtual void WriteStrategy()
         {
             //write strategy into csv matrix 
             try
