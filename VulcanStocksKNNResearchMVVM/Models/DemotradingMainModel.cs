@@ -83,6 +83,11 @@ namespace VulcanStocksKNNResearchMVVM.Models
             TradedStockStrategyWriterModel writer = new TradedStockStrategyWriterModel();
             TradedStockList = writer.Get(Ticker, int.Parse(TargetStoploss[0]),int.Parse(TargetStoploss[1]), "", Columns[1], Columns[2]);
         }
+
+        private void FindbestEntries()
+        {
+
+        }
     }
 }
 
