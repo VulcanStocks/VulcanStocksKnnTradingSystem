@@ -143,7 +143,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             }
         }
 
-        private void StartTrading()
+        private void StartTraining()
         {
             trader.Run(SelectedStrategy, SelectedStockToTrade);
         }

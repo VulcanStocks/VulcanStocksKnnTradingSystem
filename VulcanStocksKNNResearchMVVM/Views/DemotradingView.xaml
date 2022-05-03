@@ -263,16 +263,29 @@
 
                         </Grid>
 
-
-
-
-                        <Button 
+                        <Grid Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Button 
                                 Foreground="#d6d9f4" 
                                 Background="#272434" 
-                                Width="160"
+                                Width="120"
+                                Content="Start training"
+                                x:Name="StartTraining"/>
+
+                            <Button 
+                                Grid.Column="1"
+                                Foreground="#d6d9f4" 
+                                Background="#272434" 
+                                Width="120"
                                 Content="Start trading"
-                                Margin="0,10,0,0"
                                 x:Name="StartTrading"/>
+                        </Grid>
+
+                        
 
 
 
