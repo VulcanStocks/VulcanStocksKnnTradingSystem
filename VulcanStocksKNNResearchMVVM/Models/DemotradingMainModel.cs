@@ -16,10 +16,9 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private string[] Columns { get; set; }
         private string Ticker { get; set; }
 
-        List<BestEntryListModel> bestEntries  = new List<BestEntryListModel>();
         List<StrategyModel> StrategyList = new List<StrategyModel>();
         List<StrategyModel> TradedStockList = new List<StrategyModel>();
-         
+
 
         public void Run(string strategyPath, string ticker)
         {
@@ -91,7 +90,3 @@ namespace VulcanStocksKNNResearchMVVM.Models
         }
     }
 }
-
-
-        
-            

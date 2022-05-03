@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VulcanStocksKNNResearchMVVM.Models
 {
-    public class KNNalgo
+    public class KNNalgoModel
     {
     }
 }
