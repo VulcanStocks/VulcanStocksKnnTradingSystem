@@ -86,7 +86,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
         private void FindbestEntries()
         {
-
+            KNNalgoModel knn = new KNNalgoModel();
         }
     }
 }

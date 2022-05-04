@@ -8,5 +8,6 @@ namespace VulcanStocksKNNResearchMVVM.Models
 {
     public class KNNalgoModel
     {
+        
     }
 }
