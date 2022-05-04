@@ -145,7 +145,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         private void StartTraining()
         {
-            trader.Run(SelectedStrategy, SelectedStockToTrade);
+            trader.Run(SelectedStrategy, SelectedStockToTrade, int.Parse(KnntestRadios));
         }
         
         private void LoadStockdata(FileInfo[] Finfo)

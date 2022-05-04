@@ -15,13 +15,16 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private string[] TargetStoploss { get; set; }
         private string[] Columns { get; set; }
         private string Ticker { get; set; }
+        private int KnnTestRatio { get; set; }
 
         List<StrategyModel> StrategyList = new List<StrategyModel>();
         List<StrategyModel> TradedStockList = new List<StrategyModel>();
+        List<TestedDataModel> TestedStockList = new List<TestedDataModel>();
 
 
-        public void Run(string strategyPath, string ticker)
+        public void Run(string strategyPath, string ticker, int KnnTestRatio)
         {
+            this.KnnTestRatio = KnnTestRatio;
             Ticker = ticker;
             StrategyPath = strategyPath;
             try
@@ -95,7 +98,8 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
         private void FindbestEntries()
         {
-            KNNalgoModel knn = new KNNalgoModel();
+            KnnAlgoModel knn = new KnnAlgoModel();
+            TestedStockList = knn.GetValues(StrategyList, KnnTestRatio);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
         public int TotalTrue { get; set; }
         public int TotalFalse { get; set; }
         public float RiskRatio { get; set; }
-        public float IndicatorsX { get; set; }
-        public float IndicatorsY { get; set; }
+        public float IndicatorX { get; set; }
+        public float IndicatorY { get; set; }
     }
 }
