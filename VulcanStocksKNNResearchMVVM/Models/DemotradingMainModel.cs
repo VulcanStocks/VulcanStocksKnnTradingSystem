@@ -73,7 +73,16 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 }
                 else
                 {
-                    StrategyList.Add(new StrategyModel{ Price = float.Parse(DataSet[i][0]), IndicatorsXselected = float.Parse( DataSet[i][1]), IndicatorsYselected = float.Parse(DataSet[i][2]), IsValid = bool.Parse(DataSet[i][3])});
+                    try
+                    {
+                        StrategyList.Add(new StrategyModel{ Price = float.Parse(DataSet[i][0]), IndicatorsXselected = float.Parse( DataSet[i][1]), IndicatorsYselected = float.Parse(DataSet[i][2]), IsValid = bool.Parse(DataSet[i][3])});
+                    }
+                    catch (System.Exception)
+                    {
+                        MessageBox.Show("Error in line " + i + " of the strategy file");
+                        StrategyList.Add(new StrategyModel{ Price = 0, IndicatorsXselected = -100, IndicatorsYselected = -100, IsValid = false});
+                    }
+                    
                 }
             }
         }

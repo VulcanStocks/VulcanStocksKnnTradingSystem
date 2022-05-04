@@ -106,6 +106,7 @@
     <Compile Include="Models\KNNalgoModel.cs" />
     <Compile Include="Models\StrategyModel.cs" />
     <Compile Include="Models\StrategyWriterModel.cs" />
+    <Compile Include="Models\TestedDataModel.cs" />
     <Compile Include="Models\TradedStockStrategyWriterModel.cs" />
     <Compile Include="ViewModels\FbeViewModel .cs" />
     <Compile Include="ViewModels\DemotradingViewModel.cs" />
