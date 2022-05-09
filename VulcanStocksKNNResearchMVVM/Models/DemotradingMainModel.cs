@@ -12,24 +12,35 @@ namespace VulcanStocksKNNResearchMVVM.Models
     public class DemotradingMainModel
     {
         private string StrategyPath { get; set; }
-        private string[] TargetStoploss { get; set; }
+        private string[] TargetStoploss { get; set; } 
         private string[] Columns { get; set; }
         private string Ticker { get; set; }
         private int KnnTestRatio { get; set; }
+        private int AccountBalance { get; set; }
+        private float RiskRatio { get; set; }
+        private int CapitalRisk { get; set; }
+        private int StatisticalCertainty { get; set; }
 
         List<StrategyModel> StrategyList = new List<StrategyModel>();
         List<StrategyModel> TradedStockList = new List<StrategyModel>();
         List<TestedDataModel> TestedStockList = new List<TestedDataModel>();
 
 
-        public void Run(string strategyPath, string ticker, int KnnTestRatio)
+        public void Run(string StrategyPath, string Ticker, int KnnTestRatio, int AccountBalance, float RiskRatio, int CapitalRisk, int StatisticalCertainty)
         {
+            
             this.KnnTestRatio = KnnTestRatio;
-            Ticker = ticker;
-            StrategyPath = strategyPath;
+            this.Ticker = Ticker;
+            this.StrategyPath = StrategyPath;
+            this.AccountBalance = AccountBalance;
+            this.RiskRatio = RiskRatio;
+            this.CapitalRisk = CapitalRisk;
+            this.StatisticalCertainty = StatisticalCertainty;
+            
             try
             {
                 ImportStrategy();
+                FindbestEntries();
             }
             catch (System.Exception e)
             {
@@ -76,16 +87,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 }
                 else
                 {
-                    try
-                    {
-                        StrategyList.Add(new StrategyModel{ Price = float.Parse(DataSet[i][0]), IndicatorsXselected = float.Parse( DataSet[i][1]), IndicatorsYselected = float.Parse(DataSet[i][2]), IsValid = bool.Parse(DataSet[i][3])});
-                    }
-                    catch (System.Exception)
-                    {
-                        MessageBox.Show("Error in line " + i + " of the strategy file");
-                        StrategyList.Add(new StrategyModel{ Price = 0, IndicatorsXselected = -100, IndicatorsYselected = -100, IsValid = false});
-                    }
-                    
+                    StrategyList.Add(new StrategyModel { Price = float.Parse(DataSet[i][0]), IndicatorsXselected = float.Parse(DataSet[i][1]), IndicatorsYselected = float.Parse(DataSet[i][2]), IsValid = bool.Parse(DataSet[i][3])});
                 }
             }
         }
@@ -99,7 +101,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private void FindbestEntries()
         {
             KnnAlgoModel knn = new KnnAlgoModel();
-            TestedStockList = knn.GetValues(StrategyList, KnnTestRatio);
+            TestedStockList = knn.GetValues(StrategyList, KnnTestRatio, StatisticalCertainty, RiskRatio);
         }
     }
 }

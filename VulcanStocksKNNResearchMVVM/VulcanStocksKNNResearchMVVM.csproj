@@ -102,8 +102,9 @@
     <Compile Include="Indicators\ADJ_VOLUME.cs" />
     <Compile Include="Indicators\VWAP.cs" />
     <Compile Include="Models\DataManagerModel.cs" />
+    <Compile Include="Models\Demotrader.cs" />
     <Compile Include="Models\DemotradingMainModel.cs" />
-    <Compile Include="Models\KNNalgoModel.cs" />
+    <Compile Include="Models\KnnAlgoModel.cs" />
     <Compile Include="Models\StrategyModel.cs" />
     <Compile Include="Models\StrategyWriterModel.cs" />
     <Compile Include="Models\TestedDataModel.cs" />

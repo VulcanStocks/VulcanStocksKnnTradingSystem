@@ -10,12 +10,16 @@ namespace VulcanStocksKNNResearchMVVM.Models
     public class KnnAlgoModel
     {
         public int KnnTestRatio { get; set; }
+        public int Certainty { get; set; }
+        public float AcceptedRiskRatio { get; set; }
         List<TestedDataModel> TestedDataList = new List<TestedDataModel>();
         List<StrategyModel> StrategyList = new List<StrategyModel>();
-        public List<TestedDataModel> GetValues(List<StrategyModel> strategyList, int KnnTestRatio)
+        public List<TestedDataModel> GetValues(List<StrategyModel> strategyList, int KnnTestRatio, int Certainty, float AcceptedRiskRatio)
         {
             this.KnnTestRatio = KnnTestRatio;
             this.StrategyList = strategyList;
+            this.Certainty = Certainty;
+            this.AcceptedRiskRatio = AcceptedRiskRatio;
             TestedDataList.Clear();
             for (int IndicatorX = 0; IndicatorX < 100; IndicatorX++)
             {
@@ -24,7 +28,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                     TestedDataList.Add(TestKNN(IndicatorX, IndicatorY));
                 }
             }
-            return SortTestedDataList(TestedDataList);
+            return GetAcceptedValues(TestedDataList);
         }
 
         public TestedDataModel TestKNN(int IndicatorX, int IndicatorY)
@@ -59,15 +63,18 @@ namespace VulcanStocksKNNResearchMVVM.Models
             return temp;
         }
 
-        private List<TestedDataModel> SortTestedDataList(List<TestedDataModel> TestedDataList)
+        private List<TestedDataModel> GetAcceptedValues (List<TestedDataModel> TestedDataList)
         {
-            List<TestedDataModel> SortedList = new List<TestedDataModel>();
-            for (int i = 0; i < TestedDataList.Count; i++)
+            List<TestedDataModel> AcceptedValues = new List<TestedDataModel>();
+
+            foreach (var item in TestedDataList)
             {
-                SortedList.Add(TestedDataList.Min());
-                TestedDataList.Remove(TestedDataList.Min());
+                if(item.RiskRatio >= AcceptedRiskRatio && item.Total >= Certainty)
+                {
+                    AcceptedValues.Add(item);
+                }
             }
-            return SortedList;
+            return AcceptedValues;
         }
     }
 }
