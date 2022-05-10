@@ -268,7 +268,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            
+
                             <Button 
                                 Foreground="#d6d9f4" 
                                 Background="#272434" 
@@ -284,12 +284,6 @@
                                 Content="Start trading"
                                 x:Name="StartTrading"/>
                         </Grid>
-
-                        
-
-
-
-
 
                     </StackPanel>
 

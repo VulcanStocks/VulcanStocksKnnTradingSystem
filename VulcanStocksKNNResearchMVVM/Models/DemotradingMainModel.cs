@@ -21,12 +21,16 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private int CapitalRisk { get; set; }
         private int StatisticalCertainty { get; set; }
 
+        private bool IsTrained = false;
+
+
         List<StrategyModel> StrategyList = new List<StrategyModel>();
         List<StrategyModel> TradedStockList = new List<StrategyModel>();
         List<TestedDataModel> TestedStockList = new List<TestedDataModel>();
 
 
-        public void Run(string StrategyPath, string Ticker, int KnnTestRatio, int AccountBalance, float RiskRatio, int CapitalRisk, int StatisticalCertainty)
+
+        public void Train(string StrategyPath, string Ticker, int KnnTestRatio, int AccountBalance, float RiskRatio, int CapitalRisk, int StatisticalCertainty)
         {
             
             this.KnnTestRatio = KnnTestRatio;
@@ -41,11 +45,24 @@ namespace VulcanStocksKNNResearchMVVM.Models
             {
                 ImportStrategy();
                 FindbestEntries();
+                IsTrained = true;
             }
             catch (System.Exception e)
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        public void Run()
+        {
+            if(IsTrained)
+            {
+                Demotrader demotrader = new Demotrader(TradedStockList, TestedStockList);
+            }
+            else {
+                MessageBox.Show("Please train the model first");
+            }
+
         }
 
         private void ImportStrategy()

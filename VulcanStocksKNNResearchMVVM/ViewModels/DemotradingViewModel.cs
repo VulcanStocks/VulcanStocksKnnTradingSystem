@@ -142,12 +142,18 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 }
             }
         }
-
+        
+        
         private void StartTraining()
         {
-            trader.Run(SelectedStrategy, SelectedStockToTrade, int.Parse(KnntestRadios), int.Parse(AccountBalance), _riskRatio, _capitalRisk, _statisticalCertainty);
+            trader.Train(SelectedStrategy, SelectedStockToTrade, int.Parse(KnntestRadios), int.Parse(AccountBalance), _riskRatio, _capitalRisk, _statisticalCertainty);
         }
-        
+
+        private void StartTrading()
+        {
+            trader.Run();
+        }
+
         private void LoadStockdata(FileInfo[] Finfo)
         {
             StockToTrade.Clear();
