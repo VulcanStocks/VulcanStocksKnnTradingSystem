@@ -25,6 +25,20 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private int _capitalRisk; 
         private int _statisticalCertainty; 
 
+        //results
+        private int _totalDaysTraded; 
+        private int _winningsLosses; 
+        private int _totalWinnings; 
+        private int _totalLosses; 
+        private int _tradesTaken; 
+        private int _totalPercentageGain; 
+        private int _profit;
+        private int _currentBalanceAmount;
+        private int _initialBalanceAmount;
+
+
+
+
         public DemotradingViewModel()
         {
             LoadStockdata(dataManager.ReadDownloadedFiles());
@@ -77,6 +91,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
             }
         }
+        
 
         public string AccountBalance
         {
@@ -142,8 +157,190 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 }
             }
         }
-        
-        
+
+        public string TotalDaysTraded
+        {
+            get { return _totalDaysTraded.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _totalDaysTraded = x;
+                    NotifyOfPropertyChange(() => TotalDaysTraded);
+                }
+                else if (value == "")
+                {
+                    _totalDaysTraded = 0;
+                    NotifyOfPropertyChange(() => TotalDaysTraded);
+                }
+
+            }
+        }
+
+        public string WinningsLosses
+        {
+            get { return _winningsLosses.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _winningsLosses = x;
+                    NotifyOfPropertyChange(() => WinningsLosses);
+                }
+                else if (value == "")
+                {
+                    _winningsLosses = 0;
+                    NotifyOfPropertyChange(() => WinningsLosses);
+                }
+
+            }
+        }
+
+        public string TotalWinnings
+        {
+            get { return _totalWinnings.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _totalWinnings = x;
+                    NotifyOfPropertyChange(() => TotalWinnings);
+                }
+                else if (value == "")
+                {
+                    _totalWinnings = 0;
+                    NotifyOfPropertyChange(() => TotalWinnings);
+                }
+
+            }
+        }
+
+
+        public string TotalLosses
+        {
+            get { return _totalLosses.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _totalLosses = x;
+                    NotifyOfPropertyChange(() => TotalLosses);
+                }
+                else if (value == "")
+                {
+                    _totalLosses = 0;
+                    NotifyOfPropertyChange(() => TotalLosses);
+                }
+
+            }
+        }
+
+        public string TradesTaken
+        {
+            get { return _tradesTaken.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _tradesTaken = x;
+                    NotifyOfPropertyChange(() => TradesTaken);
+                }
+                else if (value == "")
+                {
+                    _tradesTaken = 0;
+                    NotifyOfPropertyChange(() => TradesTaken);
+                }
+
+            }
+        }
+        public string TotalPercentageGain
+        {
+            get { return _totalPercentageGain.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _totalPercentageGain = x;
+                    NotifyOfPropertyChange(() => TotalPercentageGain);
+                }
+                else if (value == "")
+                {
+                    _totalPercentageGain = 0;
+                    NotifyOfPropertyChange(() => TotalPercentageGain);
+                }
+
+            }
+        }
+
+        public string Profit
+        {
+            get { return _profit.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _profit = x;
+                    NotifyOfPropertyChange(() => Profit);
+                }
+                else if (value == "")
+                {
+                    _profit = 0;
+                    NotifyOfPropertyChange(() => Profit);
+                }
+
+            }
+        }
+
+
+        public string CurrentBalanceAmount
+        {
+            get { return _currentBalanceAmount.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _currentBalanceAmount = x;
+                    NotifyOfPropertyChange(() => CurrentBalanceAmount);
+                }
+                else if (value == "")
+                {
+                    _currentBalanceAmount = 0;
+                    NotifyOfPropertyChange(() => CurrentBalanceAmount);
+                }
+
+            }
+        }
+
+        public string InitialBalanceAmount
+        {
+            get { return _initialBalanceAmount.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _initialBalanceAmount = x;
+                    NotifyOfPropertyChange(() => InitialBalanceAmount);
+                }
+                else if (value == "")
+                {
+                    _initialBalanceAmount = 0;
+                    NotifyOfPropertyChange(() => InitialBalanceAmount);
+                }
+
+            }
+        }
+
+
+
         private void StartTraining()
         {
             trader.Train(SelectedStrategy, SelectedStockToTrade, int.Parse(KnntestRadios), int.Parse(AccountBalance), _riskRatio, _capitalRisk, _statisticalCertainty);

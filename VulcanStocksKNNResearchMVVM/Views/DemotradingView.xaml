@@ -346,7 +346,8 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    IsReadOnly="True"/>
+                                    IsReadOnly="True"
+                                    x:Name="InitialBalanceAmount"/>
                                 
                                 
                                 
@@ -375,7 +376,8 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    IsReadOnly="True"/>
+                                    IsReadOnly="True"
+                                    x:Name="CurrentBalanceAmount"/>
 
                             </Grid>
 
@@ -402,7 +404,8 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    IsReadOnly="True"/>
+                                    IsReadOnly="True"
+                                    x:Name="Profit"/>
 
                             </Grid>
 
@@ -429,7 +432,8 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    IsReadOnly="True"/>
+                                    IsReadOnly="True"
+                                    x:Name="TotalPercentageGain"/>
 
                             </Grid>
 
@@ -456,7 +460,8 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    IsReadOnly="True"/>
+                                    IsReadOnly="True"
+                                    x:Name="TradesTaken"/>
 
                             </Grid>
 
@@ -483,7 +488,8 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    IsReadOnly="True"/>
+                                    IsReadOnly="True"
+                                    x:Name="TotalLosses"/>
 
                             </Grid>
 
@@ -496,7 +502,7 @@
                                 <Label 
                                     FontWeight="Light"
                                     Foreground="#d6d9f4"
-                                    Content="Total winnings "
+                                    Content="Total winnings"
                                     HorizontalAlignment="Right"
                                     Margin="5"/>
 
@@ -510,7 +516,8 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    IsReadOnly="True"/>
+                                    IsReadOnly="True"
+                                    x:Name="TotalWinnings"/>
 
                             </Grid>
 
@@ -537,7 +544,8 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    IsReadOnly="True"/>
+                                    IsReadOnly="True"
+                                    x:Name="WinningsLosses"/>
 
                             </Grid>
 
@@ -564,7 +572,8 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    IsReadOnly="True"/>
+                                    IsReadOnly="True"
+                                    x:Name="TotalDaysTraded"/>
 
                             </Grid>
 
