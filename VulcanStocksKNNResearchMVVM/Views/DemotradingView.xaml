@@ -283,6 +283,7 @@
                                 Width="120"
                                 Content="Start trading"
                                 x:Name="StartTrading"/>
+                            
                         </Grid>
 
                     </StackPanel>

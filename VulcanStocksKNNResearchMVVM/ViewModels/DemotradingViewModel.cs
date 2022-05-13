@@ -341,13 +341,14 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
 
 
-        private void StartTraining()
+        public void StartTraining()
         {
             trader.Train(SelectedStrategy, SelectedStockToTrade, int.Parse(KnntestRadios), int.Parse(AccountBalance), _riskRatio, _capitalRisk, _statisticalCertainty);
         }
 
-        private void StartTrading()
+        public void StartTrading()
         {
+
             (
                 _totalDaysTraded, 
                 _winningsLosses, 
@@ -368,6 +369,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             NotifyOfPropertyChange(() => Profit);
             NotifyOfPropertyChange(() => CurrentBalanceAmount);
             NotifyOfPropertyChange(() => InitialBalanceAmount);
+
             
         }
 

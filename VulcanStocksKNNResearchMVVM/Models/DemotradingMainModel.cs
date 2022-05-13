@@ -35,7 +35,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
         public void Train(string StrategyPath, string Ticker, int KnnTestRatio, int AccountBalance, float RiskRatio, int CapitalRisk, int StatisticalCertainty)
         {
-            
+            Console.WriteLine("Training Started");
             this.KnnTestRatio = KnnTestRatio;
             this.Ticker = Ticker;
             this.StrategyPath = StrategyPath;

@@ -84,6 +84,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 WinningsLosses--;
                 CurrentBalanceAmount = CurrentBalanceAmount * (1 - Stoploss/100);
             }
+            Console.WriteLine("Trade");
         }
         private void GetResults()
         {
