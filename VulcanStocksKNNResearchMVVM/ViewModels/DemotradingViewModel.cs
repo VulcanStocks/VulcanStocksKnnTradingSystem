@@ -348,7 +348,27 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         private void StartTrading()
         {
-            trader.Run();
+            (
+                _totalDaysTraded, 
+                _winningsLosses, 
+                _totalWinnings, 
+                _totalLosses, _tradesTaken, 
+                _totalPercentageGain, _profit, 
+                _currentBalanceAmount, 
+                _initialBalanceAmount
+                ) 
+            = trader.Run();
+
+            NotifyOfPropertyChange(() => TotalDaysTraded);
+            NotifyOfPropertyChange(() => WinningsLosses);
+            NotifyOfPropertyChange(() => TotalWinnings);
+            NotifyOfPropertyChange(() => TotalLosses);
+            NotifyOfPropertyChange(() => TradesTaken);
+            NotifyOfPropertyChange(() => TotalPercentageGain);
+            NotifyOfPropertyChange(() => Profit);
+            NotifyOfPropertyChange(() => CurrentBalanceAmount);
+            NotifyOfPropertyChange(() => InitialBalanceAmount);
+            
         }
 
         private void LoadStockdata(FileInfo[] Finfo)

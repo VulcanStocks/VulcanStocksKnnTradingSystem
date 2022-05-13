@@ -21,6 +21,9 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private int CapitalRisk { get; set; }
         private int StatisticalCertainty { get; set; }
 
+        //results
+       
+
         private bool IsTrained = false;
 
 
@@ -53,16 +56,17 @@ namespace VulcanStocksKNNResearchMVVM.Models
             }
         }
 
-        public void Run()
+        public (int,int,int,int,int,int,int,int,int) Run()
         {
             if(IsTrained)
             {
-                Demotrader demotrader = new Demotrader(TradedStockList, TestedStockList);
+                Demotrader demotrader = new Demotrader(TradedStockList, TestedStockList, AccountBalance, int.Parse(TargetStoploss[0]), int.Parse(TargetStoploss[1]));
+                return demotrader.Run();
             }
             else {
                 MessageBox.Show("Please train the model first");
+                return (0,0,0,0,0,0,0,0,0);
             }
-
         }
 
         private void ImportStrategy()

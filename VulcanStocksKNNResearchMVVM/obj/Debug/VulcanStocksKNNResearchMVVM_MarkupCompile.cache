@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-c:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\
 VulcanStocksKNNResearchMVVM
 none
 false
 DEBUG;TRACE
-c:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\App.xaml
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\App.xaml
 5-1515560373
 
-271043529491
-129-1091355438
+26-1169349187
+1292089503484
 Views\DemotradingView.xaml;Views\FbeView.xaml;Views\HomePageView.xaml;Views\SettingsView.xaml;Views\ShellView.xaml;
 
-True
+False
 
