@@ -55,6 +55,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             Data = File.ReadAllLines(Path);
 
 
+
             DataSet = new string[Data.Length][];
             for (int i = 0; i < Data.Length; i++)
             {
@@ -66,7 +67,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 }
             }
         }
-        internal void FillStrategy()
+        internal virtual void FillStrategy()
         {
             float[] price = new float[Data.Length];
             float[] volume = new float[Data.Length];
@@ -78,13 +79,17 @@ namespace VulcanStocksKNNResearchMVVM.Models
             axisX = GetAxisValue(price, volume, IndicatorsXselected);
             axisY = GetAxisValue(price, volume, IndicatorsYselected);
 
+
             Strategy = new string [DataSet.Length,4];
             for (int i = 1; i < DataSet.Length; i++)
             {
+                
                 Strategy [i,0] = price[i].ToString().Replace(',', '.');
                 Strategy [i,1] = axisX[i].ToString().Replace(',', '.');
                 Strategy [i,2] = axisY[i].ToString().Replace(',', '.');
                 Strategy [i,3] = CheckIfValid(i,price[i]).ToString().Replace(',', '.');
+
+                
             }
         }
 
@@ -92,6 +97,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             if (axisItem == "RSI.cs")
             {
+
                 RSI rsiCalc = new RSI();
                 return rsiCalc.Calculate(price, Data.Length);
             }
@@ -102,6 +108,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             }
             else if(axisItem == "VWAP.cs")
             {
+
                 VWAP vwapCalc = new VWAP(price, volume);
                 return vwapCalc.Main();
             }
@@ -153,11 +160,12 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 }
                 float localPrice = float.Parse(DataSet[i][4].Replace('.', ','));
                 float temp = ((localPrice / price) - 1) * 100;
+                
                 if (temp >= Target )
                 {
                     return true;
                 }
-                else if(temp <= StopLoss)
+                else if(temp <= -StopLoss)
                 {
                     return false;
                 }

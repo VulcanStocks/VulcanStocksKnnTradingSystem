@@ -18,12 +18,11 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private BindableCollection<String> _stockToTrade = new BindableCollection<String>();        
         private string _selectedStrategy;
         private string _selectedStockToTrade;
-        private string _riskRatioS = "1,3";
         private int _knntestRadios = 25;
         private int _accountBalance = 10000;
-        private float _riskRatio;
+        private float _riskRatio = 1.3f;
         private int _capitalRisk; 
-        private int _statisticalCertainty; 
+        private int _statisticalCertainty = 50; 
 
         //results
         private int _totalDaysTraded; 
@@ -65,7 +64,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         }
         public string SelectedStrategy
         {
-            get { return _selectedStrategy; }
+            get { return Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Strategies\\" + _selectedStrategy; }
             set
             {
                 _selectedStrategy = value;
@@ -109,22 +108,15 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         public string RiskRatio
         {
-            get { return _riskRatioS.ToString(); }
+            get { return _riskRatio.ToString(); }
             set
-            {                
-                if(float.TryParse(value, out float x))
+            {
+                int x;
+                if (int.TryParse(value, out x))
                 {
-                    _riskRatioS = value;
-                    NotifyOfPropertyChange(() => RiskRatio);
                     _riskRatio = x;
-                }
-                else if (value == "")
-                {
-                    _riskRatioS = "0";
                     NotifyOfPropertyChange(() => RiskRatio);
                 }
-
-
             }
         }
 

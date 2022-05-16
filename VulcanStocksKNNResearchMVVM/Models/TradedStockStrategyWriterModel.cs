@@ -17,7 +17,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             Write(ticker, StopLoss, target, StrategyName, IndicatorsXselected, IndicatorsYselected);
             return TradedStockList;
         }
-        public override void Write(string ticker, int StopLoss, int target, string StrategyName, string IndicatorsXselected, string IndicatorsYselected)
+        public override void Write(string ticker, int StopLoss, int target, string StrategyName, string indicatorsXselected, string indicatorsYselected)
         {
             if (ticker.Contains(".csv"))
             {
@@ -32,28 +32,54 @@ namespace VulcanStocksKNNResearchMVVM.Models
             this.StopLoss = StopLoss;
             Target = target;
             this.StrategyName = StrategyName;
-            this.IndicatorsXselected = IndicatorsXselected;
-            this.IndicatorsYselected = IndicatorsYselected;
-
+            
+            IndicatorsXselected = indicatorsXselected.Replace(',','.');
+            IndicatorsYselected = indicatorsYselected.Replace(',', '.');
+            
             Setup();
             FillStrategy();
             WriteStrategy();         
         }
 
+        internal override void FillStrategy()
+        {
+            float[] price = new float[Data.Length];
+            float[] volume = new float[Data.Length];
+            float?[] axisX = new float?[Data.Length];
+            float?[] axisY = new float?[Data.Length];
+
+            price = GetPriceArray();
+            volume = GetVolumeArray();
+            axisX = GetAxisValue(price, volume, IndicatorsXselected);
+            axisY = GetAxisValue(price, volume, IndicatorsYselected);
+
+            Strategy = new string[DataSet.Length, 4];
+
+            for (int i = 1; i < DataSet.Length; i++)
+            {
+
+                Strategy[i, 0] = price[i].ToString();
+                Strategy[i, 1] = axisX[i].ToString();
+                Strategy[i, 2] = axisY[i].ToString();
+                Strategy[i, 3] = CheckIfValid(i, price[i]).ToString();
+
+
+            }
+        }
+
         internal override void WriteStrategy()
         {
             //write strategy into csv matrix 
-            try
+
+            for (int i = 0; i < Strategy.Length; i++)
             {
-                for (int i = 0; i < Strategy.Length; i++)
-                {
-                    TradedStockList.Add(new StrategyModel { Price = float.Parse(Strategy[i,0]), IndicatorsXselected = float.Parse(Strategy[i, 1]), IndicatorsYselected = float.Parse(Strategy[i, 2]), IsValid = bool.Parse(Strategy[i,3]) });
-                }
+                Console.WriteLine("-------");
+                Console.WriteLine(Strategy.Length);
+                Console.WriteLine(Strategy[i, 0] + " " + Strategy[i, 1] + " " + Strategy[i, 2] + " " + Strategy[i, 3]);
+                TradedStockList.Add(new StrategyModel { Price = float.Parse(Strategy[i, 0]), IndicatorsXselected = float.Parse(Strategy[i, 1]), IndicatorsYselected = float.Parse(Strategy[i, 2]), IsValid = bool.Parse(Strategy[i, 3]) });
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+
+            Console.WriteLine("Strategy written");
 
 
         }

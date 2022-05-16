@@ -36,7 +36,9 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
             this.InitialBalanceAmount = InitialBalanceAmount;
             this.CurrentBalanceAmount = InitialBalanceAmount;
-            CalculateTotalDaysTraded();
+            this.TotalDaysTraded = TradedStockList.Count();
+            Console.WriteLine("Total Days Traded: " + TotalDaysTraded);
+            Console.WriteLine("----------------------------------------------------");
         }
 
         public (int,int,int,int,int,int,int,int,int) Run()
@@ -47,13 +49,11 @@ namespace VulcanStocksKNNResearchMVVM.Models
             return (TotalDaysTraded, WinningsLosses, TotalWinnings, TotalLosses, TradesTaken, TotalPercentageGain, Profit, CurrentBalanceAmount, InitialBalanceAmount);
         }
 
-        private void CalculateTotalDaysTraded()
-        {
-            TotalDaysTraded = TradedStockList.Count();
-        }
+
 
         private void Trade()
         {
+            Console.WriteLine(TotalDaysTraded);
             for (int i = 0; i < TotalDaysTraded; i++)
             {
                 CheckDay(TradedStockList[i]);
@@ -88,6 +88,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
         }
         private void GetResults()
         {
+            Console.WriteLine(TotalWinnings + " " + TotalLosses);
             WinningsLosses = TotalWinnings/TotalLosses;
             TotalPercentageGain = CurrentBalanceAmount / InitialBalanceAmount * 100;
             Profit = CurrentBalanceAmount - InitialBalanceAmount;

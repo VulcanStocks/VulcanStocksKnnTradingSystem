@@ -28,7 +28,6 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
             for (int i = 0; i < Volume.Length; i++)
             {
                 NormVolume[i] = ((Volume[i] - standardMin) / range)*100;
-                System.Console.WriteLine(NormVolume[i]);
             }
         
             return NormVolume;

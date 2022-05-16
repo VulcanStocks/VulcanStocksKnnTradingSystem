@@ -67,10 +67,11 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             List<TestedDataModel> AcceptedValues = new List<TestedDataModel>();
 
-            foreach (var item in TestedDataList)
+            foreach (TestedDataModel item in TestedDataList)
             {
                 if(item.RiskRatio >= AcceptedRiskRatio && item.Total >= Certainty)
                 {
+                    Console.WriteLine(item.RiskRatio + " " + item.Total + " " + item.IndicatorX + " " + item.IndicatorY);
                     AcceptedValues.Add(item);
                 }
             }

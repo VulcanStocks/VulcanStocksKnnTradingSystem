@@ -43,16 +43,17 @@ namespace VulcanStocksKNNResearchMVVM.Models
             this.RiskRatio = RiskRatio;
             this.CapitalRisk = CapitalRisk;
             this.StatisticalCertainty = StatisticalCertainty;
-            
+
             try
             {
                 ImportStrategy();
                 FindbestEntries();
+                LoadTradedStockList();
                 IsTrained = true;
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -62,6 +63,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             {
                 Demotrader demotrader = new Demotrader(TradedStockList, TestedStockList, AccountBalance, int.Parse(TargetStoploss[0]), int.Parse(TargetStoploss[1]));
                 return demotrader.Run();
+                
             }
             else {
                 MessageBox.Show("Please train the model first");
@@ -73,8 +75,10 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             string[][] DataSet;
             string[] Data;
+            Console.WriteLine(StrategyPath);
 
             Data = File.ReadAllLines(StrategyPath);
+            Console.WriteLine("Data imported");
 
             DataSet = new string[Data.Length][];
             for (int i = 0; i < Data.Length; i++)
@@ -82,7 +86,10 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 string[] temp = Data[i].Split(',');
                 DataSet[i] = new string[temp.Length];
                 for (int j = 0; j < temp.Length; j++)
-                {
+                {   
+                    
+                    temp[j] = temp[j].Replace('.', ',');
+                    
                     DataSet[i][j] = temp[j];
                 }
             }
@@ -108,7 +115,15 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 }
                 else
                 {
-                    StrategyList.Add(new StrategyModel { Price = float.Parse(DataSet[i][0]), IndicatorsXselected = float.Parse(DataSet[i][1]), IndicatorsYselected = float.Parse(DataSet[i][2]), IsValid = bool.Parse(DataSet[i][3])});
+                    try
+                    {
+                        StrategyList.Add(new StrategyModel { Price = float.Parse(DataSet[i][0]), IndicatorsXselected = float.Parse(DataSet[i][1]), IndicatorsYselected = float.Parse(DataSet[i][2]), IsValid = bool.Parse(DataSet[i][3]) });
+                    }
+                    catch (Exception)
+                    {
+                        
+                    }
+                    
                 }
             }
         }
@@ -123,6 +138,8 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             KnnAlgoModel knn = new KnnAlgoModel();
             TestedStockList = knn.GetValues(StrategyList, KnnTestRatio, StatisticalCertainty, RiskRatio);
+            Console.WriteLine("-----------------");
+            Console.WriteLine(TestedStockList.Count());
         }
     }
 }
