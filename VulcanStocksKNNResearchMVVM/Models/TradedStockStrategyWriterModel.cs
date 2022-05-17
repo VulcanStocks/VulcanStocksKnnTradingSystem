@@ -11,7 +11,6 @@ namespace VulcanStocksKNNResearchMVVM.Models
 {
     public class TradedStockStrategyWriterModel : StrategyWriterModel
     {
-        List<StrategyModel> TradedStockList = new List<StrategyModel>();
         public List<StrategyModel> Get(string ticker, int StopLoss, int target, string StrategyName, string IndicatorsXselected, string IndicatorsYselected)
         {
             Write(ticker, StopLoss, target, StrategyName, IndicatorsXselected, IndicatorsYselected);
@@ -38,50 +37,8 @@ namespace VulcanStocksKNNResearchMVVM.Models
             
             Setup();
             FillStrategy();
-            WriteStrategy();         
         }
 
-        internal override void FillStrategy()
-        {
-            float[] price = new float[Data.Length];
-            float[] volume = new float[Data.Length];
-            float?[] axisX = new float?[Data.Length];
-            float?[] axisY = new float?[Data.Length];
 
-            price = GetPriceArray();
-            volume = GetVolumeArray();
-            axisX = GetAxisValue(price, volume, IndicatorsXselected);
-            axisY = GetAxisValue(price, volume, IndicatorsYselected);
-
-            Strategy = new string[DataSet.Length, 4];
-
-            for (int i = 1; i < DataSet.Length; i++)
-            {
-
-                Strategy[i, 0] = price[i].ToString();
-                Strategy[i, 1] = axisX[i].ToString();
-                Strategy[i, 2] = axisY[i].ToString();
-                Strategy[i, 3] = CheckIfValid(i, price[i]).ToString();
-
-
-            }
-        }
-
-        internal override void WriteStrategy()
-        {
-            //write strategy into csv matrix 
-
-            for (int i = 0; i < Strategy.Length; i++)
-            {
-                Console.WriteLine("-------");
-                Console.WriteLine(Strategy.Length);
-                Console.WriteLine(Strategy[i, 0] + " " + Strategy[i, 1] + " " + Strategy[i, 2] + " " + Strategy[i, 3]);
-                TradedStockList.Add(new StrategyModel { Price = float.Parse(Strategy[i, 0]), IndicatorsXselected = float.Parse(Strategy[i, 1]), IndicatorsYselected = float.Parse(Strategy[i, 2]), IsValid = bool.Parse(Strategy[i, 3]) });
-            }
-
-            Console.WriteLine("Strategy written");
-
-
-        }
     }
 }

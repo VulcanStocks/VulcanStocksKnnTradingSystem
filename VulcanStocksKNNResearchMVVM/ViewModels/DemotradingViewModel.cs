@@ -19,20 +19,20 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private string _selectedStrategy;
         private string _selectedStockToTrade;
         private int _knntestRadios = 25;
-        private int _accountBalance = 10000;
+        private int _accountBalance = 100;
         private float _riskRatio = 1.3f;
-        private int _capitalRisk; 
+        private int _capitalRisk = 10; 
         private int _statisticalCertainty = 50; 
 
         //results
         private int _totalDaysTraded; 
-        private int _winningsLosses; 
+        private float _winningsLosses; 
         private int _totalWinnings; 
         private int _totalLosses; 
         private int _tradesTaken; 
         private int _totalPercentageGain; 
         private int _profit;
-        private int _currentBalanceAmount;
+        private float _currentBalanceAmount;
         private int _initialBalanceAmount;
 
 
@@ -348,7 +348,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 _totalLosses, _tradesTaken, 
                 _totalPercentageGain, _profit, 
                 _currentBalanceAmount, 
-                _initialBalanceAmount
+                _initialBalanceAmount               
                 ) 
             = trader.Run();
 

@@ -11,8 +11,11 @@ namespace VulcanStocksKNNResearchMVVM.Models
 {
     public class StrategyWriterModel
     {
-        internal string Path;
 
+        internal List<StrategyModel> TradedStockList = new List<StrategyModel>();
+
+        internal string Path;
+        
         internal string[][] DataSet;
         internal string[] Data { get; set; }
         internal string Ticker { get; set; }
@@ -83,13 +86,19 @@ namespace VulcanStocksKNNResearchMVVM.Models
             Strategy = new string [DataSet.Length,4];
             for (int i = 1; i < DataSet.Length; i++)
             {
-                
+
                 Strategy [i,0] = price[i].ToString().Replace(',', '.');
                 Strategy [i,1] = axisX[i].ToString().Replace(',', '.');
                 Strategy [i,2] = axisY[i].ToString().Replace(',', '.');
                 Strategy [i,3] = CheckIfValid(i,price[i]).ToString().Replace(',', '.');
 
-                
+
+                try
+                {
+                    TradedStockList.Add(new StrategyModel { Price = price[i], IndicatorsXselected = (float)axisX[i], IndicatorsYselected = (float)axisY[i], IsValid = CheckIfValid(i, price[i]) });
+                }
+                catch (Exception) { }
+
             }
         }
 

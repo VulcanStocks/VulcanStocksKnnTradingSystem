@@ -50,6 +50,8 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 FindbestEntries();
                 LoadTradedStockList();
                 IsTrained = true;
+
+                
             }
             catch (Exception e)
             {
@@ -57,11 +59,11 @@ namespace VulcanStocksKNNResearchMVVM.Models
             }
         }
 
-        public (int,int,int,int,int,int,int,int,int) Run()
+        public (int,float,int,int,int,int,int,float,int) Run()
         {
             if(IsTrained)
             {
-                Demotrader demotrader = new Demotrader(TradedStockList, TestedStockList, AccountBalance, int.Parse(TargetStoploss[0]), int.Parse(TargetStoploss[1]));
+                Demotrader demotrader = new Demotrader(TradedStockList, TestedStockList, AccountBalance, int.Parse(TargetStoploss[0]), int.Parse(TargetStoploss[1]), KnnTestRatio, CapitalRisk);
                 return demotrader.Run();
                 
             }

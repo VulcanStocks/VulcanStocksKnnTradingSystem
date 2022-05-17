@@ -12,27 +12,32 @@ namespace VulcanStocksKNNResearchMVVM.Models
         List<StrategyModel> TradedStockList = new List<StrategyModel>();
         List<TestedDataModel> TestedStockList = new List<TestedDataModel>();
 
-        private int Target { get; set; }
-        private int Stoploss { get; set; }
+        private float Target { get; set; }
+        private float Stoploss { get; set; }
+        private int KnnTestRatio { get; set; }
 
         private int TotalDaysTraded { get; set; }
-        private int WinningsLosses { get; set; }
+        private float WinningsLosses { get; set; }
         private int TotalWinnings { get; set; }
         private int TotalLosses { get; set; }
         private int TradesTaken { get; set; }
         private int TotalPercentageGain { get; set; }
         private int Profit { get; set; }
-        private int CurrentBalanceAmount { get; set; }
-        private int InitialBalanceAmount { get; set; }
+        private float CurrentBalanceAmount { get; set; }
+        private float InitialBalanceAmount { get; set; }
+        private float CapitalRisk { get; set; }
+
 
         
 
-        public Demotrader(List<StrategyModel> TradedStockList, List<TestedDataModel> TestedStockList, int InitialBalanceAmount, int Target, int Stoploss)
+        public Demotrader(List<StrategyModel> TradedStockList, List<TestedDataModel> TestedStockList, int InitialBalanceAmount, int Target, int Stoploss, int KnnTestRatio, int CapitalRisk)
         {
             this.TradedStockList = TradedStockList;
             this.TestedStockList = TestedStockList;
             this.Target = Target;
             this.Stoploss = Stoploss;
+            this.KnnTestRatio = KnnTestRatio;
+            this.CapitalRisk = CapitalRisk;
 
             this.InitialBalanceAmount = InitialBalanceAmount;
             this.CurrentBalanceAmount = InitialBalanceAmount;
@@ -41,19 +46,19 @@ namespace VulcanStocksKNNResearchMVVM.Models
             Console.WriteLine("----------------------------------------------------");
         }
 
-        public (int,int,int,int,int,int,int,int,int) Run()
+        public (int,float,int,int,int,int,int,float,int) Run()
         {
+
             Trade();
             GetResults();
 
-            return (TotalDaysTraded, WinningsLosses, TotalWinnings, TotalLosses, TradesTaken, TotalPercentageGain, Profit, CurrentBalanceAmount, InitialBalanceAmount);
+            return (TotalDaysTraded, WinningsLosses, TotalWinnings, TotalLosses, TradesTaken, TotalPercentageGain, Profit, CurrentBalanceAmount, (int)InitialBalanceAmount);
         }
 
 
 
         private void Trade()
         {
-            Console.WriteLine(TotalDaysTraded);
             for (int i = 0; i < TotalDaysTraded; i++)
             {
                 CheckDay(TradedStockList[i]);
@@ -64,7 +69,11 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             for (int i = 0; i < TestedStockList.Count; i++)
             {
-                if(day.IndicatorsXselected == TestedStockList[i].IndicatorX && day.IndicatorsYselected == TestedStockList[i].IndicatorY)
+                
+                int dayX = (int)Math.Round(day.IndicatorsXselected);
+                int dayY = (int)Math.Round(day.IndicatorsYselected);
+                int distance =(int)Math.Round (Math.Sqrt(Math.Pow(dayX - TestedStockList[i].IndicatorX, 2) + Math.Pow(dayY - TestedStockList[i].IndicatorY, 2)));
+                if(distance < KnnTestRatio)
                 {
                     TakeTrade(day);
                 }
@@ -77,21 +86,22 @@ namespace VulcanStocksKNNResearchMVVM.Models
             if(day.IsValid)
             {
                 TotalWinnings++;
-                CurrentBalanceAmount = CurrentBalanceAmount * (1 + Target/100);
+                CurrentBalanceAmount = CurrentBalanceAmount - (CurrentBalanceAmount*(CapitalRisk/100)) + (((CurrentBalanceAmount*(CapitalRisk/100)) * (1 + (Target/100))));
+                System.Console.WriteLine(CurrentBalanceAmount);
+
             }
             else
             {
-                WinningsLosses--;
-                CurrentBalanceAmount = CurrentBalanceAmount * (1 - Stoploss/100);
+                TotalLosses++;
+                CurrentBalanceAmount = CurrentBalanceAmount - (CurrentBalanceAmount*(CapitalRisk/100)) + (((CurrentBalanceAmount*(CapitalRisk/100)) * (1 - (Stoploss/100))));
             }
-            Console.WriteLine("Trade");
         }
         private void GetResults()
         {
-            Console.WriteLine(TotalWinnings + " " + TotalLosses);
-            WinningsLosses = TotalWinnings/TotalLosses;
-            TotalPercentageGain = CurrentBalanceAmount / InitialBalanceAmount * 100;
-            Profit = CurrentBalanceAmount - InitialBalanceAmount;
+            WinningsLosses = (float)TotalWinnings/(float)TotalLosses;
+            TotalPercentageGain = (int)Math.Round(((CurrentBalanceAmount - InitialBalanceAmount)/InitialBalanceAmount) * 100);
+            Profit = (int)Math.Round(CurrentBalanceAmount - InitialBalanceAmount);
+            System.Console.WriteLine(Profit+ " " + TotalPercentageGain);
         }
 
     }
