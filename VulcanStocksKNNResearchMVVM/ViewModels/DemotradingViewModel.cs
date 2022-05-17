@@ -18,10 +18,10 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private BindableCollection<String> _stockToTrade = new BindableCollection<String>();        
         private string _selectedStrategy;
         private string _selectedStockToTrade;
-        private int _knntestRadios = 25;
+        private int _knntestRadios = 5;
         private int _accountBalance = 100;
         private float _riskRatio = 1.3f;
-        private int _capitalRisk = 10; 
+        private int _capitalRisk = 100; 
         private int _statisticalCertainty = 50; 
 
         //results
@@ -31,8 +31,8 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private int _totalLosses; 
         private int _tradesTaken; 
         private int _totalPercentageGain; 
-        private int _profit;
-        private float _currentBalanceAmount;
+        private double _profit;
+        private double _currentBalanceAmount;
         private int _initialBalanceAmount;
 
 

@@ -59,7 +59,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             }
         }
 
-        public (int,float,int,int,int,int,int,float,int) Run()
+        public (int,float,int,int,int,int,double,double,int) Run()
         {
             if(IsTrained)
             {

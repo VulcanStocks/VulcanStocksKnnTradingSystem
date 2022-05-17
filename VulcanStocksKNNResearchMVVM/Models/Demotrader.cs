@@ -15,16 +15,15 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private float Target { get; set; }
         private float Stoploss { get; set; }
         private int KnnTestRatio { get; set; }
-
         private int TotalDaysTraded { get; set; }
         private float WinningsLosses { get; set; }
         private int TotalWinnings { get; set; }
         private int TotalLosses { get; set; }
         private int TradesTaken { get; set; }
         private int TotalPercentageGain { get; set; }
-        private int Profit { get; set; }
-        private float CurrentBalanceAmount { get; set; }
-        private float InitialBalanceAmount { get; set; }
+        private double Profit { get; set; }
+        private double CurrentBalanceAmount { get; set; }
+        private double InitialBalanceAmount { get; set; }
         private float CapitalRisk { get; set; }
 
 
@@ -46,7 +45,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             Console.WriteLine("----------------------------------------------------");
         }
 
-        public (int,float,int,int,int,int,int,float,int) Run()
+        public (int,float,int,int,int,int,double,double,int) Run()
         {
 
             Trade();
@@ -76,6 +75,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 if(distance < KnnTestRatio)
                 {
                     TakeTrade(day);
+                    break;
                 }
             }
         }
@@ -87,8 +87,6 @@ namespace VulcanStocksKNNResearchMVVM.Models
             {
                 TotalWinnings++;
                 CurrentBalanceAmount = CurrentBalanceAmount - (CurrentBalanceAmount*(CapitalRisk/100)) + (((CurrentBalanceAmount*(CapitalRisk/100)) * (1 + (Target/100))));
-                System.Console.WriteLine(CurrentBalanceAmount);
-
             }
             else
             {
@@ -101,7 +99,6 @@ namespace VulcanStocksKNNResearchMVVM.Models
             WinningsLosses = (float)TotalWinnings/(float)TotalLosses;
             TotalPercentageGain = (int)Math.Round(((CurrentBalanceAmount - InitialBalanceAmount)/InitialBalanceAmount) * 100);
             Profit = (int)Math.Round(CurrentBalanceAmount - InitialBalanceAmount);
-            System.Console.WriteLine(Profit+ " " + TotalPercentageGain);
         }
 
     }

@@ -46,9 +46,19 @@ namespace VulcanStocksKNNResearchMVVM.Models
             this.IndicatorsXselected = IndicatorsXselected;
             this.IndicatorsYselected = IndicatorsYselected;
 
-            Setup();
-            FillStrategy();
-            WriteStrategy();
+            try
+            {
+                Setup();
+                FillStrategy();
+                WriteStrategy();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+
+            
            
 
         }
