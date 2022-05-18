@@ -93,19 +93,21 @@ namespace VulcanStocksKNNResearchMVVM.Models
             axisY = GetAxisValue(price, volume, IndicatorsYselected);
 
 
-            Strategy = new string [DataSet.Length,4];
+            Strategy = new string [DataSet.Length,5];
             for (int i = 1; i < DataSet.Length; i++)
             {
 
                 Strategy [i,0] = price[i].ToString().Replace(',', '.');
                 Strategy [i,1] = axisX[i].ToString().Replace(',', '.');
                 Strategy [i,2] = axisY[i].ToString().Replace(',', '.');
-                Strategy [i,3] = CheckIfValid(i,price[i]).ToString().Replace(',', '.');
 
+                (bool isValid, int time) = CheckIfValid(i,price[i]);
+                Strategy [i,3] = isValid.ToString();
+                Strategy[i,4] = time.ToString();
 
                 try
                 {
-                    TradedStockList.Add(new StrategyModel { Price = price[i], IndicatorsXselected = (float)axisX[i], IndicatorsYselected = (float)axisY[i], IsValid = CheckIfValid(i, price[i]) });
+                    TradedStockList.Add(new StrategyModel { Price = price[i], IndicatorsXselected = (float)axisX[i], IndicatorsYselected = (float)axisY[i], IsValid = isValid, TimeToValidate = time });
                 }
                 catch (Exception) { }
 
@@ -168,27 +170,29 @@ namespace VulcanStocksKNNResearchMVVM.Models
             return volumeArray;
         }
 
-        internal bool CheckIfValid(int i, float price)
+        internal (bool, int) CheckIfValid(int i, float price)
         {
+            int time = 0;
             // Check if price is higher than target or lower than stoploss
-            while(true)
+            while (true)
             {
                 if (i >= DataSet.Length)
                 {
-                    return false;
+                    return (false, time);
                 }
                 float localPrice = float.Parse(DataSet[i][4].Replace('.', ','));
                 float temp = ((localPrice / price) - 1) * 100;
                 
                 if (temp >= Target )
                 {
-                    return true;
+                    return (true, time);
                 }
                 else if(temp <= -StopLoss)
                 {
-                    return false;
+                    return (false, time);
                 }
                 i++;
+                time++;
             }
             
         }
@@ -204,7 +208,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 
                 writer.WriteLine("Target,Stoploss");
                 writer.WriteLine(Target + "," + StopLoss);
-                writer.WriteLine($"Price,{IndicatorsXselected},{IndicatorsYselected},IsValid");
+                writer.WriteLine($"Price,{IndicatorsXselected},{IndicatorsYselected},IsValid, TimeToValidate");
 
                 for (int i = 15; i < Strategy.GetLength(0) - 1; i++)
                 {

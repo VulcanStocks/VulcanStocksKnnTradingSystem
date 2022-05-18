@@ -12,5 +12,6 @@ namespace VulcanStocksKNNResearchMVVM.Models
         public float IndicatorsXselected { get; set; }
         public float IndicatorsYselected { get; set; }
         public bool IsValid { get; set; }
+        public int TimeToValidate { get; set; }
     }
 }

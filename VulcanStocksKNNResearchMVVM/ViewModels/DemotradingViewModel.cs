@@ -106,17 +106,23 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             }
         }
 
+        string _riskRatioString = "1,3";
         public string RiskRatio
         {
-            get { return _riskRatio.ToString(); }
+            get { return _riskRatioString; }
             set
             {
-                int x;
-                if (int.TryParse(value, out x))
+                _riskRatioString = value;
+                try
                 {
-                    _riskRatio = x;
-                    NotifyOfPropertyChange(() => RiskRatio);
+                    _riskRatio = float.Parse(value);
+
                 }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error parsing RiskRatio");
+                }
+                NotifyOfPropertyChange(() => RiskRatio);
             }
         }
 

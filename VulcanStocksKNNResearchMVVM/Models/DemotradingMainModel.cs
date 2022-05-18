@@ -48,6 +48,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             {
                 ImportStrategy();
                 FindbestEntries();
+                Console.WriteLine("------------------------------");
                 LoadTradedStockList();
                 IsTrained = true;
 
@@ -119,7 +120,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 {
                     try
                     {
-                        StrategyList.Add(new StrategyModel { Price = float.Parse(DataSet[i][0]), IndicatorsXselected = float.Parse(DataSet[i][1]), IndicatorsYselected = float.Parse(DataSet[i][2]), IsValid = bool.Parse(DataSet[i][3]) });
+                        StrategyList.Add(new StrategyModel { Price = float.Parse(DataSet[i][0]), IndicatorsXselected = float.Parse(DataSet[i][1]), IndicatorsYselected = float.Parse(DataSet[i][2]), IsValid = bool.Parse(DataSet[i][3]), TimeToValidate = int.Parse(DataSet[i][4]) });
                     }
                     catch (Exception)
                     {
@@ -140,8 +141,6 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             KnnAlgoModel knn = new KnnAlgoModel();
             TestedStockList = knn.GetValues(StrategyList, KnnTestRatio, StatisticalCertainty, RiskRatio);
-            Console.WriteLine("-----------------");
-            Console.WriteLine(TestedStockList.Count());
         }
     }
 }
