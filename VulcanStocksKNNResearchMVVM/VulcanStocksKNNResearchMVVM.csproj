@@ -204,7 +204,9 @@
   <ItemGroup>
     <Resource Include="Views\icons8-instagram-50.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Views\Icon1.ico" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Strategies\Example.txt" />
   </ItemGroup>

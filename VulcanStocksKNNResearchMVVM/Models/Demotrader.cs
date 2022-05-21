@@ -57,27 +57,26 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             for (int i = 0; i < TotalDaysTraded; i++)
             {
-                CheckDay(TradedStockList[i]);
-            }
-        }
-
-        private void CheckDay(StrategyModel day)
-        {
-            for (int i = 0; i < TestedStockList.Count; i++)
-            {
-                if(LocalTimeForValidation > 0)
+                if (LocalTimeForValidation > 0)
                 {
                     Console.WriteLine("LocalTimeForValidation: " + LocalTimeForValidation);
                     LocalTimeForValidation--;
                     continue;
                 }
+                
+                CheckDay(TradedStockList[i]);
+            }
+        }
 
+        private void CheckDay(StrategyModel day)
+        {   
+            for (int i = 0; i < TestedStockList.Count; i++)
+            {
                 int dayX = (int)Math.Round(day.IndicatorsXselected);
                 int dayY = (int)Math.Round(day.IndicatorsYselected);
                 int distance =(int)Math.Round (Math.Sqrt(Math.Pow(dayX - TestedStockList[i].IndicatorX, 2) + Math.Pow(dayY - TestedStockList[i].IndicatorY, 2)));
                 if(distance < KnnTestRatio)
                 {
-                    Console.WriteLine("Trade");
                     TakeTrade(day);
                     break;
                 }
@@ -92,18 +91,15 @@ namespace VulcanStocksKNNResearchMVVM.Models
             if(day.IsValid)
             {
                 TotalWinnings++;
-                CurrentBalanceAmount = CurrentBalanceAmount - tradedCapital +
-                (tradedCapital * (1 + (Target/100)));
+                double profit = (tradedCapital * (1 + (Target / 100)));
+                CurrentBalanceAmount = CurrentBalanceAmount - tradedCapital + profit;
             }
             else
             {
                 TotalLosses++;
-                CurrentBalanceAmount = CurrentBalanceAmount - tradedCapital +
-                (tradedCapital * (1 - (Stoploss/100)));
+                double loss = tradedCapital * (1 - (Stoploss / 100));
+                CurrentBalanceAmount = CurrentBalanceAmount - tradedCapital + loss;
             }
-            Console.WriteLine(CurrentBalanceAmount);
-
-
         }
         private void GetResults()
         {
