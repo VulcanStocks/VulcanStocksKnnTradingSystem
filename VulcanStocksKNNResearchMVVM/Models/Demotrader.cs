@@ -75,7 +75,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 int dayX = (int)Math.Round(day.IndicatorsXselected);
                 int dayY = (int)Math.Round(day.IndicatorsYselected);
                 int distance =(int)Math.Round (Math.Sqrt(Math.Pow(dayX - TestedStockList[i].IndicatorX, 2) + Math.Pow(dayY - TestedStockList[i].IndicatorY, 2)));
-                if(distance < KnnTestRatio)
+                if(distance <= KnnTestRatio)
                 {
                     TakeTrade(day);
                     break;

@@ -49,26 +49,56 @@
 
                         <Grid>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
+
                             </Grid.ColumnDefinitions>
 
                             <Label 
                                     FontWeight="Light"
                                     Foreground="#d6d9f4"
                                     Content="Select strategy"
-                                    HorizontalAlignment="Right"
-                                    Margin="5"/>
+                                    Margin="5"
+                                    HorizontalAlignment="Center"/>
 
                             <ComboBox
                                     Grid.Column="1"
-                                    Width="120"
+                                    Width="60"
                                     Margin="5"
                                     HorizontalAlignment="Left"
                                     x:Name="StrategySelect"
                                     SelectedItem="{Binding Path=SelectedStrategy, Mode=TwoWay}"/>
 
-                            
+                            <TextBox
+                                    Grid.Column="2"
+                                    Width="60"
+                                    Background="#272434"
+                                    BorderBrush="#d6d9f4"
+                                    Foreground="#d6d9f4"
+                                    VerticalAlignment="Center"
+                                    Margin="5"
+                                    BorderThickness="3"
+                                    HorizontalAlignment="Left"
+                                    x:Name="StrategyStart"
+                                    
+                                    />
+
+                            <TextBox
+                                    Grid.Column="3"
+                                    Width="60"
+                                    Background="#272434"
+                                    BorderBrush="#d6d9f4"
+                                    Foreground="#d6d9f4"
+                                    VerticalAlignment="Center"
+                                    Margin="5"
+                                    BorderThickness="3"
+                                    HorizontalAlignment="Left"
+                                    x:Name="StrategyEnd"
+                                    />
+
+
                         </Grid>
 
                         <Grid>
@@ -241,24 +271,52 @@
 
                         <Grid>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
+                             
                             </Grid.ColumnDefinitions>
 
                             <Label 
                                     FontWeight="Light"
                                     Foreground="#d6d9f4"
-                                    Content="Select stock to trade"
-                                    HorizontalAlignment="Right"
+                                    Content="Select stock"
+                                    HorizontalAlignment="Center"
                                     Margin="5"/>
 
                             <ComboBox
                                     Grid.Column="1"
-                                    Width="120"
+                                    Width="60"
                                     Margin="5"
                                     HorizontalAlignment="Left"
                                     x:Name="StockToTrade"
                                     SelectedItem="{Binding Path=SelectedStockToTrade, Mode=TwoWay}"/>
+                            <TextBox
+                                    Grid.Column="2"
+                                    Width="60"
+                                    Background="#272434"
+                                    BorderBrush="#d6d9f4"
+                                    Foreground="#d6d9f4"
+                                    VerticalAlignment="Center"
+                                    Margin="5"
+                                    BorderThickness="3"
+                                    HorizontalAlignment="Left"
+                                    x:Name="StockStart"
+                                    />
+
+                            <TextBox
+                                    Grid.Column="3"
+                                    Width="60"
+                                    Background="#272434"
+                                    BorderBrush="#d6d9f4"
+                                    Foreground="#d6d9f4"
+                                    VerticalAlignment="Center"
+                                    Margin="5"
+                                    BorderThickness="3"
+                                    HorizontalAlignment="Left"
+                                    x:Name="StockEnd"
+                                    />
 
 
                         </Grid>

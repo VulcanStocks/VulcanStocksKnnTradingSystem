@@ -20,9 +20,14 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private float RiskRatio { get; set; }
         private int CapitalRisk { get; set; }
         private int StatisticalCertainty { get; set; }
+        
+        public int StrategyStart { get; set; }
+        public int StrategyEnd { get; set; }
+        public int StockStart { get; set; }
+        public int StockEnd { get; set; }
 
         //results
-       
+
 
         private bool IsTrained = false;
 
@@ -31,9 +36,9 @@ namespace VulcanStocksKNNResearchMVVM.Models
         List<StrategyModel> TradedStockList = new List<StrategyModel>();
         List<TestedDataModel> TestedStockList = new List<TestedDataModel>();
 
+        
 
-
-        public void Train(string StrategyPath, string Ticker, int KnnTestRatio, int AccountBalance, float RiskRatio, int CapitalRisk, int StatisticalCertainty)
+        public void Train(string StrategyPath, string Ticker, int KnnTestRatio, int AccountBalance, float RiskRatio, int CapitalRisk, int StatisticalCertainty, int _strategyStart, int _strategyEnd, int _stockStart,int _stockEnd)
         {
             Console.WriteLine("Training Started");
             this.KnnTestRatio = KnnTestRatio;
@@ -43,9 +48,13 @@ namespace VulcanStocksKNNResearchMVVM.Models
             this.RiskRatio = RiskRatio;
             this.CapitalRisk = CapitalRisk;
             this.StatisticalCertainty = StatisticalCertainty;
+            this.StrategyStart = _strategyStart;
+            this.StrategyEnd = _strategyEnd;
+            this.StockStart = _stockStart;
+            this.StockEnd = _stockEnd;
 
-            try
-            {
+            
+            
                 ImportStrategy();
                 FindbestEntries();
                 Console.WriteLine("------------------------------");
@@ -53,11 +62,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 IsTrained = true;
 
                 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            
         }
 
         public (int,float,int,int,int,int,double,double,int) Run()
@@ -82,10 +87,11 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
             Data = File.ReadAllLines(StrategyPath);
             Console.WriteLine("Data imported");
-
-            DataSet = new string[Data.Length][];
-            for (int i = 0; i < Data.Length; i++)
+            int length = StrategyEnd - StrategyStart;
+            DataSet = new string[length][];
+            for (int i = 0; i < length; i++)
             {
+                Console.WriteLine(Data[i]);
                 string[] temp = Data[i].Split(',');
                 DataSet[i] = new string[temp.Length];
                 for (int j = 0; j < temp.Length; j++)
@@ -97,7 +103,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 }
             }
 
-            LoadStrategyList(DataSet, Data.Length);
+            LoadStrategyList(DataSet, length);
         }
 
         private void LoadStrategyList(string[][] DataSet, int length)
@@ -134,7 +140,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private void LoadTradedStockList()
         {
             TradedStockStrategyWriterModel writer = new TradedStockStrategyWriterModel();
-            TradedStockList = writer.Get(Ticker, int.Parse(TargetStoploss[0]),int.Parse(TargetStoploss[1]), "", Columns[1], Columns[2]);
+            TradedStockList = writer.Get(Ticker, int.Parse(TargetStoploss[0]),int.Parse(TargetStoploss[1]), "", Columns[1], Columns[2], StockStart, StockEnd);
         }
 
         private void FindbestEntries()

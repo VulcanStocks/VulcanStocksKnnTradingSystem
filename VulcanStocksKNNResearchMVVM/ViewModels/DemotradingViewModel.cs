@@ -14,6 +14,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         DataManagerModel dataManager = new DataManagerModel();
         DemotradingMainModel trader = new DemotradingMainModel();
 
+        //User inputs
         private BindableCollection<String> _strategySelect = new BindableCollection<String>();
         private BindableCollection<String> _stockToTrade = new BindableCollection<String>();        
         private string _selectedStrategy;
@@ -22,7 +23,12 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private int _accountBalance = 100;
         private float _riskRatio = 1.3f;
         private int _capitalRisk = 100; 
-        private int _statisticalCertainty = 50; 
+        private int _statisticalCertainty = 50;
+        
+        private int _strategyStart;
+        private int _strategyEnd;
+        private int _stockStart;
+        private int _stockEnd;
 
         //results
         private int _totalDaysTraded; 
@@ -35,9 +41,6 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private double _currentBalanceAmount;
         private int _initialBalanceAmount;
 
-
-
-
         public DemotradingViewModel()
         {
             LoadStockdata(dataManager.ReadDownloadedFiles());
@@ -47,7 +50,10 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         public BindableCollection<String> StrategySelect
         {
             get { return _strategySelect; }
-            set { _strategySelect = value; }
+            set 
+            { 
+                _strategySelect = value;
+            }
         }
 
         public BindableCollection<String> StockToTrade
@@ -55,11 +61,16 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             get { return _stockToTrade; }
             set { _stockToTrade = value; }
         }
+
         public string SelectedStockToTrade
         {
             get { return _selectedStockToTrade; }
             set { _selectedStockToTrade = value;
                 NotifyOfPropertyChange(() => SelectedStockToTrade);
+                _stockStart = 0;
+                _stockEnd = File.ReadAllLines(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\StockData\\" + _selectedStockToTrade).Length;
+                NotifyOfPropertyChange(() => StockStart);
+                NotifyOfPropertyChange(() => StockEnd);
             }
         }
         public string SelectedStrategy
@@ -69,8 +80,47 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             {
                 _selectedStrategy = value;
                 NotifyOfPropertyChange(() => SelectedStrategy);
+                _strategyStart = 0;
+                _strategyEnd = File.ReadAllLines(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Strategies\\" + _selectedStrategy).Length;
+                NotifyOfPropertyChange(() => StrategyStart);
+                NotifyOfPropertyChange(() => StrategyEnd);
             }
         }
+        
+        public string StrategyStart
+        {
+            get { return _strategyStart.ToString(); }
+            set
+            {
+                int.TryParse(value, out _strategyStart);
+            }
+        }
+
+
+        public string StrategyEnd
+        {
+            get { return _strategyEnd.ToString(); }
+            set { int.TryParse(value, out _strategyEnd); }
+        }
+
+
+        public string StockStart
+        {
+            get { return _stockStart.ToString(); }
+            set
+            {
+                int.TryParse(value, out _stockStart);
+            }
+        }
+
+
+        public string StockEnd
+        {
+            get { return _stockEnd.ToString(); }
+            set { int.TryParse(value, out _stockEnd); }
+        }
+
+
         public string KnntestRadios
         {
             get { return _knntestRadios.ToString(); }
@@ -341,7 +391,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         public void StartTraining()
         {
-            trader.Train(SelectedStrategy, SelectedStockToTrade, int.Parse(KnntestRadios), int.Parse(AccountBalance), _riskRatio, _capitalRisk, _statisticalCertainty);
+            trader.Train(SelectedStrategy, SelectedStockToTrade, int.Parse(KnntestRadios), int.Parse(AccountBalance), _riskRatio, _capitalRisk, _statisticalCertainty, _strategyStart, _strategyEnd, _stockStart, _stockEnd);
         }
 
         public void StartTrading()

@@ -11,8 +11,10 @@ namespace VulcanStocksKNNResearchMVVM.Models
 {
     public class TradedStockStrategyWriterModel : StrategyWriterModel
     {
-        public List<StrategyModel> Get(string ticker, int StopLoss, int target, string StrategyName, string IndicatorsXselected, string IndicatorsYselected)
+        public List<StrategyModel> Get(string ticker, int StopLoss, int target, string StrategyName, string IndicatorsXselected, string IndicatorsYselected, int StockStart, int StockEnd)
         {
+            DataStart = StockStart;
+            DataEnd = StockEnd;
             Write(ticker, StopLoss, target, StrategyName, IndicatorsXselected, IndicatorsYselected);
             return TradedStockList;
         }

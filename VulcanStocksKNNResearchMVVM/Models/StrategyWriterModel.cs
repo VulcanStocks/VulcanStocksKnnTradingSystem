@@ -25,6 +25,10 @@ namespace VulcanStocksKNNResearchMVVM.Models
         internal string IndicatorsXselected { get; set; }
         internal string IndicatorsYselected { get; set; }
         internal string StrategyName { get; set; }
+        internal int Length { get; set; }
+        
+        internal int DataStart = 0;
+        internal int DataEnd = 0;
 
 
 
@@ -45,21 +49,14 @@ namespace VulcanStocksKNNResearchMVVM.Models
             this.StrategyName = StrategyName;
             this.IndicatorsXselected = IndicatorsXselected;
             this.IndicatorsYselected = IndicatorsYselected;
+            DataEnd = File.ReadAllLines(Path).Length - 1;
 
-            try
-            {
+            
+            
                 Setup();
                 FillStrategy();
                 WriteStrategy();
-            }
-            catch (Exception e)
-            {
-
-                MessageBox.Show(e.Message);
-            }
-
             
-           
 
         }
 
@@ -68,24 +65,26 @@ namespace VulcanStocksKNNResearchMVVM.Models
             Data = File.ReadAllLines(Path);
 
 
-
-            DataSet = new string[Data.Length][];
-            for (int i = 0; i < Data.Length; i++)
+            Length = DataEnd - DataStart;
+            DataSet = new string[Length][];
+            for (int i = DataStart; i < DataEnd; i++)
             {
+                int index = i - DataStart;
                 string[] temp = Data[i].Split(',');
-                DataSet[i] = new string[temp.Length];
+                DataSet[index] = new string[temp.Length];
+
                 for (int j = 0; j < temp.Length; j++)
                 {
-                    DataSet[i][j] = temp[j];
+                    DataSet[index][j] = temp[j];
                 }
             }
         }
         internal virtual void FillStrategy()
         {
-            float[] price = new float[Data.Length];
-            float[] volume = new float[Data.Length];
-            float?[] axisX = new float?[Data.Length];
-            float?[] axisY = new float?[Data.Length];
+            float[] price = new float[Length];
+            float[] volume = new float[Length];
+            float?[] axisX = new float?[Length];
+            float?[] axisY = new float?[Length];
 
             price = GetPriceArray();
             volume = GetVolumeArray();
@@ -120,7 +119,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             {
 
                 RSI rsiCalc = new RSI();
-                return rsiCalc.Calculate(price, Data.Length);
+                return rsiCalc.Calculate(price, Length);
             }
             else if(axisItem == "ADJ_VOLUME.cs")
             {
@@ -135,7 +134,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             }
             else
             {
-                float?[] zero = new float?[Data.Length];
+                float?[] zero = new float?[Length];
                 for (int i = 0; i < zero.Length; i++)
                 {
                     zero[i] = 0;
@@ -147,9 +146,9 @@ namespace VulcanStocksKNNResearchMVVM.Models
         internal float[] GetPriceArray()
         {
             // return price array
-            float[] priceArray = new float[Data.Length];
+            float[] priceArray = new float[Length];
 
-            for (int i = 1; i < Data.Length; i++)
+            for (int i = 1; i < Length; i++)
             {
                 priceArray[i] = float.Parse(DataSet[i][4].Replace('.',','));
             }
@@ -160,9 +159,9 @@ namespace VulcanStocksKNNResearchMVVM.Models
         internal float[] GetVolumeArray()
         {
             // returns an array of volume values
-            float[] volumeArray = new float[Data.Length];
+            float[] volumeArray = new float[Length];
 
-            for (int i = 1; i < Data.Length; i++)
+            for (int i = 1; i < Length; i++)
             {
                 volumeArray[i] = float.Parse(DataSet[i][6].Replace('.', ','));
             }
