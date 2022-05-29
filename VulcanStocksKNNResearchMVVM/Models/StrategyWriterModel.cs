@@ -51,13 +51,11 @@ namespace VulcanStocksKNNResearchMVVM.Models
             this.IndicatorsYselected = IndicatorsYselected;
             DataEnd = File.ReadAllLines(Path).Length - 1;
 
-            
-            
-                Setup();
-                FillStrategy();
-                WriteStrategy();
-            
+            Setup();
+            FillStrategy();
+            WriteStrategy();
 
+               
         }
 
         internal void Setup()
@@ -150,6 +148,8 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
             for (int i = 1; i < Length; i++)
             {
+                Console.WriteLine("I: "+i);
+                Console.WriteLine(DataSet[i][4]);
                 priceArray[i] = float.Parse(DataSet[i][4].Replace('.',','));
             }
 

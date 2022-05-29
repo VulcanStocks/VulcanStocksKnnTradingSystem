@@ -21,7 +21,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private string _selectedStockToTrade;
         private int _knntestRadios = 5;
         private int _accountBalance = 100;
-        private float _riskRatio = 1.3f;
+        private float _riskRatio = 1f;
         private int _capitalRisk = 100; 
         private int _statisticalCertainty = 50;
         
@@ -156,7 +156,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             }
         }
 
-        string _riskRatioString = "1,3";
+        string _riskRatioString = "1";
         public string RiskRatio
         {
             get { return _riskRatioString; }

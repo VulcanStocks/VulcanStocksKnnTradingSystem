@@ -125,7 +125,14 @@
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
                                     x:Name="KnntestRadios"
-                                    />
+                                
+                            >
+                                <TextBox.ToolTip>
+                                    <ToolTip>
+                                        Radios of testing area. (smaller -> more sensitive)
+                                    </ToolTip>
+                                </TextBox.ToolTip>
+                            </TextBox>
 
 
                         </Grid>
@@ -197,7 +204,7 @@
                                     x:Name="RiskRatio">
                                 <TextBox.ToolTip>
                                     <ToolTip>
-                                        Apply decimal after numbers are typed
+                                        Accepted true/false ratio
                                     </ToolTip>
                                 </TextBox.ToolTip>
                             </TextBox>
@@ -227,8 +234,15 @@
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
                                     x:Name="CapitalRisk">
+                                <TextBox.ToolTip>
+                                    <ToolTip>
+                                        Percentage amount of capital to be risked in each trade
+                                    </ToolTip>
+                                </TextBox.ToolTip>
                                 
                             </TextBox>
+                                
+                            
                             
                         </Grid>
                         
@@ -261,7 +275,7 @@
 
                                 <TextBox.ToolTip>
                                     <ToolTip>
-                                        Amount of data behind trade decision
+                                        Least accepted amount of data behind each trade
                                     </ToolTip>
                                 </TextBox.ToolTip>
 

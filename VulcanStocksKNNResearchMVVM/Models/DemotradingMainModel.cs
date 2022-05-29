@@ -53,15 +53,18 @@ namespace VulcanStocksKNNResearchMVVM.Models
             this.StockStart = _stockStart;
             this.StockEnd = _stockEnd;
 
-            
-            
+            try
+            {
                 ImportStrategy();
                 FindbestEntries();
                 Console.WriteLine("------------------------------");
                 LoadTradedStockList();
                 IsTrained = true;
+            }
+            catch (Exception)
+            {
 
-                
+            }
             
         }
 
