@@ -271,3 +271,7 @@ C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.CopyComplete
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.exe
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.pdb
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.exe.manifest
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.application
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.exe.manifest
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.application

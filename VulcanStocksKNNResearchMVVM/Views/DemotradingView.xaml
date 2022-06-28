@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:VulcanStocksKNNResearchMVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="720">
+
+
+
     <Grid>
 
         <Grid Grid.Row="1">
@@ -386,14 +389,27 @@
                             <RowDefinition Height="40"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label 
+                                Foreground="#d6d9f4"
+                                HorizontalAlignment="Center" 
+                                Content="Results"
+                                VerticalAlignment="Top"
+                                FontSize="16"
+                                Grid.Column="1"
+                                FontWeight="Bold"/>
 
-                        <Label 
-                            Foreground="#d6d9f4"
-                            HorizontalAlignment="Center" 
-                            Content="Results"
-                            VerticalAlignment="Top"
-                            FontSize="16"
-                            FontWeight="Bold"/>
+                            
+                            
+                            
+                        </Grid>
+                        
 
                         <StackPanel Margin="0,-5,0,5" Grid.Row = "1">
                             <Grid>

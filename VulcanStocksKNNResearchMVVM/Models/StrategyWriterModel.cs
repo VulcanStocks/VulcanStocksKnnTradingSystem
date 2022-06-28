@@ -115,7 +115,6 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             if (axisItem == "RSI.cs")
             {
-
                 RSI rsiCalc = new RSI();
                 return rsiCalc.Calculate(price, Length);
             }
