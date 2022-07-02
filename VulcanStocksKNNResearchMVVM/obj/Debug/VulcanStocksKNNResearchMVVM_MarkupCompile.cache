@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\App.xaml
-5-1515560373
+6-1576712805
 
-26-1169349187
+281059314907
 1292089503484
-Views\DemotradingView.xaml;Views\FbeView.xaml;Views\HomePageView.xaml;Views\SettingsView.xaml;Views\ShellView.xaml;
+Views\BacktestingView.xaml;Views\DemotradingView.xaml;Views\FbeView.xaml;Views\HomePageView.xaml;Views\SettingsView.xaml;Views\ShellView.xaml;
 
 False
 

@@ -46,21 +46,21 @@
         </Storyboard>
 
         <Storyboard x:Key="ScaleUpImageStoryboard_MA">
-            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTManual" Storyboard.TargetProperty="Height"/>
-            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTManual" Storyboard.TargetProperty="Width"/>
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTdemo" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTdemo" Storyboard.TargetProperty="Width"/>
         </Storyboard>
         <Storyboard x:Key="ScaleDownImageStoryboard_MA">
-            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTManual" Storyboard.TargetProperty="Height"/>
-            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTManual" Storyboard.TargetProperty="Width"/>
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTdemo" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTdemo" Storyboard.TargetProperty="Width"/>
         </Storyboard>
 
         <Storyboard x:Key="ScaleUpImageStoryboard_DE">
-            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTDemo" Storyboard.TargetProperty="Height"/>
-            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTDemo" Storyboard.TargetProperty="Width"/>
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTbacktest" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="40" To="50" Storyboard.TargetName="BTbacktest" Storyboard.TargetProperty="Width"/>
         </Storyboard>
         <Storyboard x:Key="ScaleDownImageStoryboard_DE">
-            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTDemo" Storyboard.TargetProperty="Height"/>
-            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTDemo" Storyboard.TargetProperty="Width"/>
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTbacktest" Storyboard.TargetProperty="Height"/>
+            <DoubleAnimation Duration="0:0:0.2" From="50" To="40" Storyboard.TargetName="BTbacktest" Storyboard.TargetProperty="Width"/>
         </Storyboard>
 
         <Storyboard x:Key="ScaleUpImageStoryboard_LO">
@@ -152,11 +152,11 @@
 
                     </Button>
 
-                    <Button x:Name="Demotrade_Click" Grid.Row="1">
+                    <Button x:Name="Backtest_Click" Grid.Row="1">
                         <Button.Content>
-                            <Image Name="BTDemo" Width="40" Height="40">
+                            <Image Name="BTbacktest" Width="40" Height="40">
                                 <Image.Source>
-                                    <ImageSource>/Views/icons8-stock-64.png</ImageSource>
+                                    <ImageSource>/Views/icons8-history-48.png</ImageSource>
                                 </Image.Source>
                                 <Image.Triggers>
                                     <EventTrigger RoutedEvent="Image.MouseEnter">
@@ -184,12 +184,12 @@
                         </Button.Style>
                     </Button>
 
-                    <Button x:Name="Manual_Click" Grid.Row="2">
+                    <Button x:Name="Demo_Click" Grid.Row="2">
                         <Button.Content>
 
-                            <Image Name="BTManual" Width="40" Height="40">
+                            <Image Name="BTdemo" Width="40" Height="40">
                                 <Image.Source>
-                                    <ImageSource>/Views/icons8-typewriter-64.png</ImageSource>
+                                    <ImageSource>/Views/icons8-stock-64.png</ImageSource>
                                 </Image.Source>
                                 <Image.Triggers>
                                     <EventTrigger RoutedEvent="Image.MouseEnter">
@@ -222,7 +222,7 @@
 
                             <Image Name="BTTestBE" Width="40" Height="40">
                                 <Image.Source>
-                                    <ImageSource>/Views/icons8-goal-100.png</ImageSource>
+                                    <ImageSource>/Views/icons8-typewriter-64.png</ImageSource>
                                 </Image.Source>
                                 <Image.Triggers>
                                     <EventTrigger RoutedEvent="Image.MouseEnter">

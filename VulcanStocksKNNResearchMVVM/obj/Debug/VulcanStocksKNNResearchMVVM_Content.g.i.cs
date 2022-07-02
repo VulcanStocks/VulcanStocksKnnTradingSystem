@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("views/vulcan_stocks_ps_calibri_bakgrund_dmk_icon.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("views/icons8-history-48.png")]
 
 

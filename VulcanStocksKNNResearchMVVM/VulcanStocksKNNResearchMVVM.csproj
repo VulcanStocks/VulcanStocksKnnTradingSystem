@@ -139,11 +139,15 @@
     <Compile Include="Models\StrategyWriterModel.cs" />
     <Compile Include="Models\TestedDataModel.cs" />
     <Compile Include="Models\TradedStockStrategyWriterModel.cs" />
-    <Compile Include="ViewModels\FbeViewModel .cs" />
     <Compile Include="ViewModels\DemotradingViewModel.cs" />
+    <Compile Include="ViewModels\FbeViewModel .cs" />
+    <Compile Include="ViewModels\BacktestingViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\BacktestingView.xaml.cs">
+      <DependentUpon>BacktestingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DemotradingView.xaml.cs">
       <DependentUpon>DemotradingView.xaml</DependentUpon>
     </Compile>
@@ -193,6 +197,10 @@
     <Resource Include="StockData\Example.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\BacktestingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DemotradingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -252,6 +260,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\icons8-history-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

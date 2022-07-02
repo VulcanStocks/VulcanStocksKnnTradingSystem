@@ -40,20 +40,21 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             ActivateItemAsync(new HomePageViewModel());
         }
 
-        public void Demotrade_Click()
+        public void Backtest_Click()
         {
-            Notch = "Demotrade"; 
-            ActivateItemAsync(new DemotradingViewModel());
+            Notch = "Backtesting"; 
+            ActivateItemAsync(new BacktestingViewModel());
         }
 
-        public void Manual_Click()
+        public void Demo_Click()
         {
-            Notch = "Manual entry";
+            Notch = "Demotrading";
+            ActivateItemAsync(new DemotradingViewModel());
         }
 
         public void FBE_Click()
         {
-            Notch = "Best entry";
+            Notch = "Manual entry";
             ActivateItemAsync(new FbeViewModel());
         }
 

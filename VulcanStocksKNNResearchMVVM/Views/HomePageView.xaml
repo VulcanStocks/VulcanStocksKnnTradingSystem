@@ -103,19 +103,19 @@
 
                     <Image Grid.Row="1" Grid.Column="0" Height="23" Width="23">
                         <Image.Source>
-                            <ImageSource>/Views/icons8-stock-64.png</ImageSource>
+                            <ImageSource>/Views/icons8-history-48.png</ImageSource>
                         </Image.Source>
                     </Image>
 
                     <Image Grid.Row="2" Grid.Column="0" Height="23" Width="23">
                         <Image.Source>
-                            <ImageSource>/Views/icons8-typewriter-64.png</ImageSource>
+                            <ImageSource>/Views/icons8-stock-64.png</ImageSource>
                         </Image.Source>
                     </Image>
 
                     <Image Grid.Row="3" Grid.Column="0" Height="23" Width="23">
                         <Image.Source>
-                            <ImageSource>/Views/icons8-goal-100.png</ImageSource>
+                            <ImageSource>/Views/icons8-typewriter-64.png</ImageSource>
                         </Image.Source>
                     </Image>
 
@@ -147,7 +147,7 @@
                         VerticalAlignment="Center"
                         Grid.Column="1"
                         Grid.Row="1">
-                        Demotrading
+                        Backtesting
                     </Label>
 
                     <Label 
@@ -157,7 +157,7 @@
                         VerticalAlignment="Center"
                         Grid.Column="2"
                         Grid.Row="2">
-                        Manual entry
+                        Demotrading
                     </Label>
 
                     <Label 
@@ -167,7 +167,7 @@
                         VerticalAlignment="Center"
                         Grid.Row="3"
                         Grid.Column="2">
-                        Find best entry
+                        Manual entry
                     </Label>
 
                     <Label 
