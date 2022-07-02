@@ -23,8 +23,31 @@
                 Background="#272434"
                 Width="320"
                 >
-                
-                </Border>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label 
+                            Foreground="#d6d9f4"
+                            HorizontalAlignment="Center" 
+                            Content="Config"
+                            VerticalAlignment="Top"
+                            FontSize="16"
+                            FontWeight="Bold"/>
+
+                    <StackPanel Margin="0,-5,0,5" Grid.Row = "1">
+                        
+                    </StackPanel>
+
+
+
+                </Grid>
+
+
+
+            </Border>
 
             <Border  
                 BorderThickness="1"
@@ -35,7 +58,28 @@
                 Background="#272434"
                 Width="320"
                 >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
+                    <Label 
+                            Foreground="#d6d9f4"
+                            HorizontalAlignment="Center" 
+                            Content="Trading"
+                            VerticalAlignment="Top"
+                            FontSize="16"
+                            FontWeight="Bold"/>
+
+                    <StackPanel Margin="0,-5,0,5" Grid.Row = "1">
+
+                    </StackPanel>
+
+
+
+
+                </Grid>
             </Border>
 
 

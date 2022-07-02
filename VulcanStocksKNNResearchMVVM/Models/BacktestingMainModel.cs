@@ -9,7 +9,7 @@ using VulcanStocksKNNResearchMVVM.Models;
 
 namespace VulcanStocksKNNResearchMVVM.Models
 {
-    public class DemotradingMainModel
+    public class BacktestingMainModel
     {
         private string StrategyPath { get; set; }
         private string[] TargetStoploss { get; set; } 
@@ -72,7 +72,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             if(IsTrained)
             {
-                Demotrader demotrader = new Demotrader(TradedStockList, TestedStockList, AccountBalance, int.Parse(TargetStoploss[0]), int.Parse(TargetStoploss[1]), KnnTestRatio, CapitalRisk);
+                Backtester demotrader = new Backtester(TradedStockList, TestedStockList, AccountBalance, int.Parse(TargetStoploss[0]), int.Parse(TargetStoploss[1]), KnnTestRatio, CapitalRisk);
                 return demotrader.Run();
                 
             }

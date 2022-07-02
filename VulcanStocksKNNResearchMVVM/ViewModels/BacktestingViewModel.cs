@@ -12,7 +12,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
     public class BacktestingViewModel : Screen
     {
         DataManagerModel dataManager = new DataManagerModel();
-        DemotradingMainModel trader = new DemotradingMainModel();
+        BacktestingMainModel trader = new BacktestingMainModel();
 
         //User inputs
         private BindableCollection<String> _strategySelect = new BindableCollection<String>();
