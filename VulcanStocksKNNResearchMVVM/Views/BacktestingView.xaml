@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="720">
 
-    
+
     <Grid>
 
         <Grid Grid.Row="1">
@@ -142,8 +142,8 @@
 
 
 
-                        
-                        
+
+
 
                         <Label 
                                 FontWeight="Bold"
@@ -177,21 +177,22 @@
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
                                     x:Name="AccountBalance"/>
-                            
+
                         </Grid>
 
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="159*"/>
+                                <ColumnDefinition Width="38*"/>
+                                <ColumnDefinition Width="121*"/>
                             </Grid.ColumnDefinitions>
 
                             <Label 
                                     FontWeight="Light"
                                     Foreground="#d6d9f4"
                                     Content="Enter risk acceptable ratio"
-                                    HorizontalAlignment="Right"
-                                    Margin="5"/>
+                                    HorizontalAlignment="Left"
+                                    Margin="15,5,0,5"/>
 
                             <TextBox
                                     Grid.Column="1"
@@ -200,10 +201,10 @@
                                     BorderBrush="#d6d9f4"
                                     Foreground="#d6d9f4"
                                     VerticalAlignment="Center"
-                                    Margin="5"
+                                    Margin="5,0,0,0"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    x:Name="RiskRatio">
+                                    x:Name="RiskRatio" Grid.ColumnSpan="2">
                                 <TextBox.ToolTip>
                                     <ToolTip>
                                         Accepted true/false ratio
@@ -241,14 +242,14 @@
                                         Percentage amount of capital to be risked in each trade
                                     </ToolTip>
                                 </TextBox.ToolTip>
-                                
+
                             </TextBox>
-                                
-                            
-                            
+
+
+
                         </Grid>
-                        
-                        
+
+
 
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -291,7 +292,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
-                             
+
                             </Grid.ColumnDefinitions>
 
                             <Label 
@@ -357,7 +358,7 @@
                                 Width="120"
                                 Content="Start trading"
                                 x:Name="StartTrading"/>
-                            
+
                         </Grid>
 
                     </StackPanel>
@@ -365,9 +366,9 @@
 
 
                 </Grid>
-                
-                
-                
+
+
+
             </Border>
 
             <Grid Grid.Column="1">
@@ -394,7 +395,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            
+
                             <Label 
                                 Foreground="#d6d9f4"
                                 HorizontalAlignment="Center" 
@@ -404,11 +405,11 @@
                                 Grid.Column="1"
                                 FontWeight="Bold"/>
 
-                            
-                            
-                            
+
+
+
                         </Grid>
-                        
+
 
                         <StackPanel Margin="0,-5,0,5" Grid.Row = "1">
                             <Grid>
@@ -436,9 +437,9 @@
                                     HorizontalAlignment="Left"
                                     IsReadOnly="True"
                                     x:Name="InitialBalanceAmount"/>
-                                
-                                
-                                
+
+
+
                             </Grid>
 
                             <Grid>
@@ -673,7 +674,7 @@
 
 
                     </Grid>
-                    
+
                 </Border>
 
 

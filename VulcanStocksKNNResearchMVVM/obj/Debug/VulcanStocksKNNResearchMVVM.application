@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xrml="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
   <assemblyIdentity name="VulcanStocksKNNResearchMVVM.application" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
-  <description asmv2:publisher="SSIS" asmv2:product="VulcanStocksKNNResearchMVVM" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <description asmv2:publisher="VulcanStocksKNNResearchMVVM" asmv2:product="VulcanStocksKNNResearchMVVM" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true">
     <subscription>
       <update>
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="http://ssis-l0762/VulcanStocksKNNResearchMVVM/VulcanStocksKNNResearchMVVM.application" />
+    <deploymentProvider codebase="http://wennstrompc/VulcanStocksKNNResearchMVVM/VulcanStocksKNNResearchMVVM.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
@@ -21,7 +21,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qmfFsXLFSf69q6Cymh0BIdPCWfxZUBHkUf3C4bUO/B4=</dsig:DigestValue>
+        <dsig:DigestValue>+zWRUpq9EZq0efmOLgGx4bUaOI5vQvKVP6ESz6FPZOU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

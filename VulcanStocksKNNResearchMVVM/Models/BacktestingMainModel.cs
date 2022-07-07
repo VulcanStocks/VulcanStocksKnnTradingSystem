@@ -59,7 +59,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
                 FindbestEntries();
                 Console.WriteLine("------------------------------");
                 LoadTradedStockList();
-                IsTrained = true;
+                IsTrained = true; 
             }
             catch (Exception)
             {
