@@ -7,7 +7,7 @@ using VulcanStocksKNNResearchMVVM.Models;
 
 namespace VulcanStocksKNNResearchMVVM.Models
 {
-    public class Backtester
+    public class BacktesterModel
     {
         List<StrategyModel> TradedStockList = new List<StrategyModel>();
         List<TestedDataModel> TestedStockList = new List<TestedDataModel>();
@@ -27,7 +27,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private float CapitalRisk { get; set; }
         private int LocalTimeForValidation { get; set; }
 
-        public Backtester(List<StrategyModel> TradedStockList, List<TestedDataModel> TestedStockList, int InitialBalanceAmount, int Target, int Stoploss, int KnnTestRatio, int CapitalRisk)
+        public BacktesterModel(List<StrategyModel> TradedStockList, List<TestedDataModel> TestedStockList, int InitialBalanceAmount, int Target, int Stoploss, int KnnTestRatio, int CapitalRisk)
         {
             this.TradedStockList = TradedStockList;
             this.TestedStockList = TestedStockList;

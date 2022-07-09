@@ -132,8 +132,10 @@
     <Compile Include="Indicators\ADJ_VOLUME.cs" />
     <Compile Include="Indicators\VWAP.cs" />
     <Compile Include="Models\DataManagerModel.cs" />
-    <Compile Include="Models\Backtester.cs" />
+    <Compile Include="Models\BacktesterModel.cs" />
     <Compile Include="Models\BacktestingMainModel.cs" />
+    <Compile Include="Models\DemotraderModel.cs" />
+    <Compile Include="Models\DemotradingMainModel.cs" />
     <Compile Include="Models\KnnAlgoModel.cs" />
     <Compile Include="Models\StrategyModel.cs" />
     <Compile Include="Models\StrategyWriterModel.cs" />
@@ -263,6 +265,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\icons8-history-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CLI\RealTimeStockPriceLibary\RealTimeStockPriceLibrary\RealTimeStockPriceLibrary.csproj">
+      <Project>{16105fe2-3445-4295-9d4f-c4ed87384fbd}</Project>
+      <Name>RealTimeStockPriceLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

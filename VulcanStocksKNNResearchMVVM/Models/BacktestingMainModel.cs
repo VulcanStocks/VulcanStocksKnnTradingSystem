@@ -20,7 +20,6 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private float RiskRatio { get; set; }
         private int CapitalRisk { get; set; }
         private int StatisticalCertainty { get; set; }
-        
         public int StrategyStart { get; set; }
         public int StrategyEnd { get; set; }
         public int StockStart { get; set; }
@@ -34,7 +33,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
         List<StrategyModel> StrategyList = new List<StrategyModel>();
         List<StrategyModel> TradedStockList = new List<StrategyModel>();
-        List<TestedDataModel> TestedStockList = new List<TestedDataModel>();
+        internal List<TestedDataModel> TestedStockList = new List<TestedDataModel>();
 
         
 
@@ -57,7 +56,6 @@ namespace VulcanStocksKNNResearchMVVM.Models
             {
                 ImportStrategy();
                 FindbestEntries();
-                Console.WriteLine("------------------------------");
                 LoadTradedStockList();
                 IsTrained = true; 
             }
@@ -72,8 +70,8 @@ namespace VulcanStocksKNNResearchMVVM.Models
         {
             if(IsTrained)
             {
-                Backtester demotrader = new Backtester(TradedStockList, TestedStockList, AccountBalance, int.Parse(TargetStoploss[0]), int.Parse(TargetStoploss[1]), KnnTestRatio, CapitalRisk);
-                return demotrader.Run();
+                BacktesterModel backtester = new BacktesterModel(TradedStockList, TestedStockList, AccountBalance, int.Parse(TargetStoploss[0]), int.Parse(TargetStoploss[1]), KnnTestRatio, CapitalRisk);
+                return backtester.Run();
                 
             }
             else {
