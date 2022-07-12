@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>VulcanStocksKNNResearchMVVM</RootNamespace>
     <AssemblyName>VulcanStocksKNNResearchMVVM</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -32,6 +32,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -128,9 +129,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Indicators\RSI.cs" />
-    <Compile Include="Indicators\ADJ_VOLUME.cs" />
-    <Compile Include="Indicators\VWAP.cs" />
+    <Compile Include="Indicators\FromArray\RSI.cs" />
+    <Compile Include="Indicators\FromArray\ADJ_VOLUME.cs" />
+    <Compile Include="Indicators\FromArray\VWAP.cs" />
+    <Compile Include="Indicators\RealTimeCalc\ADJ_VOLUME_live.cs" />
+    <Compile Include="Indicators\RealTimeCalc\RSI_live.cs" />
+    <Compile Include="Indicators\RealTimeCalc\VWAP_live.cs" />
     <Compile Include="Models\DataManagerModel.cs" />
     <Compile Include="Models\BacktesterModel.cs" />
     <Compile Include="Models\BacktestingMainModel.cs" />
@@ -267,10 +271,15 @@
     <Resource Include="Views\icons8-history-48.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CLI\RealTimeStockPriceLibary\RealTimeStockPriceLibrary\RealTimeStockPriceLibrary.csproj">
-      <Project>{16105fe2-3445-4295-9d4f-c4ed87384fbd}</Project>
+    <ProjectReference Include="..\..\..\CLI\RealTimeStockPriceLibrary%28.net framework%29\RealTimeStockPriceLibrary%28.net framework%29\RealTimeStockPriceLibrary%28.net framework%29.csproj">
+      <Project>{f87f04d9-fa6c-4141-9e4a-799c837dedb7}</Project>
+      <Name>RealTimeStockPriceLibrary%28.net framework%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\RealTimeStockPriceLibrary\RealTimeStockPriceLibrary\RealTimeStockPriceLibrary.csproj">
+      <Project>{52c3b227-e0d6-45b0-96d4-c8cfe4d16c49}</Project>
       <Name>RealTimeStockPriceLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -170,8 +170,35 @@
                             VerticalAlignment="Top"
                             FontSize="16"
                             FontWeight="Bold"/>
+                    
 
                     <StackPanel Margin="0,-5,0,5" Grid.Row = "1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label 
+                                    FontWeight="Light"
+                                    Foreground="#d6d9f4"
+                                    Content="TImeTraded"
+                                    HorizontalAlignment="Left"
+                                    Margin="5"/>
+
+                            <TextBox
+                                    Grid.Column="1"
+                                    Width="120"
+                                    Background="#272434"
+                                    BorderBrush="#d6d9f4"
+                                    Foreground="#d6d9f4"
+                                    VerticalAlignment="Center"
+                                    Margin="5"
+                                    BorderThickness="3"
+                                    HorizontalAlignment="Left"
+                                    x:Name="TimeTraded"/>
+
+                        </Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -198,6 +225,7 @@
                                     x:Name="CurrentAccountBalance"/>
 
                         </Grid>
+                        
 
                         <Grid>
                             <Grid.ColumnDefinitions>

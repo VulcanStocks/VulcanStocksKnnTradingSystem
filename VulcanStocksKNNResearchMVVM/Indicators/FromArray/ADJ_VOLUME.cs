@@ -12,14 +12,12 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
         public int StandardMultiplier = 2;
         public float?[] NormVolume { get; set; }
 
-        public ADJ_VOLUME(float[] volume)
+        public float?[] Calculate(float[] volume)
         {
             Volume = volume;
             NormVolume = new float?[Volume.Length];
-        }
 
-        public float?[] Calculate()
-        {
+
 
             float standardMax = Volume.Average() + (StandardMultiplier * GetStandardDeviation());
             float standardMin = Volume.Average() - (StandardMultiplier * GetStandardDeviation());

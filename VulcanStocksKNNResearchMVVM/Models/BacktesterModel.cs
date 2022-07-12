@@ -27,7 +27,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private float CapitalRisk { get; set; }
         private int LocalTimeForValidation { get; set; }
 
-        public BacktesterModel(List<StrategyModel> TradedStockList, List<TestedDataModel> TestedStockList, int InitialBalanceAmount, int Target, int Stoploss, int KnnTestRatio, int CapitalRisk)
+        public BacktesterModel(List<StrategyModel> TradedStockList, List<TestedDataModel> TestedStockList, float InitialBalanceAmount, int Target, int Stoploss, int KnnTestRatio, int CapitalRisk)
         {
             this.TradedStockList = TradedStockList;
             this.TestedStockList = TestedStockList;

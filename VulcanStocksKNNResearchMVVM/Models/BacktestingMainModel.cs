@@ -13,10 +13,10 @@ namespace VulcanStocksKNNResearchMVVM.Models
     {
         private string StrategyPath { get; set; }
         private string[] TargetStoploss { get; set; } 
-        private string[] Columns { get; set; }
+        internal string[] Columns { get; set; }
         private string Ticker { get; set; }
         private int KnnTestRatio { get; set; }
-        private int AccountBalance { get; set; }
+        private float AccountBalance { get; set; }
         private float RiskRatio { get; set; }
         private int CapitalRisk { get; set; }
         private int StatisticalCertainty { get; set; }
@@ -37,7 +37,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
         
 
-        public void Train(string StrategyPath, string Ticker, int KnnTestRatio, int AccountBalance, float RiskRatio, int CapitalRisk, int StatisticalCertainty, int _strategyStart, int _strategyEnd, int _stockStart,int _stockEnd)
+        public void Train(string StrategyPath, string Ticker, int KnnTestRatio, float AccountBalance, float RiskRatio, int CapitalRisk, int StatisticalCertainty, int _strategyStart, int _strategyEnd, int _stockStart,int _stockEnd)
         {
             Console.WriteLine("Training Started");
             this.KnnTestRatio = KnnTestRatio;
@@ -63,6 +63,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             {
 
             }
+
             
         }
 

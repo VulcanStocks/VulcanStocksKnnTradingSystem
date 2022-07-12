@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using VulcanStocksKNNResearchMVVM.Indicators;
-using System.Threading.Tasks;
 using System.Windows;
+using VulcanStocksKNNResearchMVVM.Indicators;
 
 namespace VulcanStocksKNNResearchMVVM.Models
 {
@@ -120,14 +117,13 @@ namespace VulcanStocksKNNResearchMVVM.Models
             }
             else if(axisItem == "ADJ_VOLUME.cs")
             {
-                ADJ_VOLUME normVolumeCalc = new ADJ_VOLUME(volume);
-                return normVolumeCalc.Calculate();
+                ADJ_VOLUME normVolumeCalc = new ADJ_VOLUME();
+                return normVolumeCalc.Calculate(volume);
             }
             else if(axisItem == "VWAP.cs")
             {
-
-                VWAP vwapCalc = new VWAP(price, volume);
-                return vwapCalc.Main();
+                VWAP vwapCalc = new VWAP();
+                return vwapCalc.Main(price, volume);
             }
             else
             {

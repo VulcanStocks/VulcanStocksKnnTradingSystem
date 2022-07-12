@@ -214,7 +214,17 @@ C:\Users\uljas\Desktop\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStock
 C:\Users\uljas\Desktop\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.GenerateResource.cache
 C:\Users\uljas\Desktop\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.CoreCompileInputs.cache
 C:\Users\uljas\Desktop\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.CopyComplete
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.exe.manifest
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.application
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.exe.manifest
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.application
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\BacktestingView.g.cs
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\BacktestingView.baml
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\DemotradingView.g.cs
+C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\DemotradingView.baml
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.exe.config
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.exe.manifest
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.application
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.exe
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.pdb
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\BouncyCastle.Crypto.dll
@@ -227,7 +237,10 @@ C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\GalaSoft.MvvmLight.Platform.dll
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\RealTimeStockPriceLibrary(.net framework).dll
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\System.Windows.Interactivity.dll
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\HtmlAgilityPack.dll
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\RealTimeStockPriceLibrary(.net framework).pdb
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\BouncyCastle.Crypto.xml
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\Caliburn.Micro.Core.pdb
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\Caliburn.Micro.Core.xml
@@ -245,8 +258,11 @@ C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\ICSharpCode.SharpZipLib.xml
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\HtmlAgilityPack.pdb
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\HtmlAgilityPack.xml
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.AssemblyReference.cache
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.SuggestedBindingRedirects.cache
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\BacktestingView.g.cs
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\DemotradingView.g.cs
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\FbeView.g.cs
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\HomePageView.g.cs
@@ -257,6 +273,7 @@ C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM_MarkupCompile.cache
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM_MarkupCompile.lref
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\App.baml
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\BacktestingView.baml
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\DemotradingView.baml
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\FbeView.baml
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\HomePageView.baml
@@ -266,20 +283,8 @@ C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.Properties.Resources.resources
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.GenerateResource.cache
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.CoreCompileInputs.cache
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.exe.manifest
+C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.application
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.csproj.CopyComplete
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.exe
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.pdb
-C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.exe.manifest
-C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.application
-C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.exe.manifest
-C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.application
-C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\BacktestingView.g.cs
-C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\BacktestingView.baml
-C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\DemotradingView.g.cs
-C:\VS\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\DemotradingView.baml
-C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.exe.manifest
-C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\VulcanStocksKNNResearchMVVM.application
-C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\BacktestingView.g.cs
-C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\Views\BacktestingView.baml
-C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.exe.manifest
-C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\obj\Debug\VulcanStocksKNNResearchMVVM.application

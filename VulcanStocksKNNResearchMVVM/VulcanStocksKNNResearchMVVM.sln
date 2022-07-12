@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VulcanStocksKNNResearchMVVM", "VulcanStocksKNNResearchMVVM.csproj", "{31357C24-6ABD-4A38-B839-B5C733CAF1AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealTimeStockPriceLibrary", "..\..\..\CLI\RealTimeStockPriceLibary\RealTimeStockPriceLibrary\RealTimeStockPriceLibrary.csproj", "{16105FE2-3445-4295-9D4F-C4ED87384FBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeStockPriceLibrary(.net framework)", "..\..\..\CLI\RealTimeStockPriceLibrary(.net framework)\RealTimeStockPriceLibrary(.net framework)\RealTimeStockPriceLibrary(.net framework).csproj", "{F87F04D9-FA6C-4141-9E4A-799C837DEDB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeStockPriceLibrary", "..\..\..\Librarys\RealTimeStockPriceLibrary\RealTimeStockPriceLibrary\RealTimeStockPriceLibrary.csproj", "{52C3B227-E0D6-45B0-96D4-C8CFE4D16C49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{31357C24-6ABD-4A38-B839-B5C733CAF1AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31357C24-6ABD-4A38-B839-B5C733CAF1AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31357C24-6ABD-4A38-B839-B5C733CAF1AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{16105FE2-3445-4295-9D4F-C4ED87384FBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16105FE2-3445-4295-9D4F-C4ED87384FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16105FE2-3445-4295-9D4F-C4ED87384FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16105FE2-3445-4295-9D4F-C4ED87384FBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F87F04D9-FA6C-4141-9E4A-799C837DEDB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F87F04D9-FA6C-4141-9E4A-799C837DEDB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F87F04D9-FA6C-4141-9E4A-799C837DEDB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F87F04D9-FA6C-4141-9E4A-799C837DEDB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52C3B227-E0D6-45B0-96D4-C8CFE4D16C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52C3B227-E0D6-45B0-96D4-C8CFE4D16C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52C3B227-E0D6-45B0-96D4-C8CFE4D16C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52C3B227-E0D6-45B0-96D4-C8CFE4D16C49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

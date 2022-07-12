@@ -138,6 +138,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlAgilityPack.dll" size="168960">
+      <assemblyIdentity name="HtmlAgilityPack" version="1.11.43.0" publicKeyToken="BD319B19EAF3B43A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Dv7D8Hcea+od7Fc++MGq/SSw+L0tANxmdOMRMGY5BQ8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ICSharpCode.SharpZipLib.dll" size="204800">
       <assemblyIdentity name="ICSharpCode.SharpZipLib" version="1.3.2.10" publicKeyToken="1B03E6ACF1164F73" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -162,6 +174,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RealTimeStockPriceLibrary(.net framework).dll" size="6144">
+      <assemblyIdentity name="RealTimeStockPriceLibrary(.net framework)" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>8b9P23RDw7rOJwdGk/Bm+kxGaCAOdVeFPmBPIAJKWLE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Windows.Interactivity.dll" size="55904">
       <assemblyIdentity name="System.Windows.Interactivity" version="4.5.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -174,24 +198,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VulcanStocksKNNResearchMVVM.exe" size="212392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VulcanStocksKNNResearchMVVM.exe" size="216488">
       <assemblyIdentity name="VulcanStocksKNNResearchMVVM" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>r59J0PGT4oNi7cQ0tmg+LxAiJ4ei5LwMQKK0Z2VldrY=</dsig:DigestValue>
+        <dsig:DigestValue>YQpDPzZzSBsVnOcGHT5CVgeAn2Uj3gyd2FUZlHKgWns=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="VulcanStocksKNNResearchMVVM.exe.config" size="189">
+  <file name="VulcanStocksKNNResearchMVVM.exe.config" size="184">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+      <dsig:DigestValue>FihlZtVNgcNyH37Pf0Jtll3jZOm+L55ijXNjtoS2/mo=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -21,13 +21,20 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         private string _selectedStrategy;
 
-        private int _accountBalance = 1000;
+        private float _accountBalance = 1000;
 
         private string _selectedTimeFrame;
+        private int _timeTraded = 0;
+        private bool HasTrained = false;
+
+        public string[] COLUMNS { get; set; }
+
 
 
         DataManagerModel dataManager = new DataManagerModel();
         DemotradingMainModel demotradingMainModel = new DemotradingMainModel();
+        DemotraderModel demotrader = new DemotraderModel();
+
 
         public bool RedyToTrade { get; set; }
 
@@ -41,8 +48,8 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             get { return _accountBalance.ToString(); }
             set
             {
-                int x;
-                if (int.TryParse(value, out x))
+                float x;
+                if (float.TryParse(value, out x))
                 {
                     _accountBalance = x;
                     NotifyOfPropertyChange(() => AccountBalance);
@@ -95,6 +102,22 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         }
 
 
+
+        public string TimeTraded
+        {
+            get { return _timeTraded.ToString(); }
+            set
+            {
+                int x;
+                if (int.TryParse(value, out x))
+                {
+                    _timeTraded = x;
+                    NotifyOfPropertyChange(() => TimeTraded);
+                }
+            }
+        }
+
+
         private void LoadLists(FileInfo[] Finfo)
         {
             StrategySelect.Clear();
@@ -104,6 +127,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             }
             TimeFrame.Clear();
             TimeFrame.Add("1s");
+            TimeFrame.Add("15s");
             TimeFrame.Add("30s");
             TimeFrame.Add("1m");
             TimeFrame.Add("5m");
@@ -114,7 +138,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         public void StartTraining()
         {
             //string StrategyPath, string Ticker, int KnnTestRatio, int AccountBalance, float RiskRatio, int CapitalRisk, int StatisticalCertainty, int _strategyStart, int _strategyEnd, int _stockStart,int _stockEnd
-            TestedStockList = demotradingMainModel.start(
+            (TestedStockList,COLUMNS) = demotradingMainModel.start(
                 SelectedStrategy,
                 StockToTrade,
                 25,
@@ -126,25 +150,57 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 File.ReadAllLines(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Strategies\\" + _selectedStrategy).Length,
                 0,
                 0);
+            demotrader.TestedStockList = TestedStockList;
+            HasTrained = true;
         }
 
         public void StartTrading()
         {
-            RedyToTrade = true;
+            int time = 1000;
+            switch (SelectedTimeFrame)
+            {
+                case "1s":
+                    time = 1000;
+                    break;
+                case "15s":
+                    time = 15000;
+                    break;
+                case "30s":
+                    time = 30000;
+                    break;
+                case "1m":
+                    time = 60000;
+                    break;
+                case "5m":
+                    time = 300000;
+                    break;
+                case "30m":
+                    time = 1800000;
+                    break;
+                case "1h":
+                    time = 3600000;
+                    break;
+            }
+            if (HasTrained)
+                RedyToTrade = true;
+            else
+                RedyToTrade = false;
+
+            int count = 0;
             Thread thread = new Thread(() =>
             {
-                while (true)
+                try
                 {
-                    try
+                    while (RedyToTrade)
                     {
-                        while (RedyToTrade)
-                        {
-                            DemotraderModel demotraderModel = new DemotraderModel(TestedStockList);
-
-                        }
+                        Thread.Sleep(time);
+   
+                        count++;
+                        TimeTraded = count.ToString();
+                        AccountBalance  = demotrader.TakeTrade(_accountBalance, COLUMNS[1], COLUMNS[2], StockToTrade, count).ToString();
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
                 }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
             });
             thread.IsBackground = true;
             thread.Start();

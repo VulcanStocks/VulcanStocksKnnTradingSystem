@@ -13,19 +13,17 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
         private float[] Volume { get; set; }
         private float[] Vwap { get; set; }
         private float[] CurrentVwap { get; set; }
-        private int VwapPeriod = 14;
+
+        internal int VwapPeriod = 14;
         private float[] VwapStandardDerivation { get; set; }
         private float?[] NormalizedVwap { get; set; }
 
-        public VWAP(float[] price, float[] volume)
+
+        public float?[] Main(float[] price, float[] volume)
         {
             this.price = price;
             this.Volume = volume;
             VwapStandardDerivation = new float[price.Length];
-        }
-
-        public float?[] Main()
-        {   
             GetVwap();
             GetStandardDerivation();
             return Check(NormalizedPrice());
@@ -55,7 +53,7 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
             
         }
 
-        private void GetStandardDerivation()
+        internal virtual void GetStandardDerivation()
         {
             //get standard derivation of vwap for each day
 
@@ -73,7 +71,7 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
             }
         }
        
-        private float?[] NormalizedPrice()
+        internal virtual float?[] NormalizedPrice()
         {
             //normalize price between standard derivation cloud 
             //2 standard derivation up and 2 standard derivation down
@@ -94,7 +92,7 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
 
         }
 
-        private float?[] Check(float?[] NormalizedPrice)
+        internal virtual float?[] Check(float?[] NormalizedPrice)
         {
             for (int i = 0; i < NormalizedPrice.Length; i++)
             {

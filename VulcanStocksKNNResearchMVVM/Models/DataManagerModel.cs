@@ -38,7 +38,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
 
         public FileInfo[] ReadIndicators()
         {
-            DirectoryInfo di = new DirectoryInfo(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Indicators\\");
+            DirectoryInfo di = new DirectoryInfo(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Indicators\\FromArray\\");
             return di.GetFiles("*.cs");
         }
 
