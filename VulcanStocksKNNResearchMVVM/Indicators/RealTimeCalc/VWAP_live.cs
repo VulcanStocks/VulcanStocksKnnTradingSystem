@@ -25,13 +25,17 @@ namespace VulcanStocksKNNResearchMVVM.Indicators.RealTimeCalc
             activeVolume.Enqueue(volume);
             priceToday = price;
             volumeToday = volume;
-            if (activeVolume.Count >= VwapPeriod)
+            if (activeVolume.Count > VwapPeriod)
             {
                 activePrice.Dequeue();
-                activePrice.Dequeue();
+                activeVolume.Dequeue();
             }
+            else if (activeVolume.Count < VwapPeriod) return 0;
+            
+            Calc();
             GetStandardDerivation();
-            return CheckToday(NormalizedPriceToday());
+            float temp = CheckToday(NormalizedPriceToday());
+            return temp;
         }
 
         public void Calc()
@@ -45,8 +49,10 @@ namespace VulcanStocksKNNResearchMVVM.Indicators.RealTimeCalc
                 sumVolume += activeVolume.ElementAt(i);
                 
             }
+
             VWAP_TODAY = sum / sumVolume;
             VWAPQUEUE.Enqueue(VWAP_TODAY);
+            Console.WriteLine("Today " +VWAP_TODAY);
            
         }
 
@@ -56,9 +62,9 @@ namespace VulcanStocksKNNResearchMVVM.Indicators.RealTimeCalc
 
             float mean = (VWAPQUEUE.Sum() / VwapPeriod);
             float sum = 0;
-            for (int i = 0; i < VwapPeriod; i++)
+            foreach (var item in VWAPQUEUE)
             {
-                sum += VWAPQUEUE.ElementAt(i) - mean;
+                sum += item - mean;
             }
             VWAP_STANDART_TODAY = (float)Math.Sqrt(sum / (VwapPeriod-1));
         }

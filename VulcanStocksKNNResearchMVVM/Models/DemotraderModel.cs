@@ -40,7 +40,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             GetPrice();
             IndicatorX = GetIndicators(IndicatorXselected);
             IndicatorY = GetIndicators(IndicatorYselected);
-
+            Console.WriteLine (IndicatorX + " " + IndicatorY + " " + Price + " " + Volume );
             return Balance;
         }
 
@@ -54,15 +54,16 @@ namespace VulcanStocksKNNResearchMVVM.Models
         }
         private float GetIndicators(string IndicatorSelected)
         {
-            if(IndicatorSelected == "ADJ_VOLUME")
+            Console.WriteLine(IndicatorSelected);
+            if(IndicatorSelected == "ADJ_VOLUME,cs")
             {
                 return aDJ_VOLUME_Live.Get();
             }
-            else if(IndicatorSelected == "RSI")
+            else if(IndicatorSelected == "RSI,cs")
             {
                 return rSI_live.Get(Count,(float)Price);
             }
-            else if(IndicatorSelected == "VWAP")
+            else if(IndicatorSelected == "VWAP,cs")
             {
                 return vWAP_Live.Get((float)Price, (float)Volume);
             }

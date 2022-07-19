@@ -237,7 +237,6 @@ C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\GalaSoft.MvvmLight.Platform.dll
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\Microsoft.Xaml.Behaviors.dll
-C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\RealTimeStockPriceLibrary(.net framework).dll
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\System.Windows.Interactivity.dll
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\HtmlAgilityPack.dll
 C:\Programmering\WPF\VulcanStocksKNNResearchMVVM\VulcanStocksKNNResearchMVVM\bin\Debug\RealTimeStockPriceLibrary(.net framework).pdb

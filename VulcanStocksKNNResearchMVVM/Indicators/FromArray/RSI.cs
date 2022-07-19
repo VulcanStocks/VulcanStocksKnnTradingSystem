@@ -8,10 +8,11 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
 {
     public class RSI
     {
+        private static int RSI_PERIOD = 14;
         public Queue<float> activeTime = new Queue<float>();
-        private float[] PriceChange = new float[14];
-        private float[] UpMove = new float[14];
-        private float[] DownMove = new float[14];
+        private float[] PriceChange = new float[RSI_PERIOD];
+        private float[] UpMove = new float[RSI_PERIOD];
+        private float[] DownMove = new float[RSI_PERIOD];
         private float AvgGain;
         private float AvgLoss;
         private float? RS;
@@ -32,8 +33,8 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
         public float? Main(int i, float price)
         {
             activeTime.Enqueue(price);
-
-            if (i > 14)
+            Console.WriteLine("I: " +i);
+            if (i > RSI_PERIOD)
             {
                 float x = activeTime.Dequeue();
 
@@ -44,12 +45,13 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
                 GetRSI();
 
             }
+            else return 0;
 
             return Rsi;
         }
         public void GetPriceChange(float price)
         {
-            for (int j = 0; j < 13; j++)
+            for (int j = 0; j < RSI_PERIOD-1; j++)
             {
                 PriceChange[j] = activeTime.ElementAt(j) - activeTime.ElementAt(j + 1);
                 if (PriceChange[j] > 0)
@@ -68,15 +70,17 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
 
         public void GetAvgGain()
         {
-            AvgGain = UpMove.Sum() / 14;
+            AvgGain = UpMove.Sum() / RSI_PERIOD;
         }
         public void GetAvgLoss()
         {
-            AvgLoss = DownMove.Sum() / 14;
+            AvgLoss = DownMove.Sum() / RSI_PERIOD;
         }
         public void GetRS()
         {
             RS = AvgGain / AvgLoss;
+            Console.WriteLine(RS);
+
         }
         public void GetRSI()
         {

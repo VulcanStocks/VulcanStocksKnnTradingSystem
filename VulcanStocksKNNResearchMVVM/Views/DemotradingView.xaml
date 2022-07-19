@@ -63,7 +63,6 @@
                                     Margin="5"
                                     BorderThickness="3"
                                     HorizontalAlignment="Left"
-                                    IsReadOnly="True"
                                     x:Name="StockToTrade"/>
                             <ComboBox
                                     Grid.Column="2"

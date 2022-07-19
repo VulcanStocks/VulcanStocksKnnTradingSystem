@@ -22,6 +22,8 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private string _selectedStrategy;
 
         private float _accountBalance = 1000;
+        private float _currentAccountBalance = 1000;
+
 
         private string _selectedTimeFrame;
         private int _timeTraded = 0;
@@ -52,10 +54,21 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 if (float.TryParse(value, out x))
                 {
                     _accountBalance = x;
+                    _currentAccountBalance = x;
+                    NotifyOfPropertyChange(() => CurrentAccountBalance);
                     NotifyOfPropertyChange(() => AccountBalance);
                 }
             }
         }
+
+        public float CurrentAccountBalance
+        {
+            get { return _currentAccountBalance; }
+            set { _currentAccountBalance = value;
+                NotifyOfPropertyChange(() => CurrentAccountBalance);
+            }
+        }
+
 
 
         public BindableCollection<String> TimeFrame
@@ -98,7 +111,9 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         public string StockToTrade
         {
             get { return _stockToTrade; }
-            set { _stockToTrade = value; }
+            set { _stockToTrade = value;
+                NotifyOfPropertyChange(() => StockToTrade);
+            }
         }
 
 
@@ -197,10 +212,10 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
    
                         count++;
                         TimeTraded = count.ToString();
-                        AccountBalance  = demotrader.TakeTrade(_accountBalance, COLUMNS[1], COLUMNS[2], StockToTrade, count).ToString();
+                        CurrentAccountBalance = demotrader.TakeTrade(CurrentAccountBalance, COLUMNS[1], COLUMNS[2], StockToTrade, count);
                     }
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
+                catch (Exception e) { MessageBox.Show(e.ToString()); }
             });
             thread.IsBackground = true;
             thread.Start();

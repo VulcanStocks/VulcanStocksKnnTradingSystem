@@ -96,6 +96,10 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="RealTimeStockPriceLibrary%28.net framework%29, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\RealTimeStockPriceLibrary(.net framework).dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -269,16 +273,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\icons8-history-48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\CLI\RealTimeStockPriceLibrary%28.net framework%29\RealTimeStockPriceLibrary%28.net framework%29\RealTimeStockPriceLibrary%28.net framework%29.csproj">
-      <Project>{f87f04d9-fa6c-4141-9e4a-799c837dedb7}</Project>
-      <Name>RealTimeStockPriceLibrary%28.net framework%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Librarys\RealTimeStockPriceLibrary\RealTimeStockPriceLibrary\RealTimeStockPriceLibrary.csproj">
-      <Project>{52c3b227-e0d6-45b0-96d4-c8cfe4d16c49}</Project>
-      <Name>RealTimeStockPriceLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

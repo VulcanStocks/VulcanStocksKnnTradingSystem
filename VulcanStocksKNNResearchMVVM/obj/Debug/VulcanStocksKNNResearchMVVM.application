@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="http://wennstrompc/VulcanStocksKNNResearchMVVM/VulcanStocksKNNResearchMVVM.application" />
+    <deploymentProvider codebase="http://uljaspc/VulcanStocksKNNResearchMVVM/VulcanStocksKNNResearchMVVM.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
@@ -21,7 +21,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>d3U4r5OEaHS1CF0ptUhXpAbEpb25LBevnckw3DTAN88=</dsig:DigestValue>
+        <dsig:DigestValue>wAToBtCG6bKRfoLQlsZYud6RWSwk9JA5qs0n0aIdly4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
