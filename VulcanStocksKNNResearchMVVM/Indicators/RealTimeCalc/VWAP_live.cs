@@ -44,29 +44,28 @@ namespace VulcanStocksKNNResearchMVVM.Indicators.RealTimeCalc
             float sumVolume = 0;
             for (int i = 0; i < activePrice.Count; i++)
             {
-                
-                sum += activePrice.ElementAt(i) * activeVolume.ElementAt(i);
+                sum += activePrice.ElementAt(i) * activeVolume.ElementAt(i)+1;
                 sumVolume += activeVolume.ElementAt(i);
-                
             }
 
             VWAP_TODAY = sum / sumVolume;
             VWAPQUEUE.Enqueue(VWAP_TODAY);
-            Console.WriteLine("Today " +VWAP_TODAY);
-           
+            Console.WriteLine("Today " + VWAP_TODAY);
+
         }
 
         internal override void GetStandardDerivation()
         {
-            //get standard derivation of vwap for each day
-
-            float mean = (VWAPQUEUE.Sum() / VwapPeriod);
+            //get standard derivation of VWAP
             float sum = 0;
-            foreach (var item in VWAPQUEUE)
+            float sumVolume = 0;
+            for (int i = 0; i < activePrice.Count; i++)
             {
-                sum += item - mean;
+                sum += (activePrice.ElementAt(i) - VWAP_TODAY) * (activePrice.ElementAt(i) - VWAP_TODAY) * activeVolume.ElementAt(i);
+                sumVolume += activeVolume.ElementAt(i);
             }
-            VWAP_STANDART_TODAY = (float)Math.Sqrt(sum / (VwapPeriod-1));
+            VWAP_STANDART_TODAY = (float)Math.Sqrt(sum / sumVolume);
+            Console.WriteLine("Standard derivation " +VWAP_STANDART_TODAY);
         }
 
         internal float NormalizedPriceToday()
