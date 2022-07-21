@@ -142,12 +142,13 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
             }
             TimeFrame.Clear();
             TimeFrame.Add("1s");
+            TimeFrame.Add("2s");
+            TimeFrame.Add("5s");
+            TimeFrame.Add("10s");
             TimeFrame.Add("15s");
             TimeFrame.Add("30s");
             TimeFrame.Add("1m");
             TimeFrame.Add("5m");
-            TimeFrame.Add("30m");
-            TimeFrame.Add("1h");
         }
 
         public void StartTraining()
@@ -177,6 +178,15 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 case "1s":
                     time = 1000;
                     break;
+                case "2s":
+                    time = 2000;
+                    break;
+                case "5s":
+                    time = 5000;
+                    break;
+                case "10s":
+                    time = 10000;
+                    break;
                 case "15s":
                     time = 15000;
                     break;
@@ -189,12 +199,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
                 case "5m":
                     time = 300000;
                     break;
-                case "30m":
-                    time = 1800000;
-                    break;
-                case "1h":
-                    time = 3600000;
-                    break;
+
             }
             if (HasTrained)
                 RedyToTrade = true;
