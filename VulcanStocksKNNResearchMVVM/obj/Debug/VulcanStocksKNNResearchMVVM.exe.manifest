@@ -198,14 +198,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VulcanStocksKNNResearchMVVM.exe" size="218536">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VulcanStocksKNNResearchMVVM.exe" size="219048">
       <assemblyIdentity name="VulcanStocksKNNResearchMVVM" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9O/swhmQdYISKWH0TTSB3gqbShpjJj23vCH9Ml575M0=</dsig:DigestValue>
+        <dsig:DigestValue>FL1IqlA6xfD0kAlslis+43wExrrKu/L754rrkm73oIM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

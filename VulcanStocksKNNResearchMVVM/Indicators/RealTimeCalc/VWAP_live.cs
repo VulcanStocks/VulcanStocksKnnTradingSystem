@@ -12,14 +12,13 @@ namespace VulcanStocksKNNResearchMVVM.Indicators.RealTimeCalc
         public Queue<float> activeVolume = new Queue<float>();
         public Queue<float> VWAPQUEUE = new Queue<float>();
 
-
         private float priceToday;
         private float volumeToday;
         private float VWAP_TODAY;
         private float VWAP_STANDART_TODAY;
         private float VWAP_NORNAL;
 
-        public float Get(float price, float volume)
+        public (float, bool) Get(float price, float volume)
         {
             activePrice.Enqueue(price);
             activeVolume.Enqueue(volume);
@@ -30,12 +29,11 @@ namespace VulcanStocksKNNResearchMVVM.Indicators.RealTimeCalc
                 activePrice.Dequeue();
                 activeVolume.Dequeue();
             }
-            else if (activeVolume.Count < VwapPeriod) return 0;
+            else if (activeVolume.Count < VwapPeriod) return (0, false);
             
             Calc();
             GetStandardDerivation();
-            float temp = CheckToday(NormalizedPriceToday());
-            return temp;
+            return (CheckToday(NormalizedPriceToday()));
         }
 
         public void Calc()
@@ -77,12 +75,11 @@ namespace VulcanStocksKNNResearchMVVM.Indicators.RealTimeCalc
             return VWAP_NORNAL;
         }
 
-        internal float CheckToday(float NormalizedPrice)
+        internal (float,bool) CheckToday(float NormalizedPrice)
         {
-            if (NormalizedPrice > 100) NormalizedPrice = 100;
-            if (NormalizedPrice < 0) NormalizedPrice = 0;
+            if (NormalizedPrice <= 100 && NormalizedPrice >= 0) return (NormalizedPrice, true);
 
-            return NormalizedPrice;
+            else return (NormalizedPrice, false);
         }
     }
 }

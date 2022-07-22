@@ -27,8 +27,10 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private double Volume;
         private string Ticker;
         private int Count;
+        private int KnnTestRatio = 5;
 
-        
+
+
         public float TakeTrade(float Balance, string IndicatorXselected, string IndicatorYselected, string Ticker, int count)
         {
             this.Balance = Balance;
@@ -38,8 +40,18 @@ namespace VulcanStocksKNNResearchMVVM.Models
             Count = count;
 
             GetPrice();
-            IndicatorX = GetIndicators(IndicatorXselected);
-            IndicatorY = GetIndicators(IndicatorYselected);
+
+            bool temp;
+            bool temp2;
+
+            (IndicatorX, temp) = GetIndicators(IndicatorXselected);
+            (IndicatorY, temp2) = GetIndicators(IndicatorYselected);
+
+            if(temp2 && temp)
+            {
+                Proceed();
+            }
+
             Console.WriteLine (IndicatorX + " " + IndicatorY + " " + Price + " " + Volume );
             return Balance;
         }
@@ -50,14 +62,13 @@ namespace VulcanStocksKNNResearchMVVM.Models
             double temp = scraper.GetVolume(Ticker);
             Volume = temp - TotalVolume;
             TotalVolume = temp;
-
         }
-        private float GetIndicators(string IndicatorSelected)
+        private (float, bool) GetIndicators(string IndicatorSelected)
         {
             Console.WriteLine(IndicatorSelected);
             if(IndicatorSelected == "ADJ_VOLUME,cs")
             {
-                return aDJ_VOLUME_Live.Get();
+                return (aDJ_VOLUME_Live.Get(),false);
             }
             else if(IndicatorSelected == "RSI,cs")
             {
@@ -69,9 +80,28 @@ namespace VulcanStocksKNNResearchMVVM.Models
             }
             else
             {
-                return 0;
+                return (0, false);
             }
 
+        }
+
+        private void Proceed()
+        {
+            for (int i = 0; i < TestedStockList.Count; i++)
+            {
+                int dayX = (int)Math.Round(IndicatorX);
+                int dayY = (int)Math.Round(IndicatorY);
+                int distance = (int)Math.Round(Math.Sqrt(Math.Pow(dayX - TestedStockList[i].IndicatorX, 2) + Math.Pow(dayY - TestedStockList[i].IndicatorY, 2)));
+                if (distance <= KnnTestRatio)
+                {
+                    TakeTrade();
+                    break;
+                }
+            }
+        }
+        private void TakeTrade()
+        {
+            Console.WriteLine("Trade!!");
         }
 
     }

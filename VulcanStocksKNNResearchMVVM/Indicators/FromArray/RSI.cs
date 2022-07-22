@@ -17,6 +17,7 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
         private float AvgLoss;
         private float? RS;
         private float? Rsi;
+        internal bool redy = false;
 
         public float?[] Calculate(float[] price, int DataL)
         {
@@ -43,10 +44,9 @@ namespace VulcanStocksKNNResearchMVVM.Indicators
                 GetAvgLoss();
                 GetRS();
                 GetRSI();
-
+                redy = true;
             }
             else return 0;
-
             return Rsi;
         }
         public void GetPriceChange(float price)

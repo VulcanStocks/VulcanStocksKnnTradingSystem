@@ -8,9 +8,9 @@ namespace VulcanStocksKNNResearchMVVM.Indicators.RealTimeCalc
 {
     internal class RSI_live : RSI
     {
-        public float Get(int i,float price)
+        public (float, bool) Get(int i,float price)
         {
-            return (float)Main(i, price);
+            return ((float)Main(i, price), redy);
         }   
     }
 }

@@ -22,7 +22,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private BindableCollection<String> _indicatorsX = new BindableCollection<String>();
         private BindableCollection<String> _indicatorsY = new BindableCollection<String>();
         private string _selectedStock;
-        private int _target = 2;
+        private int _target = 1;
         private int _stopLoss = 1;
         private string _strategyName = "";
         private string _indicatorsXselected;

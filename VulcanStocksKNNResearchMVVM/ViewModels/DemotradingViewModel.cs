@@ -25,7 +25,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
         private float _currentAccountBalance = 1000;
 
 
-        private string _selectedTimeFrame;
+        private string _selectedTimeFrame = "5s";
         private int _timeTraded = 0;
         private bool HasTrained = false;
 
@@ -172,7 +172,7 @@ namespace VulcanStocksKNNResearchMVVM.ViewModels
 
         public void StartTrading()
         {
-            int time = 1000;
+            int time = 5000;
             switch (SelectedTimeFrame)
             {
                 case "1s":
