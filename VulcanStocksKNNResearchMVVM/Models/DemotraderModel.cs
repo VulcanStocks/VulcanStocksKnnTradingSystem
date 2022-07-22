@@ -16,8 +16,9 @@ namespace VulcanStocksKNNResearchMVVM.Models
         VWAP_live vWAP_Live = new VWAP_live();
         Scraper scraper = new Scraper();
         public List<TestedDataModel> TestedStockList { get; set; }
+
+        public List<double> holding = new List<double>();
         public string[] COLUMNS { get; set; } //1,2 important columns
-        private bool IsOnTrade;
         private int TimeOnTrade;
         private float Balance;
         private float IndicatorX;
@@ -27,7 +28,9 @@ namespace VulcanStocksKNNResearchMVVM.Models
         private double Volume;
         private string Ticker;
         private int Count;
-        private int KnnTestRatio = 5;
+        private int Stoploss = 1;
+        private int Target = 1;
+        private int KnnTestRatio = 2;
 
 
 
@@ -40,6 +43,7 @@ namespace VulcanStocksKNNResearchMVVM.Models
             Count = count;
 
             GetPrice();
+            CheckIfSell();
 
             bool temp;
             bool temp2;
@@ -101,8 +105,36 @@ namespace VulcanStocksKNNResearchMVVM.Models
         }
         private void TakeTrade()
         {
-            Console.WriteLine("Trade!!");
+            if(Balance > Price)
+            {
+                holding.Add(Price);
+                Balance =- (float)Price;
+                Console.WriteLine("Trade!!");
+
+            }
+        }
+        
+        private void CheckIfSell()
+        {
+            for (int i = 0; i < holding.Count; i++)
+            {
+                if ((((Price / holding[i]) -1) *100) <= Stoploss)
+                {
+                    Balance = +(float)holding[i];
+                    holding.RemoveAt(i);
+                    Console.WriteLine("Sell!!");
+                }
+                else if ((((Price / holding[i]) - 1) * 100) >= Target)
+                {
+                    Balance = +(float)holding[i];
+                    holding.RemoveAt(i);
+                    Console.WriteLine("Sell!!");
+                }
+            }
         }
 
     }
+
+
+
 }
